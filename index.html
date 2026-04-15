@@ -51,45 +51,14 @@
         .glitch{animation:glitch 3s infinite}
 
         /* HERO */
-        .hero{
-        min-height:100vh;
-        display:flex;
-        flex-direction:column;
-        justify-content:center;
-        align-items:center;
-        text-align:center;
-        padding:120px 40px 80px;
-        position:relative;
+        .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 40px 80px;position:relative;background-size:cover;overflow:hidden;background:linear-gradient(rgba(10,10,11,0.75),rgba(10,10,11,0.9)),url('images/background.avif')center/cover no-repeat;}
 
-        background-size: cover;
-        overflow: hidden;     
-        background: linear-gradient(rgba(10,10,11,0.75), rgba(10,10,11,0.9)),
-        url('images/background.avif') center/cover no-repeat;
-        }
-
-        .hero::before{
-        content:'';
-        position:absolute;
-        top:30%;
-        left:50%;
-        transform:translate(-50%,-50%);
-        width:600px;
-        height:600px;
-        background:radial-gradient(circle,rgba(255,45,123,0.08) 0%,rgba(157,78,221,0.04) 40%,transparent 70%);
-        border-radius:50%;
-        }
+        .hero::before{content:'';position:absolute;top:30%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(255,45,123,0.08) 0%,rgba(157,78,221,0.04) 40%,transparent 70%);border-radius:50%;}
 
         /* HERO BACKGROUND ZOOM */
         @keyframes heroZoom{
         from{transform:scale(1)}
         to{transform:scale(1.1)}
-        }
-
-        /* HERO BACKGROUND MOVE */
-        @media (max-width: 768px) {
-
-        .nav {left: 0; right: 0; width: auto;}   
-        .hero {background-position: 70% 20%;}
         }
         
         .hero-tag{font-family:'Space Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:4px;color:var(--cyan);margin-bottom:24px;border:1px solid var(--dark3);padding:6px 16px;display:inline-block}
@@ -210,6 +179,7 @@
         .hero h1:hover{animation:glitch .3s infinite}
 
         @media(max-width:1024px){
+            .hero {background-position: 70% 20%;}
             .hero h1{font-size:3.2rem}
             .grid-break{grid-template-columns:repeat(2,1fr);height:250px}
             .grid-break .gb-item:nth-child(n+3){display:none}
@@ -218,7 +188,7 @@
             .stat-f:nth-child(1),.stat-f:nth-child(2){border-bottom:1px solid var(--dark3)}
         }
         @media(max-width:768px){
-            .nav{padding:14px 20px}
+            .nav{padding:14px 20px; left: 0; right: 0; width: auto;}  
             .nav-links{display:none}
             .ham-f{display:flex}
             .hero{padding:100px 20px 60px}
