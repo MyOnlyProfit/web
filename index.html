@@ -550,6 +550,15 @@
     <span class="copy">© 2026 MyOnlyProfit</span>
 </footer>
 
+<!-- LIGHTBOX OVERLAY -->
+<div class="lb" id="lb" onclick="closeLB(event)">
+    <button class="lb-close" onclick="closeLB(event)">✕</button>
+    <button class="lb-prev" onclick="navLB(event, -1)">◀</button>
+    <img class="lb-img" id="lbImg" src="" alt="Screenshot">
+    <button class="lb-next" onclick="navLB(event, 1)">▶</button>
+    <div class="lb-counter" id="lbCounter"></div>
+</div>
+
 <script>
 document.getElementById('hamF').addEventListener('click',()=>document.getElementById('mobF').classList.add('active'));
 document.getElementById('mxF').addEventListener('click',()=>document.getElementById('mobF').classList.remove('active'));
