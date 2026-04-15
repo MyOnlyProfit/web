@@ -174,14 +174,226 @@
         .r-card .rr{font-size:.65rem;color:var(--text-dim)}
 
         /* CTA */
-        .cta{padding:120px 40px;text-align:center;position:relative}
-        .cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:500px;height:500px;background:radial-gradient(circle,rgba(255,45,123,0.06) 0%,rgba(157,78,221,0.03) 40%,transparent 70%);border-radius:50%}
-        .cta h2{font-family:'Space Mono',monospace;font-size:2.4rem;font-weight:700;text-transform:uppercase;margin-bottom:14px;position:relative;z-index:2}
-        .cta p{color:var(--text-dim);margin-bottom:36px;position:relative;z-index:2}
-        .cta-form{max-width:420px;margin:0 auto;display:flex;flex-direction:column;gap:10px;position:relative;z-index:2}
-        .cta-form input,.cta-form textarea{background:var(--dark2);border:1px solid var(--dark3);padding:14px 16px;font-family:'Chakra Petch',sans-serif;font-size:.85rem;color:var(--text);outline:none;transition:border-color .3s}
-        .cta-form input:focus,.cta-form textarea:focus{border-color:var(--pink)}
-        .cta-form textarea{resize:vertical;min-height:80px}
+.cta {
+    padding: 120px 40px;
+    text-align: center;
+    position: relative;
+}
+.cta::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 45, 123, 0.06) 0%, rgba(157, 78, 221, 0.03) 40%, transparent 70%);
+    border-radius: 50%;
+}
+.cta h2 {
+    font-family: 'Space Mono', monospace;
+    font-size: 2.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 2;
+}
+.cta-sub {
+    color: var(--text-dim);
+    margin-bottom: 48px;
+    position: relative;
+    z-index: 2;
+    font-size: .9rem;
+}
+
+/* OPTION SELECTOR */
+.cta-opts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    position: relative;
+    z-index: 2;
+}
+.cta-opt {
+    background: var(--dark2);
+    border: 1px solid var(--dark3);
+    padding: 28px 20px;
+    cursor: pointer;
+    transition: all .3s;
+    position: relative;
+    overflow: hidden;
+}
+.cta-opt::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--grad);
+    opacity: 0;
+    transition: opacity .3s;
+}
+.cta-opt:hover {
+    border-color: rgba(255, 45, 123, 0.3);
+    background: var(--dark3);
+}
+.cta-opt:hover::before {
+    opacity: 1;
+}
+.cta-opt.active {
+    border-color: var(--pink);
+    background: var(--dark3);
+    box-shadow: 0 0 30px rgba(255, 45, 123, 0.08);
+}
+.cta-opt.active::before {
+    opacity: 1;
+}
+.cta-opt-ic {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    filter: grayscale(0.3);
+}
+.cta-opt-t {
+    font-family: 'Space Mono', monospace;
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--text);
+    margin-bottom: 6px;
+}
+.cta-opt.active .cta-opt-t {
+    color: var(--pink);
+}
+.cta-opt-d {
+    font-size: .7rem;
+    color: var(--text-dim);
+    line-height: 1.5;
+}
+
+/* FORM */
+.cta-form {
+    max-width: 420px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    z-index: 2;
+}
+.cta-form input,
+.cta-form textarea {
+    background: var(--dark2);
+    border: 1px solid var(--dark3);
+    padding: 14px 16px;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: .85rem;
+    color: var(--text);
+    outline: none;
+    transition: border-color .3s;
+}
+.cta-form input:focus,
+.cta-form textarea:focus {
+    border-color: var(--pink);
+}
+.cta-form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* FORM ROWS (animated show/hide) */
+.f-row {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height .4s ease, opacity .3s ease, margin .3s ease;
+    margin-bottom: 0;
+}
+.f-row.show {
+    max-height: 200px;
+    opacity: 1;
+    margin-bottom: 0;
+}
+.f-row input,
+.f-row textarea {
+    width: 100%;
+    background: var(--dark2);
+    border: 1px solid var(--dark3);
+    padding: 14px 16px;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: .85rem;
+    color: var(--text);
+    outline: none;
+    transition: border-color .3s;
+}
+.f-row input:focus,
+.f-row textarea:focus {
+    border-color: var(--pink);
+}
+.f-row textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .cta { padding: 80px 20px; }
+    .cta h2 { font-size: 1.8rem; }
+    .cta-opts {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+    .cta-opt {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 18px 20px;
+    }
+    .cta-opt-ic {
+        margin-bottom: 0;
+        font-size: 1.2rem;
+    }
+    .cta-opt-d {
+        display: none;
+    }
+}
+@media (max-width: 480px) {
+    .cta-opts { max-width: 100%; }
+}
+
+.f-row {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height .4s ease, opacity .3s ease;
+}
+.f-row.show {
+    max-height: 200px;
+    opacity: 1;
+}
+.f-row input,
+.f-row textarea {
+    width: 100%;
+    background: var(--dark2);
+    border: 1px solid var(--dark3);
+    padding: 14px 16px;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: .85rem;
+    color: var(--text);
+    outline: none;
+    transition: border-color .3s;
+}
+.f-row input:focus,
+.f-row textarea:focus {
+    border-color: var(--pink);
+}
+.f-row textarea {
+    resize: vertical;
+    min-height: 80px;
+}
 
         /* FOOTER */
         .footer{padding:30px 40px;border-top:1px solid var(--dark3);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
@@ -443,16 +655,49 @@
         </div>
     </div>
 </div>
-
 <section class="cta" id="cta">
     <div class="sl">// GET_STARTED</div>
     <h2>READY TO <span style="color:var(--pink)">OWN</span> IT?</h2>
-    <p>Free analysis · PRO application · Any question</p>
-    <form class="cta-form" onsubmit="hF(event)">
-        <input type="email" placeholder="your@email.com" required>
-        <input type="text" placeholder="OnlyFans link (optional)">
-        <textarea placeholder="Your message"></textarea>
-        <button type="submit" class="btn-f pink" style="border:none;width:100%;justify-content:center">SEND →</button>
+    <p class="cta-sub">Pick your path. We'll handle the rest.</p>
+
+    <!-- OPTION SELECTOR -->
+    <div class="cta-opts">
+        <div class="cta-opt active" data-opt="free" onclick="pickOpt(this)">
+            <div class="cta-opt-ic">🔍</div>
+            <div class="cta-opt-t">FREE ANALYSIS</div>
+            <div class="cta-opt-d">Get your OnlyFans profile analyzed — full breakdown sent to your email</div>
+        </div>
+        <div class="cta-opt" data-opt="pro" onclick="pickOpt(this)">
+            <div class="cta-opt-ic">⚡</div>
+            <div class="cta-opt-t">PRO APPLY</div>
+            <div class="cta-opt-d">Apply for 1-on-1 Done-With-You strategy for your OnlyFans profile</div>
+        </div>
+        <div class="cta-opt" data-opt="ask" onclick="pickOpt(this)">
+            <div class="cta-opt-ic">💬</div>
+            <div class="cta-opt-t">ANY QUESTION</div>
+            <div class="cta-opt-d">Ask us anything about growing your OnlyFans. We reply fast.</div>
+        </div>
+    </div>
+
+    <!-- FORM -->
+    <form class="cta-form" id="ctaForm" onsubmit="hF(event)">
+        <input type="email" id="ctaEmail" placeholder="your@email.com" required>
+
+        <div class="f-row show" id="fRowLink">
+            <input type="text" placeholder="Your OnlyFans profile link">
+        </div>
+
+        <div class="f-row" id="fRowName">
+            <input type="text" placeholder="Your name">
+        </div>
+
+        <div class="f-row show" id="fRowMsg">
+            <textarea placeholder="Your message"></textarea>
+        </div>
+
+        <button type="submit" class="btn-f pink" id="ctaBtn" style="border:none;width:100%;justify-content:center">
+            SEND ANALYSIS REQUEST →
+        </button>
     </form>
 </section>
 
@@ -519,6 +764,52 @@ function navLB(e,dir){
 function updateLB(){
     document.getElementById('lbImg').src=ssImages[lbIndex];
     document.getElementById('lbCounter').innerHTML=`<span>${lbIndex+1}</span> / ${ssImages.length}`;
+}
+
+function pickOpt(el) {
+    document.querySelectorAll('.cta-opt').forEach(o => o.classList.remove('active'));
+    el.classList.add('active');
+
+    const opt = el.getAttribute('data-opt');
+    const nameRow = document.getElementById('fRowName');
+    const linkRow = document.getElementById('fRowLink');
+    const msgRow  = document.getElementById('fRowMsg');
+    const btn     = document.getElementById('ctaBtn');
+
+    // Reset
+    nameRow.classList.remove('show');
+    linkRow.classList.remove('show');
+    msgRow.classList.remove('show');
+
+    if (opt === 'free') {
+        linkRow.classList.add('show');
+        msgRow.classList.add('show');
+        btn.textContent = 'SEND ANALYSIS REQUEST →';
+    } else if (opt === 'pro') {
+        linkRow.classList.add('show');
+        nameRow.classList.add('show');
+        msgRow.classList.add('show');
+        btn.textContent = 'SUBMIT PRO APPLICATION →';
+    } else if (opt === 'ask') {
+        msgRow.classList.add('show');
+        btn.textContent = 'SEND MESSAGE →';
+    }
+}
+
+function hF(e) {
+    e.preventDefault();
+    const b = e.target.querySelector('button');
+    b.textContent = '✓ SENT';
+    b.style.background = 'var(--cyan)';
+    setTimeout(() => {
+        b.textContent = 'SEND →';
+        b.style.background = '';
+        e.target.reset();
+        // Reset to free option
+        document.querySelectorAll('.cta-opt').forEach(o => o.classList.remove('active'));
+        document.querySelector('.cta-opt[data-opt="free"]').classList.add('active');
+        pickOpt(document.querySelector('.cta-opt[data-opt="free"]'));
+    }, 3000);
 }
 </script>
 </body>
