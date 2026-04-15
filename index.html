@@ -59,6 +59,23 @@
         from{transform:scale(1)}
         to{transform:scale(1.1)}
         }
+
+        .hero video{
+        position:absolute;
+        inset:0;
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        }
+
+        .hero{
+        position:relative;
+        overflow:hidden;
+        }
+
+        .hero > *{
+        position:relative;
+        }
         
         .hero-tag{font-family:'Space Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:4px;color:var(--cyan);margin-bottom:24px;border:1px solid var(--dark3);padding:6px 16px;display:inline-block}
         .hero h1{font-family:'Space Mono',monospace;font-size:4.5rem;font-weight:700;line-height:1.05;margin-bottom:24px;text-transform:uppercase;letter-spacing:-2px;position:relative;z-index:2}
