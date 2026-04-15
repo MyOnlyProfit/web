@@ -54,6 +54,20 @@
         .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 40px 80px;position:relative}
         .hero::before{content:'';position:absolute;top:30%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(255,45,123,0.08) 0%,rgba(157,78,221,0.04) 40%,transparent 70%);border-radius:50%}
 
+        .hero{
+        min-height:100vh;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        text-align:center;
+        padding:120px 40px 80px;
+        position:relative;
+
+        background:
+        linear-gradient(rgba(10,10,11,0.75), rgba(10,10,11,0.9)),
+        url('/IMAGES/BACKGROUND.AVIF') center/cover no-repeat;
+        }
         .hero-tag{font-family:'Space Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:4px;color:var(--cyan);margin-bottom:24px;border:1px solid var(--dark3);padding:6px 16px;display:inline-block}
         .hero h1{font-family:'Space Mono',monospace;font-size:4.5rem;font-weight:700;line-height:1.05;margin-bottom:24px;text-transform:uppercase;letter-spacing:-2px;position:relative;z-index:2}
         .hero h1 .g1{color:var(--pink)}
@@ -66,6 +80,7 @@
         .btn-f.pink:hover{background:var(--cyan);transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,45,123,0.3)}
         .btn-f.cyber{background:transparent;color:var(--text);border:1px solid var(--dark3);clip-path:none}
         .btn-f.cyber:hover{border-color:var(--cyan);color:var(--cyan)}
+        
 
         /* GRID BREAK */
         .grid-break{display:grid;grid-template-columns:repeat(4,1fr);height:300px;gap:2px}
