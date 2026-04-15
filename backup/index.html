@@ -51,22 +51,26 @@
         .glitch{animation:glitch 3s infinite}
 
         /* HERO */
-        .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 40px 80px;position:relative;background-size:cover;overflow:hidden;background:linear-gradient(rgba(10,10,11,0.75),rgba(10,10,11,0.9)),url('images/background.avif')center/cover no-repeat;}
+        .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 40px 80px;position:relative;background-size:cover;overflow:hidden;background:linear-gradient(rgba(10,10,11,0.75),rgba(10,10,11,0.9));}
         .hero::before{content:'';position:absolute;top:30%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(255,45,123,0.08) 0%,rgba(157,78,221,0.04) 40%,transparent 70%);border-radius:50%;}
+        .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(10,10,11,0.75),rgba(10,10,11,0.9));z-index:1;pointer-events:none;}
 
+        
         /* HERO BACKGROUND ZOOM */
         @keyframes heroZoom{
         from{transform:scale(1)}
         to{transform:scale(1.1)}
         }
+
+        .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
         
-        .hero-tag{font-family:'Space Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:4px;color:var(--cyan);margin-bottom:24px;border:1px solid var(--dark3);padding:6px 16px;display:inline-block}
+        .hero-tag{font-family:'Space Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:4px;color:var(--cyan);margin-bottom:24px;border:1px solid var(--dark3);padding:6px 16px;display:inline-block;position:relative;z-index:2;}
         .hero h1{font-family:'Space Mono',monospace;font-size:4.5rem;font-weight:700;line-height:1.05;margin-bottom:24px;text-transform:uppercase;letter-spacing:-2px;position:relative;z-index:2}
         .hero h1 .g1{color:var(--pink)}
         .hero h1 .g2{color:var(--purple)}
         .hero h1 .g3{color:var(--cyan)}
-        .hero p{font-size:1rem;color:var(--text-dim);max-width:550px;margin:0 auto 40px;line-height:1.7;font-weight:400}
-        .hero-btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+        .hero p{font-size:1rem;color:var(--text-dim);max-width:550px;margin:0 auto 40px;line-height:1.7;font-weight:400;position:relative;z-index:2;}
+        .hero-btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;position:relative;z-index:2;}
         .btn-f{padding:16px 36px;font-size:.8rem;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .3s;text-transform:uppercase;letter-spacing:2px;font-family:'Chakra Petch',sans-serif;clip-path:polygon(0 0,100% 0,100% 70%,92% 100%,0 100%)}
         .btn-f.pink{background:var(--pink);color:var(--dark);border:none}
         .btn-f.pink:hover{background:var(--cyan);transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,45,123,0.3)}
@@ -178,7 +182,7 @@
         .hero h1:hover{animation:glitch .3s infinite}
 
         @media(max-width:1024px){
-            .hero {background-position: 70% 20%;}
+           .hero video{animation:posShift 10s ease-in-out forwards 0.2s,posShift2 10s ease-in-out forwards 10.2s;}@keyframes posShift{0%{object-position:50% 20%;transform:scale(1);}25%{object-position:10% 20%;transform:scale(1);}40%{object-position:20% 20%;transform:scale(1);}70%{object-position:70% 20%;transform:scale(1);}100%{object-position:70% 20%;transform:scale(1);}}@keyframes posShift2{0%{object-position:70% 20%;transform:scale(1);}20%{object-position:65% 20%;transform:scale(1);}40%{object-position:70% 20%;transform:scale(1);}70%{object-position:30% 20%;transform:scale(1);}100%{object-position:10% 20%;transform:scale(1);}}
             .hero h1{font-size:3.2rem}
             .grid-break{grid-template-columns:repeat(2,1fr);height:250px}
             .grid-break .gb-item:nth-child(n+3){display:none}
@@ -209,6 +213,7 @@
             .stat-f{border-right:none;border-bottom:1px solid var(--dark3)}
             .grid-break{grid-template-columns:1fr;height:150px}
             .grid-break .gb-item:nth-child(2){display:none}
+            .grid-break .gb-item:nth-child(1) img{object-position:50% 30%;}
         }
     </style>
 </head>
@@ -233,8 +238,11 @@
     <a href="#price" class="ml">Pricing</a>
     <a href="#cta" class="ml">Contact</a>
 </div>
-
+    
 <section class="hero">
+    <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0%;">
+  <source src="video/background.mp4" type="video/mp4">
+</video>
     <div class="hero-tag">// ONLYFANS STRATEGY_2026</div>
     <h1 class="glitch"><span class="g1">OWN</span> THE<br><span class="g2">SYSTEM.</span><br><span class="g3">KEEP</span> IT ALL.</h1>
     <p>No agencies. No 50% cuts. A proven system to turn followers into paying subscribers — 100% yours.</p>
@@ -252,7 +260,7 @@
 </div>
 
 <div class="stats">
-    <div class="stat-f"><div class="val">$12.4K</div><div class="lbl">Avg Monthly</div></div>
+    <div class="stat-f"><div class="val">$6.4K</div><div class="lbl">Avg Monthly</div></div>
     <div class="stat-f"><div class="val">30</div><div class="lbl">Days to Results</div></div>
     <div class="stat-f"><div class="val">200+</div><div class="lbl">Creators</div></div>
     <div class="stat-f"><div class="val">4.9★</div><div class="lbl">Rating</div></div>
