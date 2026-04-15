@@ -162,6 +162,8 @@
         .p-btn-f.pk:hover{background:var(--cyan);box-shadow:0 8px 30px rgba(255,45,123,0.3)}
         .p-btn-f.out{background:transparent;color:var(--text);border:1px solid var(--dark3);clip-path:none}
         .p-btn-f.out:hover{border-color:var(--cyan);color:var(--cyan)}
+        .pv{position:relative;display:inline-block;}
+        .po{font-family:'Space Mono',monospace;font-size:.9rem;color:var(--text-dim);text-decoration:line-through;margin-bottom:2px;opacity:.5;}
 
         /* REVIEWS */
         .reviews{padding:100px 60px;border-top:1px solid var(--dark3)}
@@ -174,226 +176,33 @@
         .r-card .rr{font-size:.65rem;color:var(--text-dim)}
 
         /* CTA */
-.cta {
-    padding: 120px 40px;
-    text-align: center;
-    position: relative;
-}
-.cta::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(255, 45, 123, 0.06) 0%, rgba(157, 78, 221, 0.03) 40%, transparent 70%);
-    border-radius: 50%;
-}
-.cta h2 {
-    font-family: 'Space Mono', monospace;
-    font-size: 2.4rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-    position: relative;
-    z-index: 2;
-}
-.cta-sub {
-    color: var(--text-dim);
-    margin-bottom: 48px;
-    position: relative;
-    z-index: 2;
-    font-size: .9rem;
-}
-
-/* OPTION SELECTOR */
-.cta-opts {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    max-width: 800px;
-    margin: 0 auto 40px;
-    position: relative;
-    z-index: 2;
-}
-.cta-opt {
-    background: var(--dark2);
-    border: 1px solid var(--dark3);
-    padding: 28px 20px;
-    cursor: pointer;
-    transition: all .3s;
-    position: relative;
-    overflow: hidden;
-}
-.cta-opt::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: var(--grad);
-    opacity: 0;
-    transition: opacity .3s;
-}
-.cta-opt:hover {
-    border-color: rgba(255, 45, 123, 0.3);
-    background: var(--dark3);
-}
-.cta-opt:hover::before {
-    opacity: 1;
-}
-.cta-opt.active {
-    border-color: var(--pink);
-    background: var(--dark3);
-    box-shadow: 0 0 30px rgba(255, 45, 123, 0.08);
-}
-.cta-opt.active::before {
-    opacity: 1;
-}
-.cta-opt-ic {
-    font-size: 1.4rem;
-    margin-bottom: 12px;
-    filter: grayscale(0.3);
-}
-.cta-opt-t {
-    font-family: 'Space Mono', monospace;
-    font-size: .7rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: var(--text);
-    margin-bottom: 6px;
-}
-.cta-opt.active .cta-opt-t {
-    color: var(--pink);
-}
-.cta-opt-d {
-    font-size: .7rem;
-    color: var(--text-dim);
-    line-height: 1.5;
-}
-
-/* FORM */
-.cta-form {
-    max-width: 420px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    position: relative;
-    z-index: 2;
-}
-.cta-form input,
-.cta-form textarea {
-    background: var(--dark2);
-    border: 1px solid var(--dark3);
-    padding: 14px 16px;
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: .85rem;
-    color: var(--text);
-    outline: none;
-    transition: border-color .3s;
-}
-.cta-form input:focus,
-.cta-form textarea:focus {
-    border-color: var(--pink);
-}
-.cta-form textarea {
-    resize: vertical;
-    min-height: 80px;
-}
-
-/* FORM ROWS (animated show/hide) */
-.f-row {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height .4s ease, opacity .3s ease, margin .3s ease;
-    margin-bottom: 0;
-}
-.f-row.show {
-    max-height: 200px;
-    opacity: 1;
-    margin-bottom: 0;
-}
-.f-row input,
-.f-row textarea {
-    width: 100%;
-    background: var(--dark2);
-    border: 1px solid var(--dark3);
-    padding: 14px 16px;
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: .85rem;
-    color: var(--text);
-    outline: none;
-    transition: border-color .3s;
-}
-.f-row input:focus,
-.f-row textarea:focus {
-    border-color: var(--pink);
-}
-.f-row textarea {
-    resize: vertical;
-    min-height: 80px;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .cta { padding: 80px 20px; }
-    .cta h2 { font-size: 1.8rem; }
-    .cta-opts {
-        grid-template-columns: 1fr;
-        max-width: 400px;
-    }
-    .cta-opt {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        padding: 18px 20px;
-    }
-    .cta-opt-ic {
-        margin-bottom: 0;
-        font-size: 1.2rem;
-    }
-    .cta-opt-d {
-        display: none;
-    }
-}
-@media (max-width: 480px) {
-    .cta-opts { max-width: 100%; }
-}
-
-.f-row {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height .4s ease, opacity .3s ease;
-}
-.f-row.show {
-    max-height: 200px;
-    opacity: 1;
-}
-.f-row input,
-.f-row textarea {
-    width: 100%;
-    background: var(--dark2);
-    border: 1px solid var(--dark3);
-    padding: 14px 16px;
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: .85rem;
-    color: var(--text);
-    outline: none;
-    transition: border-color .3s;
-}
-.f-row input:focus,
-.f-row textarea:focus {
-    border-color: var(--pink);
-}
-.f-row textarea {
-    resize: vertical;
-    min-height: 80px;
-}
+        .cta{padding:120px 40px;text-align:center;position:relative;}
+        .cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:500px;height:500px;background:radial-gradient(circle,rgba(255,45,123,.06) 0%,rgba(157,78,221,.03) 40%,transparent 70%);border-radius:50%;}
+        .cta h2{font-family:'Space Mono',monospace;font-size:2.4rem;font-weight:700;text-transform:uppercase;margin-bottom:8px;position:relative;z-index:2;}
+        .cta-sub{color:var(--text-dim);margin-bottom:48px;position:relative;z-index:2;font-size:.9rem;}
+        .cta-opts{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;max-width:800px;margin:0 auto 40px;position:relative;z-index:2;}
+        .cta-opt{background:var(--dark2);border:1px solid var(--dark3);padding:28px 20px;cursor:pointer;transition:all .3s;position:relative;overflow:hidden;}
+        .cta-opt::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--grad);opacity:0;transition:opacity .3s;}
+        .cta-opt:hover{border-color:rgba(255,45,123,.3);background:var(--dark3);}
+        .cta-opt:hover::before{opacity:1;}
+        .cta-opt.active{border-color:var(--pink);background:var(--dark3);box-shadow:0 0 30px rgba(255,45,123,.08);}
+        .cta-opt.active::before{opacity:1;}
+        .cta-opt-ic{font-size:1.4rem;margin-bottom:12px;filter:grayscale(.3);}
+        .cta-opt-t{font-family:'Space Mono',monospace;font-size:.7rem;font-weight:700;letter-spacing:2px;color:var(--text);margin-bottom:6px;}
+        .cta-opt.active .cta-opt-t{color:var(--pink);}
+        .cta-opt-d{display:none;}
+        .cta-opt.active .cta-opt-d{display:block;margin-top:8px;font-size:.7rem;color:var(--text-dim);line-height:1.5;}
+        .cta-form{max-width:420px;margin:0 auto;display:flex;flex-direction:column;gap:10px;position:relative;z-index:2;}
+        .cta-form input,.cta-form textarea{background:var(--dark2);border:1px solid var(--dark3);padding:14px 16px;font-family:'Chakra Petch',sans-serif;font-size:.85rem;color:var(--text);outline:none;transition:border-color .3s;}
+        .cta-form input:focus,.cta-form textarea:focus{border-color:var(--pink);}
+        .cta-form textarea{resize:vertical;min-height:80px;}
+        .f-row{max-height:0;overflow:hidden;opacity:0;transition:max-height .4s ease,opacity .3s ease,margin .3s ease;margin-bottom:0;}
+        .f-row.show{max-height:200px;opacity:1;margin-bottom:0;}
+        .f-row input,.f-row textarea{width:100%;background:var(--dark2);border:1px solid var(--dark3);padding:14px 16px;font-family:'Chakra Petch',sans-serif;font-size:.85rem;color:var(--text);outline:none;transition:border-color .3s;}
+        .f-row input:focus,.f-row textarea:focus{border-color:var(--pink);}
+        .f-row textarea{resize:vertical;min-height:80px;}
+        @media(max-width:768px){.cta{padding:80px 20px;}.cta h2{font-size:1.8rem;}.cta-opts{grid-template-columns:1fr;max-width:400px;}.cta-opt{display:flex;align-items:center;gap:14px;padding:18px 20px;}.cta-opt-ic{margin-bottom:0;font-size:1.2rem;}.cta-opt-d{display:none;}}
+        @media(max-width:480px){.cta-opts{max-width:100%;}}
 
         /* FOOTER */
         .footer{padding:30px 40px;border-top:1px solid var(--dark3);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
@@ -507,7 +316,7 @@
     <div class="gb-item" data-label="$8.2k/mo"><img src="images/image_grid_1.avif" alt="Creator"></div>
     <div class="gb-item" data-label="3x income"><img src="images/image_grid_2.avif" alt="Creator"></div>
     <div class="gb-item" data-label="no face"><img src="images/image_grid_3.avif" alt="Creator"></div>
-    <div class="gb-item" data-label="$7,5k/mo"><img src="images/image_grid_4.avif" alt="Creator"></div>
+    <div class="gb-item" data-label="$5,4k/mo"><img src="images/image_grid_4.avif" alt="Creator"></div>
 </div>
 
 <div class="stats">
@@ -567,20 +376,22 @@
         <h2 class="st">One payment. <span class="pk">Keep everything.</span></h2>
     </div>
     <div class="p-grid">
-        <div class="p-card">
-            <div class="pt">SELF_GUIDED</div>
-            <h3>Complete Kickstart</h3>
-            <div class="pv">€399</div>
-            <div class="pn">One-time · Instant access</div>
-            <ul class="fl">
-                <li><span class="ck">✓</span> 30-Day Content System</li>
-                <li><span class="ck">✓</span> TikTok Traffic System</li>
-                <li><span class="ck">✓</span> Bio Conversion System</li>
-                <li><span class="ck">✓</span> Predictable Income System</li>
-                <li><span class="ck">✓</span> DM Conversion System</li>
-            </ul>
-            <a href="#cta" class="p-btn-f out">START EARNING →</a>
-        </div>
+<div class="p-card">
+    <div class="pb" style="background:var(--cyan)">SYSTEM_OVERRIDE — €100 OFF</div>
+    <div class="pt">SELF_GUIDED</div>
+    <h3>Complete Kickstart</h3>
+    <div class="pv">€499</div>
+    <div class="po">€599</div>
+    <div class="pn">One-time · Instant access</div>
+    <ul class="fl">
+        <li><span class="ck">✓</span> 30-Day Content System</li>
+        <li><span class="ck">✓</span> TikTok Traffic System</li>
+        <li><span class="ck">✓</span> Bio Conversion System</li>
+        <li><span class="ck">✓</span> Predictable Income System</li>
+        <li><span class="ck">✓</span> DM Conversion System</li>
+    </ul>
+    <a href="#cta" class="p-btn-f out">START EARNING →</a>
+</div>
         <div class="p-card glow">
             <div class="pb">1_SPOT/WEEK</div>
             <div class="pt">DONE_WITH_YOU</div>
@@ -618,7 +429,7 @@
             </div>
             <div class="r-card">
                 <div class="rs">★★★★★</div>
-                <p class="rq">"I was stuck at $800/mo for months. PRO broke me through to $3.5+k."</p>
+                <p class="rq">"I was stuck at $800/mo for months. PRO broke me through to $3.5k+."</p>
                 <div class="rn">Alex R.</div>
                 <div class="rr">Anonymous · $3.5k/mo</div>
             </div>
@@ -670,12 +481,12 @@
         <div class="cta-opt" data-opt="pro" onclick="pickOpt(this)">
             <div class="cta-opt-ic">⚡</div>
             <div class="cta-opt-t">PRO APPLY</div>
-            <div class="cta-opt-d">Apply for 1-on-1 Done-With-You strategy. Build it right — skip the costly mistakes.</div>
+            <div class="cta-opt-d">Your system, built 1-on-1. No guesswork — just results.</div>
         </div>
         <div class="cta-opt" data-opt="ask" onclick="pickOpt(this)">
             <div class="cta-opt-ic">💬</div>
             <div class="cta-opt-t">ANY QUESTION</div>
-            <div class="cta-opt-d">Ask us anything about growing your OnlyFans. We reply fast.</div>
+            <div class="cta-opt-d">Ask us anything. We reply fast.</div>
         </div>
     </div>
 
