@@ -1,1 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KPI Preview</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+--pink:#FF2D7B;
+--cyan:#00F5FF;
+--purple:#9D4EDD;
+--dark:#0A0A0B;
+--dark2:#111113;
+--dark3:#1A1A1D;
+--text:#E0E0E0;
+--text-dim:#888;
+--border:#2C2C2C;
+--grad:linear-gradient(135deg,#FF2D7B 0%,#9D4EDD 50%,#00F5FF 100%);
+}
+
+body{
+font-family:'Chakra Petch',sans-serif;
+background:var(--dark);
+color:var(--text);
+display:flex;
+justify-content:center;
+padding:40px 16px;
+}
+
+.page{
+max-width:900px;
+width:100%;
+background:var(--dark2);
+border:1px solid var(--dark3);
+border-radius:8px;
+padding:48px;
+position:relative;
+}
+
+.page::before{
+content:'';
+position:absolute;
+top:0;left:0;
+width:100%;
+height:2px;
+background:var(--grad);
+}
+
+h1{
+font-family:'Space Mono',monospace;
+color:var(--cyan);
+font-size:2rem;
+margin-bottom:20px;
+text-transform:uppercase;
+}
+
+h2{
+font-family:'Space Mono',monospace;
+color:var(--pink);
+font-size:1rem;
+margin:30px 0 10px;
+text-transform:uppercase;
+}
+
+ul{
+list-style:none;
+margin-bottom:20px;
+}
+
+ul li{
+font-size:.9rem;
+color:var(--text-dim);
+padding:4px 0;
+}
+
+ul li::before{
+content:"→ ";
+color:var(--cyan);
+font-weight:700;
+}
+
+.rev-table{
+width:100%;
+border-collapse:collapse;
+margin:20px 0;
+font-size:.85rem;
+}
+
+.rev-table th{
+background:var(--dark3);
+color:var(--cyan);
+padding:10px;
+text-align:left;
+font-family:'Space Mono',monospace;
+font-size:.7rem;
+}
+
+.rev-table td{
+padding:10px;
+border-bottom:1px solid var(--dark3);
+color:var(--text-dim);
+}
+
+.rev-table td strong{
+color:var(--pink);
+}
+
+.flow{
+display:flex;
+flex-wrap:wrap;
+align-items:center;
+gap:6px;
+margin:20px 0;
+font-family:'Space Mono',monospace;
+font-size:.75rem;
+}
+
+.flow-box{
+padding:8px 12px;
+border:1px solid var(--border);
+border-radius:4px;
+background:var(--dark3);
+}
+
+.flow-box.cyan{border-color:var(--cyan);color:var(--cyan)}
+.flow-box.purple{border-color:var(--purple);color:var(--purple)}
+.flow-box.pink{border-color:var(--pink);color:var(--pink)}
+
+.note{
+margin-top:20px;
+padding:14px;
+background:var(--dark3);
+font-family:'Space Mono',monospace;
+font-size:.8rem;
+color:var(--cyan);
+}
+
+.footer{
+margin-top:30px;
+display:flex;
+justify-content:space-between;
+font-family:'Space Mono',monospace;
+font-size:.7rem;
+color:var(--text-dim);
+}
+
+.page-num{
+background:var(--pink);
+color:var(--dark);
+padding:2px 10px;
+border-radius:3px;
+font-weight:700;
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+<h1>Key Metrics (KPI)</h1>
+
+<h2>Core Metrics to Track</h2>
+<ul>
+<li><strong>Traffic:</strong> Profile clicks from TikTok/IG/Reddit</li>
+<li><strong>Conversion Rate:</strong> % of visitors → subscribers</li>
+<li><strong>Subscriber Count:</strong> New subs per week + retention</li>
+<li><strong>ARPU:</strong> Avg revenue per user</li>
+<li><strong>PPV Purchase Rate:</strong> % buying upsells</li>
+<li><strong>DM Response Rate:</strong> % replies to messages</li>
+</ul>
+
+<h2>Revenue Targets</h2>
+<table class="rev-table">
+<tr>
+<th>Target</th>
+<th>Subs</th>
+<th>Price</th>
+<th>Upsell</th>
+<th>Revenue</th>
+</tr>
+<tr>
+<td><strong>€1,000</strong></td>
+<td>100</td>
+<td>€10</td>
+<td>~€0</td>
+<td>€1,000</td>
+</tr>
+<tr>
+<td><strong>€2,500</strong></td>
+<td>150</td>
+<td>€15</td>
+<td>~€250</td>
+<td>€2,500</td>
+</tr>
+<tr>
+<td><strong>€5,000</strong></td>
+<td>300</td>
+<td>€15</td>
+<td>~€500</td>
+<td>€5,500</td>
+</tr>
+</table>
+
+<h2>Revenue Flow</h2>
+<div class="flow">
+<div class="flow-box cyan">TikTok / IG / Reddit</div> →
+<div class="flow-box">OF Profile</div> →
+<div class="flow-box">New Subs</div> →
+<div class="flow-box purple">DM Engagement</div> →
+<div class="flow-box pink">PPV / Bundles</div>
+</div>
+
+<div class="note">
+control these 5 numbers → control your income.
+</div>
+
+<div class="footer">
+<span>This file is protected by copyright law. www.myonlyprofit.com</span>
+<span class="page-num">06</span>
+</div>
+
+</div>
+
+</body>
+</html>
