@@ -1,183 +1,132 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Full Table of Contents</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MyOnlyProfit — Table of Contents</title>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
+:root{--pink:#FF2D7B;--purple:#9D4EDD;--cyan:#00F5FF;--dark:#0A0A0B;--dark2:#111113;--dark3:#1A1A1D;--text:#E0E0E0;--text-dim:#888;--border:#2C2C2C;--grad:linear-gradient(135deg,#FF2D7B 0%,#9D4EDD 50%,#00F5FF 100%)}
+html{scroll-behavior:smooth}
+body{font-family:'Chakra Petch',sans-serif;background:var(--dark);color:var(--text);line-height:1.8;overflow-x:hidden;min-height:100vh}
+body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);pointer-events:none;z-index:-1;opacity:.3}
 
-:root{
---pink:#FF2D7B;
---cyan:#00F5FF;
---purple:#9D4EDD;
---dark:#0A0A0B;
---dark2:#111113;
---dark3:#1A1A1D;
---text:#E0E0E0;
---text-dim:#888;
---border:#2C2C2C;
---grad:linear-gradient(135deg,#FF2D7B 0%,#9D4EDD 50%,#00F5FF 100%);
-}
+.section-nav{position:sticky;top:0;z-index:200;background:rgba(10,10,11,.98);backdrop-filter:blur(14px);border-bottom:1px solid var(--dark3);padding:0}
+.section-nav-inner{max-width:1000px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:10px 20px}
+.section-nav .logo{font-family:'Space Mono',monospace;font-size:1.1rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--pink);white-space:nowrap}
+.section-nav .logo span{color:var(--cyan)}
+.section-tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;padding:0 10px}
+.section-tabs::-webkit-scrollbar{display:none}
+.section-tab{font-family:'Space Mono',monospace;font-size:.6rem;text-transform:uppercase;letter-spacing:1px;padding:8px 14px;border:1px solid var(--dark3);border-radius:4px;color:var(--text-dim);background:transparent;cursor:pointer;white-space:nowrap;transition:all .3s;text-decoration:none}
+.section-tab.active,.section-tab:hover{color:var(--dark);background:var(--pink);border-color:var(--pink)}
 
-body{
-font-family:'Chakra Petch',sans-serif;
-background:var(--dark);
-color:var(--text);
-display:flex;
-justify-content:center;
-padding:40px 16px;
-}
+.book{max-width:1000px;margin:0 auto;padding:40px 40px 80px}
+@media(max-width:768px){.book{padding:20px 12px 60px}.section-nav-inner{padding:8px 10px}.section-tab{font-size:.5rem;padding:6px 8px}}
 
-.page{
-max-width:900px;
-width:100%;
-background:var(--dark2);
-border:1px solid var(--dark3);
-border-radius:8px;
-padding:48px;
-position:relative;
-}
+.page{background:var(--dark2);border:1px solid var(--dark3);border-radius:8px;padding:48px 56px;position:relative;overflow:hidden}
+.page::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--grad);opacity:.8}
+@media(max-width:768px){.page{padding:32px 20px}}
 
-.page::before{
-content:'';
-position:absolute;
-top:0;left:0;
-width:100%;
-height:2px;
-background:var(--grad);
-}
+h1{font-family:'Space Mono',monospace;font-size:2rem;font-weight:700;text-transform:uppercase;letter-spacing:-1px;color:var(--cyan);margin-bottom:22px;text-shadow:0 0 8px rgba(0,245,255,.25)}
 
-h1{
-font-family:'Space Mono',monospace;
-color:var(--cyan);
-font-size:2rem;
-margin-bottom:20px;
-text-transform:uppercase;
-}
+.toc{display:flex;flex-direction:column;gap:6px;margin:20px 0}
+.toc-section{font-family:'Space Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:3px;color:var(--purple);margin:14px 0 4px}
+.toc-item{display:flex;justify-content:space-between;align-items:center;font-size:.82rem;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.03)}
+.toc-item a{color:var(--cyan);text-decoration:none;transition:color .2s}
+.toc-item a:hover{color:var(--pink)}
+.toc-item span{color:var(--text-dim);font-size:.75rem;font-family:'Space Mono',monospace}
 
-.section-label{
-font-family:'Space Mono',monospace;
-font-size:.65rem;
-letter-spacing:3px;
-color:var(--purple);
-margin:24px 0 10px;
-text-transform:uppercase;
-}
-
-.toc-item{
-display:flex;
-justify-content:space-between;
-padding:6px 0;
-font-size:.85rem;
-color:var(--text-dim);
-border-bottom:1px solid rgba(255,255,255,.03);
-}
-
-.toc-item span{
-font-family:'Space Mono',monospace;
-font-size:.7rem;
-color:var(--text-dim);
-}
-
-.footer{
-margin-top:40px;
-display:flex;
-justify-content:space-between;
-font-family:'Space Mono',monospace;
-font-size:.7rem;
-color:var(--text-dim);
-}
-
-.page-num{
-background:var(--pink);
-color:var(--dark);
-padding:2px 10px;
-border-radius:3px;
-font-weight:700;
-}
+.page-footer{margin-top:36px;padding-top:16px;border-top:1px solid var(--dark3);display:flex;justify-content:space-between;align-items:center;font-size:.68rem;color:var(--text-dim);font-family:'Space Mono',monospace;flex-wrap:wrap;gap:8px}
+.page-num{background:var(--pink);color:var(--dark);padding:2px 10px;border-radius:3px;font-weight:700;font-size:.7rem;white-space:nowrap}
 </style>
 </head>
-
 <body>
 
-<div class="page">
-
-<h1>Full System Contents — 1 / 5 (🔒)</h1>
-
-<div class="section-label">// Phase 1 — Foundation</div>
-<div class="toc-item">Note From the Author <span>Pg 3</span></div>
-<div class="toc-item">The System Behind OnlyFans Success <span>Pg 4</span></div>
-<div class="toc-item">Stop Trying to Please Everyone <span>Pg 5</span></div>
-<div class="toc-item">Weak Branding <span>Pg 6</span></div>
-<div class="toc-item">Profiles That Convert <span>Pg 7</span></div>
-<div class="toc-item">Attraction / Conversion / Monetization <span>Pg 8</span></div>
-
-<div class="section-label">// Phase 2 — Content Machine</div>
-<div class="toc-item">Subscription + PPV Model <span>Pg 9</span></div>
-<div class="toc-item">Systemize, Measure, Refine <span>Pg 10</span></div>
-<div class="toc-item">Efficiency &gt; Complexity <span>Pg 11</span></div>
-
-<div class="section-label">// Phase 3 — Traffic & Growth</div>
-<div class="toc-item">First 7 Days Launch <span>Pg 12</span></div>
-<div class="toc-item">Post to Convert <span>Pg 13</span></div>
-<div class="toc-item">80/20 Growth Rule <span>Pg 14</span></div>
-
-<div class="section-label">// Phase 4 — Monetization</div>
-<div class="toc-item">Content Bank Strategy <span>Pg 15</span></div>
-<div class="toc-item">Growth Loop System <span>Pg 16</span></div>
-<div class="toc-item">Captions as Revenue Engines <span>Pg 17</span></div>
-
-<div class="section-label">// Phase 5 — Scaling</div>
-<div class="toc-item">Compounding Content Systems <span>Pg 18</span></div>
-<div class="toc-item">Series-Based Strategy <span>Pg 19</span></div>
-<div class="toc-item">Retention Drives Income <span>Pg 20</span></div>
-<div class="toc-item">Preventing Burnout <span>Pg 21</span></div>
-
-<div class="section-label">// Phase 6 — Advanced Systems</div>
-<div class="toc-item">Maximizing ROI Per Content <span>Pg 22</span></div>
-<div class="toc-item">Traffic Multiplier <span>Pg 23</span></div>
-<div class="toc-item">Distribution Without Followers <span>Pg 24</span></div>
-<div class="toc-item">Instagram Branding Engine <span>Pg 25</span></div>
-<div class="toc-item">Reddit Strategy <span>Pg 26</span></div>
-<div class="toc-item">Twitter/X Monetization <span>Pg 27</span></div>
-<div class="toc-item">Virality Formula <span>Pg 28</span></div>
-<div class="toc-item">Hook Economics <span>Pg 29</span></div>
-<div class="toc-item">Why Growth Stops <span>Pg 30</span></div>
-<div class="toc-item">Scaling Beyond Virality <span>Pg 31</span></div>
-<div class="toc-item">Multi-Platform Leverage <span>Pg 32</span></div>
-<div class="toc-item">Turning Attention into Action <span>Pg 33</span></div>
-<div class="toc-item">Traffic → Transactions <span>Pg 34</span></div>
-<div class="toc-item">Emotion = Product <span>Pg 35</span></div>
-<div class="toc-item">Entry & Extraction <span>Pg 36</span></div>
-<div class="toc-item">DM Revenue System <span>Pg 37</span></div>
-<div class="toc-item">Real-Time Revenue <span>Pg 38</span></div>
-<div class="toc-item">High-Value Buyers <span>Pg 39</span></div>
-<div class="toc-item">FOMO Monetization <span>Pg 40</span></div>
-<div class="toc-item">Layered Monetization <span>Pg 41</span></div>
-<div class="toc-item">Building Trust Systems <span>Pg 42</span></div>
-<div class="toc-item">Second-Chance Revenue <span>Pg 43</span></div>
-<div class="toc-item">Exponential Fan Value <span>Pg 44</span></div>
-<div class="toc-item">Creator → CEO Shift <span>Pg 45</span></div>
-<div class="toc-item">Process-Driven Results <span>Pg 46</span></div>
-<div class="toc-item">Team Leverage <span>Pg 47</span></div>
-<div class="toc-item">Evidence-Based Scaling <span>Pg 48</span></div>
-<div class="toc-item">Continuous Evolution <span>Pg 49</span></div>
-<div class="toc-item">Owning Your Audience <span>Pg 50</span></div>
-<div class="toc-item">Revenue Network <span>Pg 51</span></div>
-<div class="toc-item">Data-Driven Progress <span>Pg 52</span></div>
-<div class="toc-item">Stable Growth Systems <span>Pg 53</span></div>
-<div class="toc-item">Looped Success Systems <span>Pg 54</span></div>
-<div class="toc-item">Summary <span>Pg 55</span></div>
-
-<div class="footer">
-<span>This file is protected by copyright law. www.myonlyprofit.com</span>
-<span class="page-num">02</span>
+<div class="section-nav">
+  <div class="section-nav-inner">
+    <div class="logo">MY<span>ONLY</span>PROFIT</div>
+    <div class="section-tabs">
+      <a class="section-tab" href="#">Intro</a>
+      <a class="section-tab active" href="#">Growth</a>
+      <a class="section-tab" href="#">Income</a>
+      <a class="section-tab" href="#">Bio</a>
+      <a class="section-tab" href="#">TikTok</a>
+      <a class="section-tab" href="#">DMs</a>
+    </div>
+  </div>
 </div>
 
+<div class="book">
+  <div class="page">
+    <h1>Table of Contents</h1>
+    <div class="toc">
+      <div class="toc-section">// PHASE 1 — FOUNDATION</div>
+      <div class="toc-item"><a href="#">Note From the Author</a><span>Pg 3</span></div>
+      <div class="toc-item"><a href="#">The System Behind OnlyFans Success</a><span>Pg 4</span></div>
+      <div class="toc-item"><a href="#">Stop Trying to Please Everyone</a><span>Pg 5</span></div>
+      <div class="toc-item"><a href="#">Weak Branding</a><span>Pg 6</span></div>
+      <div class="toc-item"><a href="#">Profiles That Convert: Turning Attention into Subscribers</a><span>Pg 7</span></div>
+      <div class="toc-item"><a href="#">Attraction, Conversion, Monetization: The OnlyFans</a><span>Pg 8</span></div>
+      <div class="toc-section">// PHASE 2 — CONTENT MACHINE</div>
+      <div class="toc-item"><a href="#">Subscription + PPV: The Revenue Model That Works</a><span>Pg 9</span></div>
+      <div class="toc-item"><a href="#">Systemize, Measure, Refine: A Data-Driven Growth Approach</a><span>Pg 10</span></div>
+      <div class="toc-item"><a href="#">Efficiency &gt; Complexity: Become Professional</a><span>Pg 11</span></div>
+      <div class="toc-section">// PHASE 3 — TRAFFIC &amp; GROWTH</div>
+      <div class="toc-item"><a href="#">The First 7 Days: Launching Your OnlyFans System</a><span>Pg 12</span></div>
+      <div class="toc-item"><a href="#">Likes Don't Pay Bills: Post to Convert</a><span>Pg 13</span></div>
+      <div class="toc-item"><a href="#">Focus on What Works: The 80/20 Rule for Content Growth</a><span>Pg 14</span></div>
+      <div class="toc-section">// PHASE 4 — MONETIZATION</div>
+      <div class="toc-item"><a href="#">Creating a Content Bank: The Power of Batching</a><span>Pg 15</span></div>
+      <div class="toc-item"><a href="#">Attention, Tease, Engage: Building a Repeatable Growth Loop</a><span>Pg 16</span></div>
+      <div class="toc-item"><a href="#">Captions as Revenue Engines: Turning Attention into Action</a><span>Pg 17</span></div>
+      <div class="toc-section">// PHASE 5 — SCALING</div>
+      <div class="toc-item"><a href="#">Simple Formats, Compounded Results: The Efficiency</a><span>Pg 18</span></div>
+      <div class="toc-item"><a href="#">Series-Based Strategy: Sequential Posts Compound Engagement</a><span>Pg 19</span></div>
+      <div class="toc-item"><a href="#">Stability vs. Spikes: Retention Drives Predictable Income</a><span>Pg 20</span></div>
+      <div class="toc-item"><a href="#">Scaling Through Sustainability: Structure Prevents Burnout</a><span>Pg 21</span></div>
+      <div class="toc-section">// PHASE 6 — ADVANCED SYSTEMS</div>
+      <div class="toc-item"><a href="#">Maximizing ROI on Every Piece of Content</a><span>Pg 22</span></div>
+      <div class="toc-item"><a href="#">The Traffic Multiplier: How Visibility Powers Conversion</a><span>Pg 23</span></div>
+      <div class="toc-item"><a href="#">Distribution Without Followers: The Power of Platform Algo</a><span>Pg 24</span></div>
+      <div class="toc-item"><a href="#">Instagram as a Branding Engine: Building Trust</a><span>Pg 25</span></div>
+      <div class="toc-item"><a href="#">Targeted Communities, Maximum Impact: Reddit Strategy</a><span>Pg 26</span></div>
+      <div class="toc-item"><a href="#">From Visibility to Monetization: Twitter/X Strategy</a><span>Pg 27</span></div>
+      <div class="toc-item"><a href="#">Virality Isn't Luck: It's a Formula</a><span>Pg 28</span></div>
+      <div class="toc-item"><a href="#">The Economics of a Hook: Why Early Engagement Determines ROI</a><span>Pg 29</span></div>
+      <div class="toc-item"><a href="#">Why Growth Stops: The System Responds to Weak Content</a><span>Pg 30</span></div>
+      <div class="toc-item"><a href="#">Scaling Beyond Virality: How Systems Stabilize Growth</a><span>Pg 31</span></div>
+      <div class="toc-item"><a href="#">Scaling Safely: Multi-Platform Leverage</a><span>Pg 32</span></div>
+      <div class="toc-item"><a href="#">Turning Attention into Action: The System Behind the Results</a><span>Pg 33</span></div>
+      <div class="toc-item"><a href="#">From Traffic to Transactions: The Step-by-Step Process</a><span>Pg 34</span></div>
+      <div class="toc-item"><a href="#">Emotion as Product: Turning Engagement into Income</a><span>Pg 35</span></div>
+      <div class="toc-item"><a href="#">Entry and Extraction: How to Build Scalable Income</a><span>Pg 36</span></div>
+      <div class="toc-item"><a href="#">Connection to Conversion: The DM Revenue System</a><span>Pg 37</span></div>
+      <div class="toc-item"><a href="#">Real-Time Revenue: The Fastest Path to Profit</a><span>Pg 38</span></div>
+      <div class="toc-item"><a href="#">High-Value Buyers: Maximizing Revenue Without Volume</a><span>Pg 39</span></div>
+      <div class="toc-item"><a href="#">Tactical FOMO: Turning Limited Access into Action</a><span>Pg 40</span></div>
+      <div class="toc-item"><a href="#">Layered Monetization: Entry-Level to High-Ticket Revenue</a><span>Pg 41</span></div>
+      <div class="toc-item"><a href="#">Building Trust: Consistency as Growth Multiplier</a><span>Pg 42</span></div>
+      <div class="toc-item"><a href="#">Second-Chance Revenue: Monetizing Former Subscribers</a><span>Pg 43</span></div>
+      <div class="toc-item"><a href="#">Exponential Fan Value: Major Contributions</a><span>Pg 44</span></div>
+      <div class="toc-item"><a href="#">Creator vs. CEO: Shifting from Output to Systems</a><span>Pg 45</span></div>
+      <div class="toc-item"><a href="#">Process-Driven Results: Reducing Decision Fatigue</a><span>Pg 46</span></div>
+      <div class="toc-item"><a href="#">Team Leverage: Freeing Energy for Strategy and Optimization</a><span>Pg 47</span></div>
+      <div class="toc-item"><a href="#">Evidence-Based Scaling: Turning Data into Decisions</a><span>Pg 48</span></div>
+      <div class="toc-item"><a href="#">Continuous Evolution: Preventing Stagnation</a><span>Pg 49</span></div>
+      <div class="toc-item"><a href="#">Guaranteed Access: Owning Your Audience</a><span>Pg 50</span></div>
+      <div class="toc-item"><a href="#">Revenue Network: Connecting Streams for Maximum Effect</a><span>Pg 51</span></div>
+      <div class="toc-item"><a href="#">Data-Driven Progress: Using Metrics to Guide Adaptation</a><span>Pg 52</span></div>
+      <div class="toc-item"><a href="#">Stable Growth: Systems That Prevent Collapse</a><span>Pg 53</span></div>
+      <div class="toc-item"><a href="#">Looped Success: Feedback Cycles That Drive Growth</a><span>Pg 54</span></div>
+      <div class="toc-item"><a href="#">SUMMARY</a><span>Pg 55</span></div>
+    </div>
+    <div class="page-footer">
+      <span>This file is protected by copyright law.</span>
+      <span class="page-num">2</span>
+    </div>
+  </div>
 </div>
 
 </body>
