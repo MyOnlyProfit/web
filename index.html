@@ -768,7 +768,7 @@ function switchPage(idx) {
     document.getElementById('peekCurrent').textContent=String(idx+1).padStart(2,'0');
 
     if(idx===4){
-        for(let i=0;i<3;i++) document.getElementById('frame'+i).style.display='none';
+        for(let i=0;i<4;i++) document.getElementById('frame'+i).style.display='none';
         document.getElementById('lockedPage').style.display='block';
         document.getElementById('peekLabel').textContent='Locked Content';
         return;
