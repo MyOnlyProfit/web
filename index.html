@@ -101,6 +101,30 @@
         .st .cy{color:var(--cyan)}
         .ss{font-size:.9rem;color:var(--text-dim);line-height:1.7;max-width:500px}
 
+        /* PEEK INSIDE */
+      .peek-section{padding:120px 60px;border-top:1px solid var(--dark3);background:var(--dark)}
+      .peek-inner{max-width:1200px;margin:0 auto}
+      .peek-tabs{display:flex;gap:2px;margin-bottom:2px}
+      .peek-tab{padding:10px 22px;font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:2px;text-transform:uppercase;background:var(--dark2);border:1px solid var(--dark3);border-bottom:none;color:var(--text-dim);cursor:pointer;transition:all .3s;position:relative;z-index:2}
+      .peek-tab:hover{color:var(--cyan);border-color:var(--cyan)}
+      .peek-tab.active{background:var(--dark3);color:var(--pink);border-color:var(--pink)}
+      .peek-viewport{background:var(--dark2);border:1px solid var(--dark3);height:520px;position:relative;overflow:hidden}
+      .peek-frame{width:100%;height:100%;border:none;display:block;pointer-events:none}
+      .peek-blur-bg{position:absolute;inset:0;background:var(--dark2);filter:blur(6px);transform:scale(1.05)}
+      .peek-lock{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:linear-gradient(to bottom,rgba(10,10,11,0) 0%,rgba(10,10,11,.85) 40%,rgba(10,10,11,.98) 100%);padding:40px;text-align:center}
+      .peek-lock-icon{font-family:'Space Mono',monospace;font-size:2rem;color:var(--pink);letter-spacing:4px}
+      .peek-lock h3{font-family:'Space Mono',monospace;font-size:.95rem;text-transform:uppercase;letter-spacing:2px;color:var(--text);margin:0}
+      .peek-lock p{font-size:.8rem;color:var(--text-dim);max-width:320px;line-height:1.6;margin:0}
+      .peek-nav{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:var(--dark2);border:1px solid var(--dark3);border-top:none}
+      .peek-nav-dots{display:flex;gap:8px}
+      .peek-dot{width:8px;height:8px;background:var(--dark3);border:1px solid #333;cursor:pointer;transition:all .3s;clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%)}
+      .peek-dot.active{background:var(--pink);border-color:var(--pink)}
+      .peek-dot-locked{opacity:.4;cursor:not-allowed}
+      .peek-page-label{font-family:'Space Mono',monospace;font-size:.55rem;color:var(--cyan);letter-spacing:2px;text-transform:uppercase;opacity:.7}
+      .peek-counter{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--text-dim);letter-spacing:2px}
+      .peek-counter span{color:var(--pink)}
+      @media(max-width:768px){.peek-section{padding:80px 20px}.peek-tabs{flex-wrap:wrap}.peek-tab{flex:1;min-width:calc(50% - 2px)}.peek-viewport{height:400px}}
+
         /* PROBLEM */
         .problem{padding:120px 60px;max-width:1200px;margin:0 auto}
         .prob-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:50px}
@@ -481,6 +505,48 @@
     </div>
 </section>
 
+<!-- PEEK INSIDE SECTION -->
+<section class="peek-section fd" id="peek">
+    <div class="peek-inner">
+        <div class="sl">// PEEK_INSIDE</div>
+        <h2 class="st">See what's <span class="pk">inside</span> the system.</h2>
+        <p class="ss" style="margin-bottom:50px">Real pages from the Complete Kickstart. 5 sections. 125 pages. No filler.</p>
+
+        <div class="peek-tabs">
+            <button class="peek-tab active" onclick="switchPage(0)">PAGE_01</button>
+            <button class="peek-tab" onclick="switchPage(1)">PAGE_02</button>
+            <button class="peek-tab" onclick="switchPage(2)">PAGE_03</button>
+            <button class="peek-tab" onclick="switchPage(3)">UNLOCK_FULL // 123 PAGES 🔒</button>
+        </div>
+
+        <div class="peek-viewport" id="peekViewport">
+            <iframe id="frame0" class="peek-frame"></iframe>
+            <iframe id="frame1" class="peek-frame" style="display:none"></iframe>
+            <iframe id="frame2" class="peek-frame" style="display:none"></iframe>
+            <div id="lockedPage" style="display:none;position:absolute;inset:0;width:100%;height:100%">
+                <div class="peek-blur-bg"></div>
+                <div class="peek-lock">
+                    <div class="peek-lock-icon">[ &#x1F512; ]</div>
+                    <h3>This page is locked</h3>
+                    <p>The DM Conversion System, pricing scripts &amp; 30-day calendar are inside the full Kickstart guide.</p>
+                    <a href="#price" class="btn-f pink" style="margin-top:8px">UNLOCK FOR €499 →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="peek-nav">
+            <div class="peek-nav-dots">
+                <div class="peek-dot active" onclick="switchPage(0)"></div>
+                <div class="peek-dot" onclick="switchPage(1)"></div>
+                <div class="peek-dot" onclick="switchPage(2)"></div>
+                <div class="peek-dot peek-dot-locked" onclick="switchPage(3)"></div>
+            </div>
+            <span class="peek-page-label" id="peekLabel">30-Day Content System</span>
+            <span class="peek-counter"><span id="peekCurrent">01</span>/04</span>
+        </div>
+    </div>
+</section>
+
 <!-- CTA SECTION -->
 <section class="cta" id="cta">
     <div class="sl">// GET_STARTED</div>
@@ -682,6 +748,35 @@ function handleCtaSubmit(e) {
         selectCtaType(document.querySelector('.cta-sel-btn[data-type="analysis"]'));
     }, 3000);
 }
+
+// PEEK INSIDE
+const peekPages = [
+  { label:'30-Day Content System', src:'pages/page1.html' },
+  { label:'TikTok Traffic System', src:'pages/page2.html' },
+  { label:'Bio Conversion System', src:'pages/page3.html' }
+];
+
+function switchPage(idx) {
+    document.querySelectorAll('.peek-tab').forEach((t,i)=>t.classList.toggle('active',i===idx));
+    document.querySelectorAll('.peek-dot').forEach((d,i)=>{if(i<3)d.classList.toggle('active',i===idx)});
+    document.getElementById('peekCurrent').textContent=String(idx+1).padStart(2,'0');
+
+    if(idx===3){
+        for(let i=0;i<3;i++) document.getElementById('frame'+i).style.display='none';
+        document.getElementById('lockedPage').style.display='block';
+        document.getElementById('peekLabel').textContent='Locked Content';
+        return;
+    }
+    document.getElementById('lockedPage').style.display='none';
+    for(let i=0;i<3;i++){
+        const f=document.getElementById('frame'+i);
+        f.style.display=i===idx?'block':'none';
+        if(i===idx && !f.getAttribute('data-loaded')){f.src=peekPages[i].src;f.setAttribute('data-loaded','1');}
+    }
+    document.getElementById('peekLabel').textContent=peekPages[idx].label;
+}
+document.getElementById('frame0').src=peekPages[0].src;
+document.getElementById('frame0').setAttribute('data-loaded','1');
 </script>
 </body>
 </html>
