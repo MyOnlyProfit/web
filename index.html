@@ -523,11 +523,9 @@
             <button class="peek-tab" onclick="switchPage(4)">UNLOCK_FULL // 123 PAGES 🔒</button>
         </div>
 
-        <div class="peek-viewport" id="peekViewport">
-            <iframe id="frame0" class="peek-frame"></iframe>
-            <iframe id="frame1" class="peek-frame" style="display:none"></iframe>
-            <iframe id="frame2" class="peek-frame" style="display:none"></iframe>
-            <iframe id="frame3" class="peek-frame" style="display:none"></iframe>
+<div class="peek-viewport" id="peekViewport">
+    <iframe id="mainFrame" class="peek-frame"></iframe>
+        </div>
             <div id="lockedPage" style="display:none;position:absolute;inset:0;width:100%;height:100%">
                 <div class="peek-blur-bg"></div>
                 <div class="peek-lock">
@@ -765,27 +763,28 @@ const peekPages = [
   { label:'HIGH-PERFORMING MESSAGE STYLES', src:'pages/page5.html' },
 ];
 
-function switchPage(idx) {
+function switchPage(idx){
     document.querySelectorAll('.peek-tab').forEach((t,i)=>t.classList.toggle('active',i===idx));
     document.querySelectorAll('.peek-dot').forEach((d,i)=>{if(i<4)d.classList.toggle('active',i===idx)});
-    document.getElementById('peekCurrent').textContent=String(idx+1).padStart(2,'0');
+    document.getElementById('peekCurrent').textContent = String(idx+1).padStart(2,'0');
 
-    if(idx===4){
-        for(let i=0;i<4;i++) document.getElementById('frame'+i).style.display='none';
-        document.getElementById('lockedPage').style.display='block';
-        document.getElementById('peekLabel').textContent='Locked Content';
+    const frame = document.getElementById('mainFrame');
+
+    if(idx === 4){
+        frame.style.display = 'none';
+        document.getElementById('lockedPage').style.display = 'block';
+        document.getElementById('peekLabel').textContent = 'Locked Content';
         return;
     }
-    document.getElementById('lockedPage').style.display='none';
-    for(let i=0;i<4;i++){
-        const f=document.getElementById('frame'+i);
-        f.style.display=i===idx?'block':'none';
-        if(i===idx && !f.getAttribute('data-loaded')){f.src=peekPages[i].src;f.setAttribute('data-loaded','1');}
-    }
-    document.getElementById('peekLabel').textContent=peekPages[idx].label;
+
+    document.getElementById('lockedPage').style.display = 'none';
+    frame.style.display = 'block';
+
+    // FORCE clean load every time
+    frame.src = peekPages[idx].src;
+
+    document.getElementById('peekLabel').textContent = peekPages[idx].label;
 }
-document.getElementById('frame0').src=peekPages[0].src;
-document.getElementById('frame0').setAttribute('data-loaded','1');
 </script>
 </body>
 </html>
