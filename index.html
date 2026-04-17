@@ -855,48 +855,47 @@ const statsOb = new IntersectionObserver(entries => {
 statsOb.observe(document.querySelector('.stats'));
 
 const glitchChars = '!<>-_\\/[]{}—=+*^?#@$%&';
-const glitchTarget = 'STUCK';
 const glitchEl = document.getElementById('glitchWord');
 let glitchLoop;
 
-function scrambleTo(finalWord, cb) {
-    const len = finalWord.length;
-    let iteration = 0;
+function scrambleAll(finalWord, cb) {
+    let elapsed = 0;
+    const duration = 2000;
+    const tickInterval = 50;
     clearInterval(glitchLoop);
     glitchLoop = setInterval(() => {
-        glitchEl.textContent = finalWord.split('').map((char, i) => {
-            if(i < iteration) return finalWord[i];
-            return glitchChars[Math.floor(Math.random() * glitchChars.length)];
-        }).join('');
-        iteration += 0.4;
-        if(iteration >= len + 1) {
+        elapsed += tickInterval;
+        glitchEl.textContent = finalWord.split('').map(() =>
+            glitchChars[Math.floor(Math.random() * glitchChars.length)]
+        ).join('');
+        if(elapsed >= duration) {
             clearInterval(glitchLoop);
-            glitchEl.textContent = finalWord;
             if(cb) cb();
         }
-    }, 60);
+    }, tickInterval);
 }
 
 function runGlitchCycle() {
-    scrambleTo('HELP', () => {
+    scrambleAll('STUCK', () => {
+        glitchEl.textContent = 'F*CK';
+        glitchEl.style.color = 'var(--cyan)';
+        glitchEl.style.textShadow = '2px 0 var(--pink), -2px 0 var(--purple)';
         setTimeout(() => {
-            glitchEl.style.color = 'var(--cyan)';
-            glitchEl.style.textShadow = '2px 0 var(--pink), -2px 0 var(--purple)';
+            glitchEl.style.textShadow = '-2px 0 var(--pink), 2px 0 var(--cyan)';
             setTimeout(() => {
-                glitchEl.style.textShadow = '-2px 0 var(--pink), 2px 0 var(--cyan)';
-                setTimeout(() => {
-                    glitchEl.style.color = '';
-                    glitchEl.style.textShadow = '';
-                    scrambleTo('STUCK', () => {
-                        setTimeout(runGlitchCycle, 3000);
-                    });
-                }, 200);
+                glitchEl.style.color = '';
+                glitchEl.style.textShadow = '';
+                scrambleAll('STUCK', () => {
+                    glitchEl.textContent = 'STUCK';
+                    setTimeout(runGlitchCycle, 3000);
+                });
             }, 200);
         }, 1000);
     });
 }
 
 setTimeout(runGlitchCycle, 1500);
+
 </script>
 </body>
 </html>
