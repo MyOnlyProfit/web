@@ -787,6 +787,13 @@ function selectCtaType(btn) {
 // CTA Form Submit
 async function handleCtaSubmit(e) {
   e.preventDefault();
+
+  const privacyChecked = document.getElementById('ctaPrivacy').checked;
+  if (!privacyChecked) {
+    alert('Please accept the Privacy Policy and Terms of Service to continue.');
+    return;
+  }
+
   const submitBtn = document.getElementById('ctaSubmitBtn');
 
   const data = {
@@ -795,10 +802,13 @@ async function handleCtaSubmit(e) {
     income: document.getElementById('ctaIncome').value,
     message: document.getElementById('ctaMessage').value,
     goals: document.getElementById('ctaGoals').value,
-    type: currentCtaType
+    type: currentCtaType,
+    privacyAccepted: true,
+    timestamp: new Date().toISOString()
   };
 
   submitBtn.textContent = 'SENDING...';
+  submitBtn.disabled = true;
 
   try {
     const res = await fetch('https://project-ke2z2.vercel.app/api/contact', {
@@ -810,14 +820,16 @@ async function handleCtaSubmit(e) {
     if (res.ok) {
       submitBtn.textContent = '✓ SENT';
       submitBtn.style.background = 'var(--cyan)';
+      submitBtn.style.color = 'var(--dark)';
     } else {
-      submitBtn.textContent = 'ERROR';
+      submitBtn.textContent = 'ERROR — TRY AGAIN';
+      submitBtn.disabled = false;
     }
   } catch (err) {
-    submitBtn.textContent = 'FAILED';
+    submitBtn.textContent = 'FAILED — TRY AGAIN';
+    submitBtn.disabled = false;
   }
 }
-
 
 // PEEK INSIDE
 const peekPages = [
