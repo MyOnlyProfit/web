@@ -1,127 +1,209 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>From Creator to CEO: The Mindset Shift That Unlocks Scale | MyOnlyProfit</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intel — Creator Strategy Blog | MyOnlyProfit</title>
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}:root{--pink:#FF2D7B;--purple:#9D4EDD;--cyan:#00F5FF;--dark:#0A0A0B;--dark2:#111113;--dark3:#1A1A1D;--text:#E0E0E0;--text-dim:#888;--border:#2C2C2C}
-body{font-family:'Chakra Petch',sans-serif;background:var(--dark);color:var(--text);line-height:1.8;overflow-x:hidden}
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--pink:#FF2D7B;--purple:#9D4EDD;--cyan:#00F5FF;--dark:#0A0A0B;--dark2:#111113;--dark3:#1A1A1D;--text:#E0E0E0;--text-dim:#888;--border:#2C2C2C;--grad:linear-gradient(135deg,#FF2D7B 0%,#9D4EDD 50%,#00F5FF 100%)}
+body{font-family:'Chakra Petch',sans-serif;background:var(--dark);color:var(--text);overflow-x:hidden}
 body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);pointer-events:none;z-index:9999}
-a{color:var(--cyan);text-decoration:none}a:hover{color:var(--pink)}
 .nav{position:fixed;top:0;width:100%;z-index:1000;padding:16px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(10,10,11,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
-.nav-logo{font-family:'Space Mono',monospace;font-size:.95rem;font-weight:700;text-decoration:none;color:var(--pink);letter-spacing:2px;text-transform:uppercase}.nav-logo span{color:var(--cyan)}
-.nav-back{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:2px;border:1px solid var(--border);padding:6px 14px;transition:all .3s}.nav-back:hover{border-color:var(--pink);color:var(--pink)}
-.layout{display:grid;grid-template-columns:1fr 280px;gap:60px;max-width:1100px;margin:0 auto;padding:120px 40px 80px}
-@media(max-width:900px){.layout{grid-template-columns:1fr;padding:100px 20px 60px}}@media(max-width:768px){.nav{padding:14px 20px}}
-.post-hero{border-bottom:1px solid var(--border);padding-bottom:40px;margin-bottom:40px}
-.post-tag{font-family:'Space Mono',monospace;font-size:.55rem;text-transform:uppercase;letter-spacing:4px;color:var(--cyan);border:1px solid rgba(0,245,255,.2);padding:5px 14px;display:inline-block;margin-bottom:20px}
-.post-tag.pk{color:var(--pink);border-color:rgba(255,45,123,.2)}
-.post-title{font-family:'Space Mono',monospace;font-size:2rem;font-weight:700;text-transform:uppercase;line-height:1.15;margin-bottom:20px}
-.post-title .pk{color:var(--pink)}.post-title .cy{color:var(--cyan)}.post-title .pu{color:var(--purple)}
-.post-meta{display:flex;gap:24px;font-size:.65rem;font-family:'Space Mono',monospace;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px;flex-wrap:wrap}
-.author-row{display:flex;align-items:center;gap:14px;margin-top:24px;padding:16px;background:var(--dark2);border:1px solid var(--border)}
-.avatar{width:44px;height:44px;background:linear-gradient(135deg,var(--pink),var(--purple));clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:.7rem;font-weight:700;color:var(--dark);flex-shrink:0}
-.author-info .name{font-family:'Space Mono',monospace;font-size:.7rem;font-weight:700;color:var(--pink);text-transform:uppercase;letter-spacing:1px}.author-info .role{font-size:.65rem;color:var(--text-dim)}
-.post-content h2{font-family:'Space Mono',monospace;font-size:1.2rem;color:var(--pink);text-transform:uppercase;letter-spacing:1px;margin:36px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--border)}
-.post-content h3{font-family:'Space Mono',monospace;font-size:.9rem;color:var(--cyan);text-transform:uppercase;letter-spacing:1px;margin:24px 0 10px}
-.post-content p{font-size:.9rem;color:var(--text-dim);margin-bottom:16px;line-height:1.8}.post-content p strong{color:var(--text)}
-.post-content ul{list-style:none;margin:0 0 20px;padding:0}
-.post-content ul li{font-size:.88rem;color:var(--text-dim);padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);display:flex;gap:10px;align-items:flex-start;line-height:1.6}
-.post-content ul li::before{content:"→";color:var(--cyan);font-family:'Space Mono',monospace;font-weight:700;flex-shrink:0;margin-top:2px}
-.hbox{background:var(--dark2);border-left:2px solid var(--pink);padding:20px 24px;margin:28px 0;font-size:.88rem;line-height:1.8;color:var(--text)}.hbox.cy{border-left-color:var(--cyan)}.hbox strong{color:var(--pink)}.hbox.cy strong{color:var(--cyan)}
-blockquote{background:var(--dark2);border-left:3px solid var(--purple);padding:14px 20px;margin:24px 0;font-family:'Space Mono',monospace;font-size:.82rem;color:var(--cyan);font-style:italic}
-.cta-box{background:var(--dark2);border:1px solid var(--pink);padding:36px;margin:48px 0;text-align:center;position:relative;overflow:hidden}
-.cta-box::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--pink),var(--purple),var(--cyan))}
-.cta-tag{font-family:'Space Mono',monospace;font-size:.55rem;text-transform:uppercase;letter-spacing:4px;color:var(--cyan);margin-bottom:14px}
-.cta-box h3{font-family:'Space Mono',monospace;font-size:1.2rem;text-transform:uppercase;color:var(--text);margin-bottom:10px}
-.cta-box p{font-size:.85rem;color:var(--text-dim);margin-bottom:24px;max-width:460px;margin-left:auto;margin-right:auto}
-.cta-btn{display:inline-block;background:var(--pink);color:var(--dark);padding:14px 36px;font-family:'Chakra Petch',sans-serif;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;text-decoration:none;clip-path:polygon(0 0,100% 0,100% 70%,92% 100%,0 100%);transition:all .3s}.cta-btn:hover{background:var(--cyan);color:var(--dark)}
-.sidebar{position:sticky;top:100px;height:fit-content}.sidebar-card{background:var(--dark2);border:1px solid var(--border);padding:24px;margin-bottom:20px}
-.sc-title{font-family:'Space Mono',monospace;font-size:.6rem;text-transform:uppercase;letter-spacing:3px;color:var(--cyan);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border)}
-.sidebar-card p{font-size:.8rem;color:var(--text-dim);margin-bottom:14px;line-height:1.7}
-.sidebar-btn{display:block;background:var(--pink);color:var(--dark);padding:12px;text-align:center;font-family:'Space Mono',monospace;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;text-decoration:none;transition:all .3s}.sidebar-btn:hover{background:var(--cyan);color:var(--dark)}
-.rl{list-style:none}.rl li{padding:8px 0;border-bottom:1px solid var(--border)}.rl li:last-child{border-bottom:none}
-.rl a{font-size:.75rem;color:var(--text-dim);text-decoration:none;transition:color .3s;display:flex;gap:8px}.rl a::before{content:"→";color:var(--cyan);flex-shrink:0}.rl a:hover{color:var(--pink)}
-.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:10px}.stat-item{background:var(--dark3);padding:14px 12px;text-align:center}
-.sv{font-family:'Space Mono',monospace;font-size:1.1rem;font-weight:700;color:var(--pink)}.sl{font-size:.55rem;text-transform:uppercase;letter-spacing:1px;color:var(--text-dim);margin-top:2px}
-</style></head><body>
-<nav class="nav"><a href="../index.html" class="nav-logo">MY<span>ONLY</span>PROFIT</a><a href="../index.html" class="nav-back">← Back to Intel</a></nav>
-<div class="layout">
-  <main><article>
-    <div class="post-hero">
-      <div class="post-tag ">// Advanced Strategy</div>
-      <h1 class="post-title">From Creator to CEO:<br/><span class="pk">The Mindset Shift</span><br/>That <span class="cy">Unlocks Scale</span></h1>
-      <div class="post-meta"><span>April 2026</span><span>9 min read</span><span>Advanced · Scaling</span></div>
-      <div class="author-row">
-        <div class="avatar">MOP</div>
-        <div class="author-info"><div class="name">MyOnlyProfit</div><div class="role">Creator Strategy · 20+ accounts managed</div></div>
-      </div>
-    </div>
-    <div class="post-content">
+.nav-logo{font-family:'Space Mono',monospace;font-size:.95rem;font-weight:700;text-decoration:none;color:var(--pink);letter-spacing:2px;text-transform:uppercase}
+.nav-logo span{color:var(--cyan)}
+.nav-home{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:2px;border:1px solid var(--border);padding:6px 14px;text-decoration:none;transition:all .3s}
+.nav-home:hover{border-color:var(--cyan);color:var(--cyan)}
+.hero{padding:140px 60px 80px;max-width:1100px;margin:0 auto;border-bottom:1px solid var(--border)}
+.hero-tag{font-family:'Space Mono',monospace;font-size:.55rem;text-transform:uppercase;letter-spacing:4px;color:var(--cyan);border:1px solid rgba(0,245,255,.2);padding:5px 14px;display:inline-block;margin-bottom:24px}
+.hero h1{font-family:'Space Mono',monospace;font-size:3rem;font-weight:700;text-transform:uppercase;line-height:1.1;margin-bottom:16px}
+.hero h1 .pk{color:var(--pink)}
+.hero p{font-size:.9rem;color:var(--text-dim);max-width:500px;line-height:1.7}
+@media(max-width:768px){.hero{padding:120px 20px 60px}.hero h1{font-size:1.8rem}.nav{padding:14px 20px}}
 
-<p>There's a ceiling that most OnlyFans creators hit around the €2,000–€3,000/month mark. They're posting consistently. They have subscribers. They're doing the work. But growth has plateaued and they can't figure out why. The answer is almost always the same: <strong>they're still thinking like a creator when they need to think like a CEO.</strong></p>
-<p>These aren't the same mode. And confusing them is what keeps capable creators stuck at a fraction of what they could earn.</p>
+.blog-container{max-width:1100px;margin:0 auto;padding:60px 40px 100px}
+@media(max-width:768px){.blog-container{padding:40px 20px 80px}}
 
-<h2>What creator mode looks like</h2>
-<p>Creator mode is focused on output: what to post today, which DMs to answer, how to make the content better. It's reactive, task-focused, and entirely in the present. Creator mode is essential — without it nothing gets made. But creator mode alone has a hard ceiling because it's entirely dependent on your personal time and energy.</p>
-<p>In creator mode, income = your effort × your hourly rate. That's a linear relationship. There's only so much effort you can apply. <strong>Linear effort generates linear income.</strong></p>
+.section-label{font-family:'Space Mono',monospace;font-size:.55rem;text-transform:uppercase;letter-spacing:4px;color:var(--cyan);margin-bottom:24px}
 
-<div class="hbox">
-  <strong>Creator asks: "What do I post today?"</strong><br/>
-  CEO asks: "What system produces the right content every day, whether I'm thinking about it or not?"<br/><br/>
-  One question leads to daily tasks. The other leads to sustainable growth.
+/* FEATURED POST */
+.featured{background:var(--dark2);border:1px solid var(--border);position:relative;overflow:hidden;margin-bottom:48px;display:grid;grid-template-columns:1fr 1fr;text-decoration:none;transition:all .3s}
+.featured::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--grad)}
+.featured:hover{border-color:rgba(255,45,123,.3);transform:translateY(-2px)}
+.featured-content{padding:48px}
+.featured-eyebrow{font-family:'Space Mono',monospace;font-size:.55rem;text-transform:uppercase;letter-spacing:3px;color:var(--pink);margin-bottom:14px}
+.featured-title{font-family:'Space Mono',monospace;font-size:1.6rem;font-weight:700;text-transform:uppercase;color:var(--text);margin-bottom:14px;line-height:1.2}
+.featured-desc{font-size:.85rem;color:var(--text-dim);line-height:1.7;margin-bottom:20px}
+.featured-meta{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--text-dim);display:flex;gap:16px}
+.featured-cta{background:var(--dark3);display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:.7rem;color:var(--cyan);text-transform:uppercase;letter-spacing:2px;flex-direction:column;gap:8px;padding:40px}
+.featured-cta .arrow{font-size:2rem;color:var(--pink)}
+@media(max-width:700px){.featured{grid-template-columns:1fr}.featured-cta{display:none}}
+
+/* GRID */
+.posts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+@media(max-width:900px){.posts-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.posts-grid{grid-template-columns:1fr}}
+
+.post-card{background:var(--dark2);border:1px solid var(--border);padding:28px;text-decoration:none;display:block;transition:all .3s;position:relative;overflow:hidden}
+.post-card::before{content:'';position:absolute;top:0;left:0;width:0;height:2px;background:var(--grad);transition:width .4s}
+.post-card:hover::before{width:100%}
+.post-card:hover{border-color:rgba(255,45,123,.2);background:var(--dark3)}
+.card-tag{font-family:'Space Mono',monospace;font-size:.5rem;text-transform:uppercase;letter-spacing:3px;margin-bottom:12px;display:inline-block;padding:3px 10px;border:1px solid}
+.card-tag.cyan{color:var(--cyan);border-color:rgba(0,245,255,.2)}
+.card-tag.pink{color:var(--pink);border-color:rgba(255,45,123,.2)}
+.card-tag.purple{color:var(--purple);border-color:rgba(157,78,221,.2)}
+.card-title{font-family:'Space Mono',monospace;font-size:.9rem;font-weight:700;text-transform:uppercase;color:var(--text);margin-bottom:10px;line-height:1.3}
+.card-desc{font-size:.78rem;color:var(--text-dim);line-height:1.6;margin-bottom:16px}
+.card-footer{display:flex;justify-content:space-between;align-items:center;font-family:'Space Mono',monospace;font-size:.55rem;color:var(--text-dim)}
+.card-read{color:var(--cyan)}
+
+/* CTA BANNER */
+.cta-banner{background:var(--dark2);border:1px solid var(--pink);padding:48px;text-align:center;margin-top:60px;position:relative;overflow:hidden}
+.cta-banner::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--grad)}
+.cta-banner .ct{font-family:'Space Mono',monospace;font-size:.55rem;text-transform:uppercase;letter-spacing:4px;color:var(--cyan);margin-bottom:16px}
+.cta-banner h2{font-family:'Space Mono',monospace;font-size:1.8rem;font-weight:700;text-transform:uppercase;margin-bottom:12px}
+.cta-banner p{font-size:.88rem;color:var(--text-dim);max-width:480px;margin:0 auto 28px;line-height:1.7}
+.cta-banner-btn{display:inline-block;background:var(--pink);color:var(--dark);padding:14px 40px;font-family:'Chakra Petch',sans-serif;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;text-decoration:none;clip-path:polygon(0 0,100% 0,100% 70%,92% 100%,0 100%);transition:all .3s}
+.cta-banner-btn:hover{background:var(--cyan)}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="../index.html" class="nav-logo">MY<span>ONLY</span>PROFIT</a>
+  <a href="../index.html" class="nav-home">← Back to Home</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">// Creator Intel</div>
+  <h1>Strategy. <span class="pk">No Fluff.</span><br/>No Gatekeeping.</h1>
+  <p>Real insights for OnlyFans creators who are serious about building income. No vague tips. No recycled advice. Just the knowledge that actually changes numbers.</p>
 </div>
 
-<h2>What CEO mode looks like</h2>
-<p>CEO mode thinks about the system that produces output, not just the output itself. Instead of "what DMs should I send today?", the question is "what DM framework generates consistent conversions at any volume?" Instead of "what should I post?", the question is "what content calendar and batching system keeps the feed active with minimal daily decision-making?"</p>
-<p>CEO mode builds leverage. Leverage is what allows income to grow without personal effort growing proportionally. Systems, processes, templates, automations, and eventually people — these are the tools of leverage. <strong>Each one you add extends what a single creator can earn.</strong></p>
+<div class="blog-container">
+  <div class="section-label">// Featured Post</div>
 
-<h2>The specific shift that unlocks scale</h2>
-<p>The pivot happens when you stop measuring success by how hard you worked and start measuring it by how well your systems performed. A day where you spent four hours creating content feels productive in creator mode. A day where your scheduled posts went out, your DM sequences ran, your analytics showed growth — and you spent two hours on strategy — is more productive in CEO mode.</p>
-<p>This reframe feels uncomfortable at first. Creating is tangible. Systems are abstract. But the creators who scale to €8,000, €12,000, €20,000/month are almost universally those who made this transition. They didn't get there by working harder. They got there by making their working smarter.</p>
+  <a href="agency-vs-solo/index.html" class="featured">
+    <div class="featured-content">
+      <div class="featured-eyebrow">// Industry Truth · 10 min read</div>
+      <div class="featured-title">OnlyFans vs Agency: The Real Numbers Nobody Talks About</div>
+      <div class="featured-desc">At €6,000/month, a 50% agency split costs you €36,000 a year. The playbook they use to justify that cut is learnable. Here's the breakdown that changes everything.</div>
+      <div class="featured-meta"><span>April 2026</span><span>10 min read</span><span>High Impact</span></div>
+    </div>
+    <div class="featured-cta">
+      <span class="arrow">→</span>
+      <span>Read Post</span>
+    </div>
+  </a>
 
-<h2>Delegation and when it makes sense</h2>
-<p>At high volume — typically beyond 300–500 active subscribers — certain operational tasks can be delegated without affecting the subscriber experience quality. DM management with tight brand guidelines, content scheduling, analytics tracking — these are operational functions, not creative ones. Delegating them frees your attention for the things only you can do.</p>
-<p>Premature delegation before systems are established is counterproductive. You can't delegate what isn't systematized. The CEO mindset doesn't mean outsourcing immediately — it means building the systems that would make delegation possible when the volume demands it.</p>
+  <div class="section-label">// All Intel</div>
 
-<h2>Tracking and data: the CEO's unfair advantage</h2>
-<p>CEOs run on data. Creators run on feel. "This post felt good" is a creator metric. "This content format drives a 4.2% conversion rate versus 1.8% for the other format" is a CEO metric. The difference in decision quality that comes from actual data versus gut feeling compounds dramatically over time.</p>
-<p>You don't need sophisticated analytics. You need consistent tracking of a small set of metrics: content views, profile visits, subscriber conversion rate, PPV purchase rate, message response rates, retention. These five numbers, tracked weekly, provide more useful information than any amount of intuition.</p>
+  <div class="posts-grid">
+    <a href="no-face/index.html" class="post-card">
+      <span class="card-tag cyan">Anonymous Strategy</span>
+      <div class="card-title">How to Make Money on OnlyFans Without Showing Your Face</div>
+      <div class="card-desc">You don't need a face to build a profitable page. Some of our highest-earning creators are completely anonymous. Here's why it actually works in your favor.</div>
+      <div class="card-footer"><span>8 min read</span><span class="card-read">Read →</span></div>
+    </a>
 
-<blockquote>"The day I stopped asking 'what should I post?' and started asking 'what does my data say I should post?' — that was the day everything changed." — creator in our program, scaled to €9k/mo in 6 months</blockquote>
+    <a href="quit-rate/index.html" class="post-card">
+      <span class="card-tag pink">Reality Check</span>
+      <div class="card-title">Why 90% of OnlyFans Creators Quit in 3 Months (And How to Beat It)</div>
+      <div class="card-desc">Nine out of ten creators are gone before month four. The reasons are predictable — and almost entirely avoidable if you understand the pattern before you're in it.</div>
+      <div class="card-footer"><span>9 min read</span><span class="card-read">Read →</span></div>
+    </a>
 
-<div class="hbox cy">
-  <strong>Creator mode builds a job. CEO mode builds a business.</strong><br/>
-  Both require you. But only one of them scales. The system is what separates income that grows when you work harder from income that grows when you work smarter.
+    <a href="tiktok-viral/index.html" class="post-card">
+      <span class="card-tag cyan">TikTok Traffic</span>
+      <div class="card-title">How to Go Viral on TikTok Without Getting Banned</div>
+      <div class="card-desc">TikTok is the most powerful free traffic source available. It will also delete your account if you approach it wrong. This is how you use it correctly.</div>
+      <div class="card-footer"><span>8 min read</span><span class="card-read">Read →</span></div>
+    </a>
+
+    <a href="pricing-psychology/index.html" class="post-card">
+      <span class="card-tag pink">Revenue Strategy</span>
+      <div class="card-title">OnlyFans Pricing Strategy: Why Charging Less Makes You More</div>
+      <div class="card-desc">High subscription prices feel like high value. They're often the reason accounts stay small. Here's the counterintuitive math that actually scales income.</div>
+      <div class="card-footer"><span>7 min read</span><span class="card-read">Read →</span></div>
+    </a>
+
+    <a href="fan-psychology/index.html" class="post-card">
+      <span class="card-tag purple">Conversion Psychology</span>
+      <div class="card-title">The Psychology of Why Fans Pay (And How to Use It)</div>
+      <div class="card-desc">Nobody pays for content. They pay for attention, access, connection, and fantasy. Understanding this distinction changes your conversion rates permanently.</div>
+      <div class="card-footer"><span>9 min read</span><span class="card-read">Read →</span></div>
+    </a>
+
+    <a href="first-1k/index.html" class="post-card">
+      <span class="card-tag cyan">Real Story</span>
+      <div class="card-title">I Hit My First $1,000 Month. Here's Exactly What Happened.</div>
+      <div class="card-desc">The honest account of month one — what went wrong, what worked, and the specific moment where income started making sense. No highlight reel.</div>
+      <div class="card-footer"><span>11 min read</span><span class="card-read">Read →</span></div>
+    </a>
+
+    <a href="content-burnout/index.html" class="post-card">
+      <span class="card-tag cyan">Content System</span>
+      <div class="card-title">How to Never Run Out of Content Ideas on OnlyFans</div>
+      <div class="card-desc">Content drought is a structure problem, not a creativity problem. The system that keeps your bank full and your posting consistent — permanently.</div>
+      <div class="card-footer"><span>7 min read</span><span class="card-read">Read →</span></div>
+    </a>
+
+    <a href="niche-vs-general/index.html" class="post-card">
+      <span class="card-tag pink">Brand Strategy</span>
+      <div class="card-title">Niche vs General: What Actually Converts on OnlyFans</div>
+      <div class="card-desc">General profiles compete on looks alone. Niche profiles compete on specificity. That distinction shapes conversion rates, subscriber loyalty, and how much people spend.</div>
+      <div class="card-footer"><span>8 min read</span><span class="card-read">Read →</span></div>
+    </a>
+
+    <a href="dm-mistakes/index.html" class="post-card">
+      <span class="card-tag pink">Revenue Critical</span>
+      <div class="card-title">5 DM Mistakes That Are Killing Your OnlyFans Income</div>
+      <div class="card-desc">The difference between a €1,500/month account and a €5,000/month account is often not subscriber count. It's what happens in the DMs.</div>
+      <div class="card-footer"><span>8 min read</span><span class="card-read">Read →</span></div>
+    </a>
+
+    <a href="free-vs-paid/index.html" class="post-card">
+      <span class="card-tag cyan">Business Model</span>
+      <div class="card-title">Free vs Paid OnlyFans: Which Model Makes More Money</div>
+      <div class="card-desc">Both models work. The question is which one fits your traffic situation, your content strategy, and what you can actually execute correctly right now.</div>
+      <div class="card-footer"><span>7 min read</span><span class="card-read">Read →</span></div>
+    </a>
+
+    <a href="consistency-code/index.html" class="post-card">
+      <span class="card-tag purple">Mindset + Strategy</span>
+      <div class="card-title">The Consistency Code: Why Regular Creators Win</div>
+      <div class="card-desc">The most predictable thing about successful creators isn't their content quality. It's their consistency. Not willpower — systems that make consistency automatic.</div>
+      <div class="card-footer"><span>7 min read</span><span class="card-read">Read →</span></div>
+    </a>
+
+    <a href="platform-algorithm/index.html" class="post-card">
+      <span class="card-tag cyan">Platform Intelligence</span>
+      <div class="card-title">How the OnlyFans Algorithm Actually Works</div>
+      <div class="card-desc">OnlyFans doesn't talk about its algorithm publicly. Here's what real account data across multiple creators actually reveals about how the platform decides who to surface.</div>
+      <div class="card-footer"><span>8 min read</span><span class="card-read">Read →</span></div>
+    </a>
+
+    <a href="branding-basics/index.html" class="post-card">
+      <span class="card-tag pink">Brand Fundamentals</span>
+      <div class="card-title">OnlyFans Branding 101: Why Your Identity Makes or Breaks You</div>
+      <div class="card-desc">Most creators skip branding entirely. Then they hit a ceiling they can't explain. Identity isn't a luxury for big creators — it's the foundation everything else builds on.</div>
+      <div class="card-footer"><span>8 min read</span><span class="card-read">Read →</span></div>
+    </a>
+
+    <a href="scaling-mindset/index.html" class="post-card">
+      <span class="card-tag purple">Advanced · Scaling</span>
+      <div class="card-title">From Creator to CEO: The Mindset Shift That Unlocks Scale</div>
+      <div class="card-desc">There's a ceiling most creators hit around €2–3K/month. The answer is almost always the same: they're still thinking like a creator when they need to think like a CEO.</div>
+      <div class="card-footer"><span>9 min read</span><span class="card-read">Read →</span></div>
+    </a>
+  </div>
+
+  <div class="cta-banner">
+    <div class="ct">// Ready to go beyond the articles?</div>
+    <h2>The Full Strategy.<br/><span style="color:var(--pink)">One Purchase.</span></h2>
+    <p>125 pages. 5 complete systems. The exact playbook behind €6.4K average monthly income across 20+ creators. No agencies. No splits. Yours permanently.</p>
+    <a href="../index.html#price" class="cta-banner-btn">Get the Complete Kickstart →</a>
+  </div>
 </div>
-
-      <div class="cta-box">
-        <div class="cta-tag">// The System Behind Scale</div>
-        <h3>Think Like a CEO. Earn Like One.</h3>
-        <p>The Complete Kickstart is built for the CEO mindset — systems, frameworks, data tracking, and scalable processes that produce income without requiring constant effort to maintain.</p>
-        <a href="../../index.html#price" class="cta-btn">Get the Strategy →</a>
-      </div>
-    </div>
-  </article></main>
-  <aside class="sidebar">
-    <div class="sidebar-card">
-      <div class="sc-title">// Own The System</div>
-      <p>125 pages. 5 systems. One-time purchase. Built for creators who are done with random results.</p>
-      <div class="stat-row"><div class="stat-item"><div class="sv">€6.4K</div><div class="sl">Avg Monthly</div></div><div class="stat-item"><div class="sv">4.9★</div><div class="sl">Rating</div></div></div>
-      <a href="../../index.html#price" class="sidebar-btn" style="margin-top:16px">GET STRATEGY →</a>
-    </div>
-    <div class="sidebar-card">
-      <div class="sc-title">// More Intel</div>
-      <ul class="rl">
-        <li><a href="../no-face/index.html">Making Money Without Showing Your Face</a></li>
-        <li><a href="../quit-rate/index.html">Why 90% of Creators Quit</a></li>
-        <li><a href="../agency-vs-solo/index.html">Agency vs Going Solo</a></li>
-        <li><a href="../first-1k/index.html">My First $1,000 Month</a></li>
-        <li><a href="../fan-psychology/index.html">Why Fans Actually Pay</a></li>
-        <li><a href="../pricing-psychology/index.html">Pricing Strategy That Works</a></li>
-      </ul>
-    </div>
-  </aside>
-</div></body></html>
+</body>
+</html>
