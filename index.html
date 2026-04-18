@@ -162,6 +162,14 @@
         .pi-f h4{font-size:.85rem;font-weight:600;margin-bottom:2px}
         .pi-f p{font-size:.75rem;color:var(--text-dim);line-height:1.5}
 
+        .privacy-label{display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:.78rem;color:var(--text-dim);line-height:1.5;padding:4px 0;}
+        .privacy-label input[type="checkbox"]{appearance:none;-webkit-appearance:none;width:16px;height:16px;min-width:16px;border:1px solid var(--dark3);background:var(--dark2);cursor:pointer;margin-top:2px;position:relative;transition:border-color .2s,background .2s;}
+        .privacy-label input[type="checkbox"]:checked{background:var(--pink);border-color:var(--pink);}
+        .privacy-label input[type="checkbox"]:checked::after{content:'✓';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:var(--dark);font-size:.75rem;font-weight:700;line-height:1;}
+        .privacy-label input[type="checkbox"]:focus{outline:1px solid var(--cyan);outline-offset:2px;}
+        .privacy-label a{color:var(--cyan);text-decoration:none;transition:color .2s;}
+        .privacy-label a:hover{color:var(--pink);}
+
         /* GLITCH */
         
        
@@ -608,21 +616,32 @@
         We'll review your OnlyFans profile and send a full strategy breakdown to your email — free.
     </p>
 
-    <form class="cta-form" id="ctaForm" onsubmit="handleCtaSubmit(event)">
-        <input type="email" id="ctaEmail" placeholder="your@email.com" required>
-        
-        <input type="text" id="ctaProfile" placeholder="Your OnlyFans profile link" required>
-        
-        <input type="text" id="ctaIncome" placeholder="Current monthly income (approx)" style="display:none">
-        
-        <textarea id="ctaMessage" placeholder="Your message..." style="display:none"></textarea>
-        
-        <textarea id="ctaGoals" placeholder="Tell us about your goals..." style="display:none"></textarea>
+  <form class="cta-form" id="ctaForm" onsubmit="handleCtaSubmit(event)">
+    <input type="email" id="ctaEmail" placeholder="your@email.com" required>
+    
+    <input type="text" id="ctaProfile" placeholder="Your OnlyFans profile link" required>
+    
+    <input type="text" id="ctaIncome" placeholder="Current monthly income (approx)" style="display:none">
+    
+    <textarea id="ctaMessage" placeholder="Your message..." style="display:none"></textarea>
+    
+    <textarea id="ctaGoals" placeholder="Tell us about your goals..." style="display:none"></textarea>
 
-        <button type="submit" class="btn-f pink cta-submit" id="ctaSubmitBtn" style="border:none;width:100%;justify-content:center">
-            GET FREE ANALYSIS →
-        </button>
-    </form>
+    <!-- PRIVACY CHECKBOX -->
+    <label class="privacy-label" id="privacyLabel">
+        <input type="checkbox" id="ctaPrivacy" required>
+        <span>
+            I have read and agree to the
+            <a href="privacy.html" target="_blank">Privacy Policy</a>
+            and
+            <a href="terms.html" target="_blank">Terms of Service</a>
+        </span>
+    </label>
+
+    <button type="submit" class="btn-f pink cta-submit" id="ctaSubmitBtn" style="border:none;width:100%;justify-content:center">
+        GET FREE ANALYSIS →
+    </button>
+</form>
 </section>
 
 <footer class="footer">
