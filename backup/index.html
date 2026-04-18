@@ -35,6 +35,14 @@
         .nav-links a{color:var(--text-dim);text-decoration:none;font-size:.7rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;transition:color .3s}
         .nav-links a:hover{color:var(--pink)}
         .nav-cta-f{background:var(--pink)!important;color:var(--dark)!important;padding:8px 18px;font-weight:700!important;clip-path:polygon(0 0,100% 0,100% 70%,90% 100%,0 100%)}
+        .nav-cta-cyan{background:var(--cyan)!important;color:var(--dark)!important;padding:8px 18px;font-weight:700!important;clip-path:polygon(0 0,100% 0,100% 70%,90% 100%,0 100%);animation:btnGlitch 6s infinite;}
+        @keyframes btnGlitch{
+          0%,90%,100%{text-shadow:none;transform:none}
+          92%{text-shadow:1px 0 var(--pink),-1px 0 var(--purple);transform:translateX(1px)}
+          94%{text-shadow:-1px 0 var(--pink),1px 0 var(--purple);transform:translateX(-1px)}
+          96%{text-shadow:1px 0 var(--cyan),-1px 0 var(--pink);transform:translateX(0)}
+          98%{text-shadow:-1px 0 var(--purple),1px 0 var(--cyan);transform:translateX(1px)}
+           }
         .ham-f{display:none;flex-direction:column;gap:4px;cursor:pointer}
         .ham-f span{width:20px;height:2px;background:var(--pink)}
 
@@ -52,6 +60,17 @@
             100%{text-shadow:2px 0 var(--pink),-2px 0 var(--cyan)}
         }
         .glitch{animation:glitch 3s infinite}
+        .glitch-slow{animation:btnGlitch 8s infinite;display:inline-block;}
+
+            @keyframes boxGlitch{
+            0%,88%,100%{filter:none;border-left-color:var(--pink)}
+            90%{filter:blur(0.4px);border-left-color:var(--cyan)}
+            92%{filter:blur(0.3px);border-left-color:var(--purple)}
+            94%{filter:none;border-left-color:var(--pink)}
+            96%{border-left-color:var(--cyan)}
+            98%{border-left-color:var(--pink)}
+            }
+            .prob-card.bad{animation:boxGlitch 6s infinite;}
 
         /* HERO */
         .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 40px 80px;position:relative;background-size:cover;overflow:hidden;background:linear-gradient(rgba(10,10,11,0.75),rgba(10,10,11,0.9));}
@@ -80,6 +99,7 @@
         .btn-f.cyber{background:transparent;color:var(--text);border:1px solid var(--dark3);clip-path:none}
         .btn-f.cyber:hover{border-color:var(--cyan);color:var(--cyan)}
         
+        .cycle-word{transition:color .4s ease}
 
         /* GRID BREAK */
         .grid-break{display:grid;grid-template-columns:repeat(4,1fr);height:300px;gap:2px}
@@ -141,6 +161,10 @@
         .pi-f .ic{font-family:'Space Mono',monospace;font-size:.8rem;margin-top:2px}
         .pi-f h4{font-size:.85rem;font-weight:600;margin-bottom:2px}
         .pi-f p{font-size:.75rem;color:var(--text-dim);line-height:1.5}
+
+        /* GLITCH */
+        
+       
 
         /* HOW */
         .how{padding:120px 60px;background:var(--dark2);border-top:1px solid var(--dark3);border-bottom:1px solid var(--dark3)}
@@ -297,8 +321,10 @@
         <li><a href="#prob">About</a></li>
         <li><a href="#how">Strategy</a></li>
         <li><a href="#price">Pricing</a></li>
+        <li><a href="blog/index.html">Intel</a></li>
         <li><a href="#cta">Contact</a></li>
         <li><a href="#cta" class="nav-cta-f">FREE_ANALYSIS</a></li>
+        <li><a href="https://myonlyprofit.netlify.app/" class="nav-cta-cyan">ENTER_SYSTEM</a></li>
     </ul>
     <div class="ham-f" id="hamF"><span></span><span></span><span></span></div>
 </nav>
@@ -308,7 +334,9 @@
     <a href="#prob" class="ml">About</a>
     <a href="#how" class="ml">Strategy</a>
     <a href="#price" class="ml">Pricing</a>
+    <a href="blog/index.html" class="ml">Intel</a>
     <a href="#cta" class="ml">Contact</a>
+    <a href="https://myonlyprofit.netlify.app/" class="ml">ENTER_SYSTEM</a>
 </div>
     
 <section class="hero">
@@ -332,10 +360,10 @@
 </div>
 
 <div class="stats">
-    <div class="stat-f"><div class="val">$6.4K</div><div class="lbl">Avg Monthly</div></div>
-    <div class="stat-f"><div class="val">30</div><div class="lbl">Days to Results</div></div>
-    <div class="stat-f"><div class="val">20+</div><div class="lbl">Creators</div></div>
-    <div class="stat-f"><div class="val">4.9★</div><div class="lbl">Rating</div></div>
+    <div class="stat-f"><div class="val" data-target="6.4" data-prefix="$" data-suffix="K">$0K</div><div class="lbl">Avg Monthly</div></div>
+    <div class="stat-f"><div class="val" data-target="30">0</div><div class="lbl">Days to Results</div></div>
+    <div class="stat-f"><div class="val" data-target="20" data-suffix="+">0+</div><div class="lbl">Creators</div></div>
+    <div class="stat-f"><div class="val" data-target="4.9" data-suffix="★">0★</div><div class="lbl">Rating</div></div>
 </div>
 
 <section class="problem fd" id="prob">
@@ -344,7 +372,7 @@
     <p class="ss">Creating. Posting. But the money isn't matching the effort. Here's the disconnect.</p>
     <div class="prob-grid">
         <div class="prob-card bad">
-            <h3>[ STUCK ]</h3>
+            <h3>[ <span id="glitchWord">STUCK</span> ]</h3>
             <div class="pi-f"><span class="ic" style="color:var(--pink)">✕</span><div><h4>Posts don't convert</h4><p>Content without strategy = noise</p></div></div>
             <div class="pi-f"><span class="ic" style="color:var(--pink)">✕</span><div><h4>Followers don't buy</h4><p>Gaps in your funnel</p></div></div>
             <div class="pi-f"><span class="ic" style="color:var(--pink)">✕</span><div><h4>You're guessing</h4><p>Random = random results</p></div></div>
@@ -361,7 +389,7 @@
 <section class="how fd" id="how">
     <div class="how-inner">
         <div class="sl">// THE_PROCESS</div>
-        <h2 class="st">Purchase → Implement → <span class="cy">Profit</span></h2>
+        <h2 class="st"><span class="cycle-word">Purchase</span> → <span class="cycle-word">Implement</span> → <span class="cycle-word">Profit</span></h2>
         <div class="how-grid">
             <div class="how-card">
                 <div class="num">01</div>
@@ -385,7 +413,7 @@
 <section class="pricing fd" id="price">
     <div class="center">
         <div class="sl">// INVESTMENT</div>
-        <h2 class="st">One payment. <span class="pk">Keep everything.</span></h2>
+        <h2 class="st" id="pricingHeading"><span style="color:inherit">One payment. </span><span class="pk">Keep everything.</span></h2>
     </div>
     <div class="p-grid">
 <div class="p-card">
@@ -511,7 +539,7 @@
 <section class="peek-section fd" id="peek">
     <div class="peek-inner">
         <div class="sl">// PEEK_INSIDE</div>
-        <h2 class="st">See what's <span class="pk">inside</span> the system.</h2>
+        <h2 class="st">See what's <span class="pk">inside</span> <span class="glitch-slow">the system.</span></h2>
         <p class="ss" style="margin-bottom:50px">Real pages from the Complete Kickstart. 5 sections. 125 pages. No filler.</p>
 
         <div class="peek-tabs">
@@ -548,7 +576,7 @@
                 <div class="peek-dot peek-dot-locked" onclick="switchPage(5)"></div>
             </div>
             <span class="peek-page-label" id="peekLabel">30-Day Content System</span>
-            <span class="peek-counter"><span id="peekCurrent">01</span>/04</span>
+            <span class="peek-counter"><span id="peekCurrent">01</span>/05</span>
         </div>
     </div>
 </section>
@@ -614,7 +642,7 @@
         <img id="lightboxImg" src="" alt="Screenshot">
         <div class="lightbox-nav">
             <button class="lightbox-btn" onclick="navigateLightbox(-1)">← PREV</button>
-            <span class="lightbox-counter" id="lightboxCounter">01/04</span>
+            <span class="lightbox-counter" id="lightboxCounter">01/05</span>
             <button class="lightbox-btn" onclick="navigateLightbox(1)">NEXT →</button>
         </div>
     </div>
@@ -785,6 +813,119 @@ function switchPage(idx) {
 }
 document.getElementById('frame0').src=peekPages[0].src;
 document.getElementById('frame0').setAttribute('data-loaded','1');
+
+const cycleWords = document.querySelectorAll('.cycle-word');
+let cycleIndex = 0;
+function cycleHighlight() {
+    cycleWords.forEach((w, i) => {
+        w.style.color = i === 2 ? 'var(--cyan)' : '';
+    });
+    cycleWords[cycleIndex].style.color = 'var(--pink)';
+    cycleIndex = (cycleIndex + 1) % cycleWords.length;
+}
+cycleHighlight();
+setInterval(cycleHighlight, 3500);
+
+const statEls = document.querySelectorAll('.stat-f .val');
+let statsDone = false;
+const statsOb = new IntersectionObserver(entries => {
+    if(entries[0].isIntersecting && !statsDone) {
+        statsDone = true;
+        statEls.forEach(el => {
+            const target = parseFloat(el.getAttribute('data-target'));
+            const prefix = el.getAttribute('data-prefix') || '';
+            const suffix = el.getAttribute('data-suffix') || '';
+            const isDecimal = target % 1 !== 0;
+            const duration = 1800;
+            const steps = 60;
+            const interval = duration / steps;
+            let current = 0;
+            const increment = target / steps;
+            const timer = setInterval(() => {
+                current += increment;
+                if(current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                el.textContent = prefix + (isDecimal ? current.toFixed(1) : Math.floor(current)) + suffix;
+            }, interval);
+        });
+    }
+}, {threshold: 0.3});
+statsOb.observe(document.querySelector('.stats'));
+
+const glitchChars = '!<>-_\\/[]{}—=+*^?#@$%&';
+const glitchEl = document.getElementById('glitchWord');
+let glitchLoop;
+
+function scrambleAll(finalWord, cb) {
+    let elapsed = 0;
+    const duration = 2000;
+    const tickInterval = 50;
+    clearInterval(glitchLoop);
+    glitchLoop = setInterval(() => {
+        elapsed += tickInterval;
+        glitchEl.textContent = finalWord.split('').map(() =>
+            glitchChars[Math.floor(Math.random() * glitchChars.length)]
+        ).join('');
+        if(elapsed >= duration) {
+            clearInterval(glitchLoop);
+            if(cb) cb();
+        }
+    }, tickInterval);
+}
+
+function runGlitchCycle() {
+    scrambleAll('STUCK', () => {
+        glitchEl.textContent = 'F*CK';
+        glitchEl.style.color = 'var(--cyan)';
+        glitchEl.style.textShadow = '2px 0 var(--pink), -2px 0 var(--purple)';
+        setTimeout(() => {
+            glitchEl.style.textShadow = '-2px 0 var(--pink), 2px 0 var(--cyan)';
+            setTimeout(() => {
+                glitchEl.style.color = '';
+                glitchEl.style.textShadow = '';
+                scrambleAll('STUCK', () => {
+                    glitchEl.textContent = 'STUCK';
+                    setTimeout(runGlitchCycle, 3000);
+                });
+            }, 200);
+        }, 1000);
+    });
+}
+
+setTimeout(runGlitchCycle, 1500);
+
+
+(function() {
+  const el = document.getElementById('pricingHeading');
+  const line1 = "One payment. ";
+  const line2 = "Keep everything.";
+  let idx = 0;
+
+function type() {
+    el.innerHTML = 'One payment. <span class="pk">' + line2.slice(0, idx) + '</span>';
+    idx++;
+    if (idx <= line2.length) {
+      setTimeout(type, 80);
+    } else {
+      setTimeout(() => {
+        el.style.textShadow = '4px 0 #FF2D7B, -4px 0 #00F5FF';
+        el.style.transform = 'translateX(3px)';
+        setTimeout(() => {
+          el.style.textShadow = '';
+          el.style.transform = '';
+        }, 120);
+      }, 300);
+    }
+  }
+
+  const obs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) { obs.disconnect(); setTimeout(type, 300); }
+  }, { threshold: 0.4 });
+  obs.observe(document.getElementById('price'));
+})();
+
 </script>
 </body>
 </html>
