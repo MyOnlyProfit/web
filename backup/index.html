@@ -766,22 +766,39 @@ function selectCtaType(btn) {
 }
 
 // CTA Form Submit
-function handleCtaSubmit(e) {
-    e.preventDefault();
-    const submitBtn = document.getElementById('ctaSubmitBtn');
-    submitBtn.textContent = '✓ SENT';
-    submitBtn.style.background = 'var(--cyan)';
-    
-    setTimeout(() => {
-        submitBtn.style.background = '';
-        e.target.reset();
-        
-        // Reset to analysis
-        document.querySelectorAll('.cta-sel-btn').forEach(b => b.classList.remove('active'));
-        document.querySelector('.cta-sel-btn[data-type="analysis"]').classList.add('active');
-        selectCtaType(document.querySelector('.cta-sel-btn[data-type="analysis"]'));
-    }, 3000);
+async function handleCtaSubmit(e) {
+  e.preventDefault();
+  const submitBtn = document.getElementById('ctaSubmitBtn');
+
+  const data = {
+    email: document.getElementById('ctaEmail').value,
+    profile: document.getElementById('ctaProfile').value,
+    income: document.getElementById('ctaIncome').value,
+    message: document.getElementById('ctaMessage').value,
+    goals: document.getElementById('ctaGoals').value,
+    type: currentCtaType
+  };
+
+  submitBtn.textContent = 'SENDING...';
+
+  try {
+    const res = await fetch('https://project-ke2z2.vercel.app/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+
+    if (res.ok) {
+      submitBtn.textContent = '✓ SENT';
+      submitBtn.style.background = 'var(--cyan)';
+    } else {
+      submitBtn.textContent = 'ERROR';
+    }
+  } catch (err) {
+    submitBtn.textContent = 'FAILED';
+  }
 }
+
 
 // PEEK INSIDE
 const peekPages = [
