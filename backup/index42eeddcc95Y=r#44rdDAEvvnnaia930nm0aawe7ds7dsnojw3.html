@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyOnlyProfit — OWN THE SYSTEM</title>
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon-180.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
     <style>
 
         ::-webkit-scrollbar{width:12px}::-webkit-scrollbar-track{background:var(--dark3)}::-webkit-scrollbar-thumb{background:var(--pink);border-radius:4px;border:2px solid var(--dark3)}::-webkit-scrollbar-thumb:hover{background:var(--cyan);cursor:pointer}html{scrollbar-width:thin;scrollbar-color:var(--pink) var(--dark3)}
@@ -314,15 +318,16 @@
             .st{font-size:1.8rem}
             .cta-selector{grid-template-columns:1fr;max-width:400px}
             .footer{padding:24px 20px;flex-direction:column;text-align:center}
-        }
-        @media(max-width:480px){
-            .hero h1{font-size:1.8rem}
-            .stats{grid-template-columns:1fr}
-            .stat-f{border-right:none;border-bottom:1px solid var(--dark3)}
-            .grid-break{grid-template-columns:1fr;height:150px}
-            .grid-break .gb-item:nth-child(2){display:none}
-            .grid-break .gb-item:nth-child(1) img{object-position:50% 30%;}
-        }
+     }
+     @media(max-width:480px){
+        .hero h1{font-size:1.8rem}
+        .stats{grid-template-columns:1fr}
+        .stat-f{border-right:none;border-bottom:1px solid var(--dark3)}
+        .grid-break{grid-template-columns:1fr;height:150px}
+        .grid-break .gb-item:nth-child(2){display:none}
+        .grid-break .gb-item:nth-child(1) img{
+        object-position:50% 10%;}
+     }
         
     </style>
 </head>
@@ -412,7 +417,7 @@
             <div class="how-card">
                 <div class="num">02</div>
                 <h3>Instant Access</h3>
-                <p>Download link auto-sent to email. 100+ pages of strategy.</p>
+                <p>Access password auto-sent to email. 100+ pages of strategy.</p>
             </div>
             <div class="how-card">
                 <div class="num">03</div>
@@ -931,6 +936,19 @@ function runGlitchCycle() {
         glitchEl.textContent = 'F*CK';
         glitchEl.style.color = 'var(--cyan)';
         glitchEl.style.textShadow = '2px 0 var(--pink), -2px 0 var(--purple)';
+
+        const badCard = document.querySelector('.prob-card.bad');
+        if(badCard){
+            badCard.style.animation = 'none';
+            badCard.style.borderLeftColor = 'var(--cyan)';
+            badCard.style.filter = 'brightness(1.4)';
+
+            setTimeout(()=>{
+                badCard.style.filter = '';
+                badCard.style.borderLeftColor = '';
+            }, 1000);
+        }
+
         setTimeout(() => {
             glitchEl.style.textShadow = '-2px 0 var(--pink), 2px 0 var(--cyan)';
             setTimeout(() => {
