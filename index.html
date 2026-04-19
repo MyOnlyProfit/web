@@ -931,6 +931,18 @@ function runGlitchCycle() {
         glitchEl.textContent = 'F*CK';
         glitchEl.style.color = 'var(--cyan)';
         glitchEl.style.textShadow = '2px 0 var(--pink), -2px 0 var(--purple)';
+        // Välähdytä koko prob-card.bad samaan aikaan
+        const badCard = document.querySelector('.prob-card.bad');
+        if(badCard){
+            badCard.style.animation = 'none';
+            badCard.style.borderLeftColor = 'var(--cyan)';
+            badCard.style.filter = 'brightness(1.4)';
+            setTimeout(()=>{
+                badCard.style.filter = '';
+                badCard.style.borderLeftColor = '';
+                badCard.style.animation = 'boxGlitch 6s infinite';
+            }, 1000);
+        }
         setTimeout(() => {
             glitchEl.style.textShadow = '-2px 0 var(--pink), 2px 0 var(--cyan)';
             setTimeout(() => {
