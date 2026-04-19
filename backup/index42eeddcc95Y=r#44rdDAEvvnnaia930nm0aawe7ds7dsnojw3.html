@@ -31,6 +31,7 @@
         .nav{position:fixed;top:0;width:100%;z-index:1000;padding:16px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(10,10,11,0.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--dark3)}
         .nav-logo{font-family:'Space Mono',monospace;font-size:1rem;font-weight:700;text-decoration:none;color:var(--pink);letter-spacing:2px;text-transform:uppercase}
         .nav-logo span{color:var(--cyan)}
+        .nav-logo-img {height: 36px;width: auto;display: block}
         .nav-links{display:flex;gap:28px;align-items:center;list-style:none}
         .nav-links a{color:var(--text-dim);text-decoration:none;font-size:.7rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;transition:color .3s}
         .nav-links a:hover{color:var(--pink)}
@@ -324,7 +325,7 @@
 <body>
 
 <nav class="nav">
-    <a href="#" class="nav-logo">MY<span>ONLY</span>PROFIT</a>
+    <a href="#" class="nav-logo"><img src="images/logo.avif" alt="MyOnlyProfit" class="nav-logo-img"></a>
     <ul class="nav-links">
         <li><a href="#prob">About</a></li>
         <li><a href="#how">Strategy</a></li>
@@ -643,7 +644,7 @@
 </section>
 
 <footer class="footer">
-    <a href="#" class="nav-logo" style="font-size:.8rem">MY<span>ONLY</span>PROFIT</a>
+    <a href="#" class="nav-logo"><img src="images/logo.avif" alt="MyOnlyProfit" style="height:28px;width:auto;display:block;"></a>
     <div class="fl">
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
