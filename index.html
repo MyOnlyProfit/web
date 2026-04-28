@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -274,6 +275,14 @@
       .pricing-grid { grid-template-columns:repeat(2,1fr); }
       .price-card { height:auto; }
     }
+    /* ─── MOBILE LOADER ─── */
+    @media(max-width:768px) {
+      .loader-brand { font-size:1.25rem; letter-spacing:4px; }
+      .loader-line { width:160px; }
+      .loader-text { font-size:.58rem; letter-spacing:4px; }
+      .marquee-track { animation-duration:14s; }
+      .marquee-item { font-size:.78rem; padding:0 22px; letter-spacing:2px; }
+    }
     @media(max-width:768px) {
       .editorial { padding:25px 20px !important; gap:0px; }
       .editorial+.editorial { margin-top:-20px; }
@@ -355,7 +364,7 @@
   </div>
 
   <section class="hero" id="hero">
-    <video class="hero-video" autoplay muted loop playsinline>
+    <video class="hero-video" oncontextmenu="return false" controlsList="nodownload" autoplay muted loop playsinline>
       <source src="video/hero-background.mp4" type="video/mp4" />
     </video>
     <div class="hero-overlay"></div>
@@ -402,7 +411,7 @@
 
   <section class="editorial" id="story">
     <div class="editorial-media reveal-left">
-      <video autoplay muted loop playsinline>
+      <video autoplay muted loop playsinline oncontextmenu="return false" controlsList="nodownload">
         <source src="video/video_1.mp4" type="video/mp4" />
       </video>
     </div>
@@ -426,7 +435,7 @@
       <a href="#pricing" class="btn btn-outline" style="margin-top:10px;">Start Growing</a>
     </div>
     <div class="editorial-media reveal-right" style="direction:ltr;">
-      <video autoplay muted loop playsinline>
+      <video autoplay muted loop playsinline oncontextmenu="return false" controlsList="nodownload">
         <source src="video/video_2.mp4" type="video/mp4" />
       </video>
     </div>
@@ -494,7 +503,7 @@
   </div>
 
   <section class="testimonials">
-    <video class="testimonials-video-bg" autoplay muted loop playsinline>
+    <video class="testimonials-video-bg" oncontextmenu="return false" controlsList="nodownload" autoplay muted loop playsinline>
       <source src="video/video_5.mp4" type="video/mp4" />
     </video>
     <div class="testimonials-overlay"></div>
@@ -566,7 +575,7 @@
 
   <section class="editorial">
     <div class="editorial-media reveal-left">
-      <video autoplay muted loop playsinline>
+      <video autoplay muted loop playsinline oncontextmenu="return false" controlsList="nodownload">
         <source src="video/video_3.mp4" type="video/mp4" />
       </video>
     </div>
@@ -590,7 +599,7 @@
       <a href="#contact" class="btn btn-outline" style="margin-top:10px;">Claim Your Independence</a>
     </div>
     <div class="editorial-media reveal-right" style="direction:ltr;">
-      <video autoplay muted loop playsinline>
+      <video autoplay muted loop playsinline oncontextmenu="return false" controlsList="nodownload">
         <source src="video/video_4.mp4" type="video/mp4" />
       </video>
     </div>
@@ -992,6 +1001,14 @@
 
     document.addEventListener('DOMContentLoaded', () => {
       selectContactType(document.querySelector('.contact-type-btn[data-type="analysis"]'));
+    });
+
+    // Block right-click / context menu on all videos and images
+    document.querySelectorAll('video, img').forEach(el => {
+      el.addEventListener('contextmenu', e => e.preventDefault());
+      el.setAttribute('draggable', 'false');
+      el.style.webkitUserSelect = 'none';
+      el.style.userSelect = 'none';
     });
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
