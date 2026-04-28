@@ -77,24 +77,15 @@ body::after {
 .delivery-text { font-family: 'Montserrat', sans-serif; font-size: .48rem; letter-spacing: 4px; text-transform: uppercase; color: var(--accent); white-space: nowrap; }
 .hero-get-btn {
   width: 100%; padding: 20px 40px;
-  background: transparent; border: 1px solid var(--accent-3);
-  color: var(--accent-3); font-family: 'Bodoni Moda', serif;
+  background: #fff; border: 1px solid #fff;
+  color: #000; font-family: 'Bodoni Moda', serif;
   font-size: 1rem; font-weight: 700; letter-spacing: 6px;
   text-transform: uppercase; cursor: pointer;
-  position: relative; overflow: hidden;
-  transition: color .35s ease, opacity .35s ease;
-  margin-bottom: 18px;
+  transition: background .25s ease, border-color .25s ease;
+  margin-bottom: 0;
 }
-.hero-get-btn .btn-bg {
-  position: absolute; inset: 0; background: var(--accent-3);
-  transform: scaleX(0); transform-origin: left;
-  transition: transform .4s ease; z-index: 0;
-}
-.hero-get-btn .btn-text { position: relative; z-index: 1; }
+.hero-get-btn:hover:not(:disabled) { background: var(--accent-3); border-color: var(--accent-3); }
 .hero-get-btn.locked { opacity: .35; cursor: not-allowed; }
-.hero-get-btn:not(.locked):hover .btn-bg { transform: scaleX(1); }
-.hero-get-btn:not(.locked):hover { color: #000; }
-.terms-row { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; width: 100%; }
 .custom-checkbox { position: relative; flex-shrink: 0; width: 16px; height: 16px; margin-top: 1px; }
 .custom-checkbox input { appearance: none; -webkit-appearance: none; width: 16px; height: 16px; border: 1px solid var(--soft); background: transparent; cursor: pointer; display: block; transition: all .25s ease; }
 .custom-checkbox input:checked { background: var(--accent-3); border-color: var(--accent-3); }
@@ -146,6 +137,21 @@ strong { color: var(--text); }
 .footer-links { display: flex; gap: 28px; }
 .footer-links a { color: var(--soft); text-decoration: none; font-size: .6rem; letter-spacing: 2px; text-transform: uppercase; transition: color .3s ease; }
 .footer-links a:hover { color: #fff; }
+
+/* ── MODAL ── */
+.terms-modal-overlay { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,.85); backdrop-filter: blur(12px); align-items: center; justify-content: center; }
+.terms-modal-overlay.open { display: flex; }
+.terms-modal { background: #0d0d0d; border: 1px solid rgba(255,255,255,.14); max-width: 420px; width: 90%; padding: 40px 36px; position: relative; }
+.terms-modal-bar { position: absolute; top: 0; left: 0; width: 100%; height: 1px; background: linear-gradient(90deg, transparent, var(--accent-3), transparent); }
+.terms-modal-title { font-family: 'Bodoni Moda', serif; font-size: 1.1rem; letter-spacing: 4px; text-transform: uppercase; color: #fff; margin-bottom: 8px; text-align: center; }
+.terms-modal-sub { font-size: 10px; letter-spacing: 2px; color: var(--soft); text-align: center; margin-bottom: 28px; text-transform: uppercase; font-family: 'Montserrat', sans-serif; }
+.terms-modal-row { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; margin-bottom: 28px; }
+.terms-modal-confirm { width: 100%; padding: 18px 24px; background: #fff; border: 1px solid #fff; color: #000; font-family: 'Bodoni Moda', serif; font-size: .9rem; font-weight: 700; letter-spacing: 5px; text-transform: uppercase; cursor: pointer; transition: background .25s ease, border-color .25s ease; margin-bottom: 0; }
+.terms-modal-confirm:hover:not(:disabled) { background: var(--accent-3); border-color: var(--accent-3); }
+.terms-modal-confirm:disabled { opacity: .35; cursor: not-allowed; }
+.terms-modal-cancel { width: 100%; margin-top: 12px; padding: 10px; background: transparent; border: none; color: var(--soft); font-size: 10px; letter-spacing: 3px; text-transform: uppercase; cursor: pointer; font-family: 'Montserrat', sans-serif; transition: color .2s ease; }
+.terms-modal-cancel:hover { color: var(--muted); }
+
 @media(max-width:900px) {
   .nav { padding: 14px 20px; } .nav.scrolled { padding: 11px 20px; }
   .nav-links { display: none; } .nav-hamburger { display: flex; }
@@ -219,13 +225,26 @@ strong { color: var(--text); }
       <span class="delivery-text">✦ Instant Password Delivery to Your Email ✦</span>
       <div class="delivery-line r"></div>
     </div>
-    <button class="hero-get-btn locked" id="heroCtaBtn" onclick="handleHeroCta()">
-      <div class="btn-bg"></div>
-      <span class="btn-text">Get the Strategy →</span>
+    <button class="hero-get-btn" id="heroCtaBtn" onclick="openTermsModal()">
+      Build Empire →
     </button>
-    <label class="terms-row" for="acceptTerms">
+  </div>
+
+  <div class="scroll-hint">
+    <span>Scroll to begin</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</div>
+
+<!-- TERMS MODAL -->
+<div class="terms-modal-overlay" id="termsModal">
+  <div class="terms-modal">
+    <div class="terms-modal-bar"></div>
+    <div class="terms-modal-title">One Last Step</div>
+    <div class="terms-modal-sub">Please accept before continuing</div>
+    <label class="terms-modal-row" for="modalTermsCheck">
       <div class="custom-checkbox">
-        <input type="checkbox" id="acceptTerms" onchange="toggleCta(this)" />
+        <input type="checkbox" id="modalTermsCheck" onchange="toggleModalCta(this)" />
         <svg viewBox="0 0 12 10" fill="none">
           <polyline points="1,5 4,8 11,1" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
@@ -235,11 +254,10 @@ strong { color: var(--text); }
         <a href="../terms.html" target="_blank" onclick="event.stopPropagation()">Terms &amp; Conditions</a>
       </span>
     </label>
-  </div>
-
-  <div class="scroll-hint">
-    <span>Scroll to begin</span>
-    <div class="scroll-arrow"></div>
+    <button class="terms-modal-confirm" id="modalConfirmBtn" disabled onclick="handleModalConfirm()">
+      Continue →
+    </button>
+    <button class="terms-modal-cancel" onclick="closeTermsModal()">Cancel</button>
   </div>
 </div>
 
@@ -434,14 +452,29 @@ function goTo(id) {
   }, 100);
 }
 
-function toggleCta(cb) {
-  const btn = document.getElementById('heroCtaBtn');
-  btn.classList.toggle('locked', !cb.checked);
+function openTermsModal() {
+  const modal = document.getElementById('termsModal');
+  const cb = document.getElementById('modalTermsCheck');
+  const btn = document.getElementById('modalConfirmBtn');
+  cb.checked = false;
+  btn.disabled = true;
+  modal.classList.add('open');
 }
-function handleHeroCta() {
-  if (document.getElementById('heroCtaBtn').classList.contains('locked')) return;
-  window.location.href = 'https://myonlyprofit.com/index.html#pricing';
+function closeTermsModal() {
+  document.getElementById('termsModal').classList.remove('open');
 }
+function toggleModalCta(cb) {
+  document.getElementById('modalConfirmBtn').disabled = !cb.checked;
+}
+function handleModalConfirm() {
+  if (!document.getElementById('modalConfirmBtn').disabled) {
+    window.location.href = 'https://myonlyprofit.com/index.html#pricing';
+  }
+}
+
+document.getElementById('termsModal').addEventListener('click', function(e) {
+  if (e.target === this) closeTermsModal();
+});
 
 const nav = document.getElementById('mainNav');
 window.addEventListener('scroll', () => {
