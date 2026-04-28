@@ -103,7 +103,7 @@
       z-index: 2000; transition: width .08s linear;
     }
  
-    /* ─── NAV — identical to page 2 ─── */
+    /* ─── NAV ─── */
     .nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
       padding: 0 52px; height: 68px;
@@ -130,7 +130,7 @@
     }
     .nav-cta:hover { background: var(--accent); color: var(--white) !important; }
 
-    /* ─── HAMBURGER — identical to page 2 ─── */
+    /* ─── HAMBURGER ─── */
     .nav-hamburger {
       display: none; flex-direction: column; gap: 5px;
       cursor: pointer; padding: 4px; background: none; border: none;
@@ -140,7 +140,7 @@
     .nav-hamburger.open span:nth-child(2) { opacity: 0; }
     .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); background: var(--accent); }
  
-    /* ─── MOBILE MENU — identical to page 2 ─── */
+    /* ─── MOBILE MENU ─── */
     .mobile-menu {
       position: fixed; inset: 0; z-index: 999;
       background: rgba(248,247,244,.98); backdrop-filter: blur(20px);
@@ -410,7 +410,9 @@
     }
  
     /* ─── NEWSLETTER ─── */
-    .newsletter-strip {background: var(--bg-2);border-top: 1px solid var(--line);border-bottom: 1px solid var(--line);padding: 52px;margin-bottom: 0;}
+    .newsletter-strip {
+      background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+      padding: 52px; margin: 0 -52px 48px;
     }
     .nl-inner { max-width: 600px; margin: 0 auto; text-align: center; }
     .nl-eyebrow { font-size: .52rem; letter-spacing: 5px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; display: block; }
@@ -478,14 +480,13 @@
     .breadcrumb a:hover { text-decoration: underline; }
     .bc-sep { opacity: .4; }
  
-    /* ─── RESPONSIVE — breakpoints match page 2 exactly ─── */
+    /* ─── RESPONSIVE ─── */
     @media(max-width:1024px) {
       .blog-layout { grid-template-columns: 1fr; gap: 48px; }
       .footer-inner { grid-template-columns: 1fr 1fr; }
       .featured-post { grid-template-columns: 1fr; }
       .featured-visual { min-height: 180px; }
     }
-    /* Nav collapses at 768px — same as page 2 */
     @media(max-width:768px) {
       .nav { padding: 0 24px; }
       .nav-links { display: none; }
@@ -495,7 +496,7 @@
       .filter-inner { padding: 0 24px; }
       .blog-layout { padding: 40px 24px 80px; }
       .post-grid { grid-template-columns: 1fr; }
-      .newsletter-strip { margin: 0; padding: 40px 24px; }
+      .newsletter-strip { margin: 0 -24px 40px; padding: 40px 24px; }
       .nl-form { flex-direction: column; }
       .nl-input { border-right: 1px solid var(--line-strong); }
       .site-footer { padding: 40px 24px 24px; }
@@ -736,8 +737,34 @@
           </div>
         </article>
  
-</div><!-- /post-grid -->
+      </div><!-- /post-grid -->
     </div><!-- /#all-posts -->
+
+    <!-- NEWSLETTER STRIP -->
+    <div class="newsletter-strip" id="newsletter">
+      <div class="nl-inner">
+        <span class="nl-eyebrow">Creator Intelligence</span>
+        <h2 class="nl-title">New post, <em>weekly.</em></h2>
+        <p class="nl-sub">
+          No motivation content. No recycled advice. Just fresh strategy from creators who are actively building income — straight to your inbox.
+        </p>
+        <form class="nl-form" id="newsletterForm">
+          <input
+            class="nl-input"
+            type="email"
+            name="email"
+            placeholder="your@email.com"
+            aria-label="Email address"
+            required
+          />
+          <button class="nl-submit" type="submit">Subscribe →</button>
+        </form>
+        <p class="nl-privacy">
+          No spam. Unsubscribe anytime.
+          <a href="../privacy.html" style="color:var(--accent);">Privacy Policy</a>
+        </p>
+      </div>
+    </div>
 
   </main>
 
@@ -794,32 +821,6 @@
 
   </aside>
 </div><!-- /.blog-layout -->
-
-<!-- NEWSLETTER STRIP -->
-<div class="newsletter-strip" id="newsletter">
-  <div class="nl-inner">
-    <span class="nl-eyebrow">Creator Intelligence</span>
-    <h2 class="nl-title">New post, <em>weekly.</em></h2>
-    <p class="nl-sub">
-      No motivation content. No recycled advice. Just fresh strategy from creators who are actively building income — straight to your inbox.
-    </p>
-    <form class="nl-form" id="newsletterForm">
-      <input
-        class="nl-input"
-        type="email"
-        name="email"
-        placeholder="your@email.com"
-        aria-label="Email address"
-        required
-      />
-      <button class="nl-submit" type="submit">Subscribe →</button>
-    </form>
-    <p class="nl-privacy">
-      No spam. Unsubscribe anytime.
-      <a href="../privacy.html" style="color:var(--accent);">Privacy Policy</a>
-    </p>
-  </div>
-</div>
 
 <!-- FOOTER -->
 <footer class="site-footer">
