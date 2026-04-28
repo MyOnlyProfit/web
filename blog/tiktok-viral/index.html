@@ -47,15 +47,25 @@
     "dateModified": "2026-04-28",
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://myonlyprofit.com/blog/tiktok-viral/" },
     "inLanguage": "en-US",
-    "image": { "@type": "ImageObject", "url": "https://myonlyprofit.com/images/og-image.jpg" }
+    "image": { "@type": "ImageObject", "url": "https://myonlyprofit.com/images/og-image.jpg" },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "MYONLYPROFIT", "item": "https://myonlyprofit.com" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://myonlyprofit.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "TikTok Without Getting Banned", "item": "https://myonlyprofit.com/blog/tiktok-viral/" }
+      ]
+    }
   }
   </script>
 
+  <!-- ── FONTS (same as source) ── -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;0,6..96,900;1,6..96,400;1,6..96,700&family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet" />
 
   <style>
+    /* ── CSS VARIABLES — copied verbatim from source ── */
     :root {
       --bg: #f8f7f4; --bg-2: #f0ede8; --bg-3: #e8e4de;
       --text: #111110; --muted: #4a4a46; --soft: #888884;
@@ -70,6 +80,8 @@
     ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
     ::selection { background: rgba(42,92,107,.15); color: var(--text); }
     body { font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; line-height: 1.8; }
+
+    /* ── BACKGROUND RULE LINES — copied from source ── */
     body::before {
       content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .4;
       background: linear-gradient(to right, transparent 0%, transparent 24.8%, rgba(0,0,0,0.018) 24.9%, rgba(0,0,0,0.018) 25.1%, transparent 25.2%, transparent 74.8%, rgba(0,0,0,0.018) 74.9%, rgba(0,0,0,0.018) 75.1%, transparent 75.2%);
@@ -77,8 +89,10 @@
     a { color: var(--accent); text-decoration: none; }
     a:hover { color: var(--accent-3); }
 
+    /* ── SCROLL BAR ── */
     .scroll-bar { position: fixed; top: 0; left: 0; height: 2px; width: 0%; background: linear-gradient(90deg, var(--accent), var(--accent-light)); z-index: 2000; transition: width .08s linear; }
 
+    /* ── NAV — copied from source ── */
     .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0 52px; height: 68px; display: flex; justify-content: space-between; align-items: center; background: rgba(248,247,244,.96); backdrop-filter: blur(20px); border-bottom: 1px solid var(--line); transition: all .4s ease; }
     .nav.scrolled { background: rgba(255,255,255,.98); box-shadow: 0 2px 24px rgba(0,0,0,.06); }
     .nav-logo { text-decoration: none; color: var(--text); font-family: 'Bodoni Moda', serif; font-size: 1.18rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; }
@@ -98,294 +112,159 @@
     .mobile-menu a:first-child { border-top: 1px solid var(--line); }
     .mobile-menu a:hover { color: var(--accent); background: rgba(42,92,107,.04); }
 
+    /* ── BREADCRUMB — copied from source ── */
     .breadcrumb { max-width: 900px; margin: 0 auto; padding: 88px 52px 0; font-size: .54rem; letter-spacing: 2px; text-transform: uppercase; color: var(--soft); display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
     .breadcrumb a { color: var(--accent); text-decoration: none; }
     .breadcrumb a:hover { text-decoration: underline; }
     .bc-sep { opacity: .4; }
 
+    /* ── POST LAYOUT — copied from source ── */
     .post-layout { max-width: 1200px; margin: 0 auto; padding: 40px 52px 100px; display: grid; grid-template-columns: 1fr 300px; gap: 72px; }
 
+    /* ── ARTICLE HERO — copied from source ── */
     .post-hero { padding-bottom: 36px; border-bottom: 1px solid var(--line); margin-bottom: 40px; }
     .post-eyebrow { font-size: .52rem; letter-spacing: 5px; text-transform: uppercase; color: var(--accent); display: inline-block; border: 1px solid rgba(42,92,107,.25); padding: 5px 14px; margin-bottom: 20px; }
     .post-title { font-family: 'Bodoni Moda', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; line-height: 1.1; letter-spacing: -1px; color: var(--text); margin-bottom: 20px; }
     .post-title em { color: var(--accent); font-style: italic; }
     .post-meta-row { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; font-size: .54rem; letter-spacing: 2px; text-transform: uppercase; color: var(--soft); margin-bottom: 24px; }
     .post-meta-sep { width: 1px; height: 12px; background: var(--line-strong); }
+
+    /* ── AUTHOR STRIP — copied verbatim from source ── */
     .author-strip { display: flex; align-items: center; gap: 14px; padding: 16px 20px; background: var(--white); border: 1px solid var(--line); border-left: 3px solid var(--accent); }
-    .author-avatar { width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden; }
-    .author-avatar img { width: 100%; height: 100%; object-fit: contain; }
+    .author-avatar {
+      width: 42px; height: 42px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .author-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
     .author-name { font-size: .6rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text); font-weight: 600; }
-    .author-role { font-size: .58rem; color: var(--soft); margin-top: 2px; }
+    .author-role { font-family: 'Cormorant Garamond', serif; font-size: .9rem; color: var(--soft); margin-top: 2px; }
 
-    .post-body { font-size: .9rem; color: var(--muted); line-height: 1.9; }
-    .post-body p { margin-bottom: 22px; }
-    .post-body strong { color: var(--text); font-weight: 600; }
-    .post-body em { font-style: italic; }
+    /* ── POST CONTENT — copied from source ── */
+    .post-content { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--muted); }
+    .post-content h2 { font-family: 'Bodoni Moda', serif; font-size: 1.6rem; font-weight: 700; color: var(--text); margin: 48px 0 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); position: relative; }
+    .post-content h2::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 60px; height: 2px; background: var(--accent); }
+    .post-content h3 { font-family: 'Montserrat', sans-serif; font-size: .75rem; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin: 32px 0 12px; }
+    .post-content p { margin-bottom: 22px; line-height: 1.85; }
+    .post-content p strong { color: var(--text); font-family: 'Montserrat', sans-serif; font-size: .92rem; font-weight: 600; }
+    .post-content ul { list-style: none; margin: 0 0 22px; padding: 0; }
+    .post-content ul li { font-size: .88rem; color: var(--muted); padding: 9px 0; border-bottom: 1px solid var(--line); display: flex; gap: 12px; align-items: flex-start; line-height: 1.7; }
+    .post-content ul li::before { content: "—"; color: var(--accent); font-family: 'Montserrat', sans-serif; font-weight: 600; flex-shrink: 0; margin-top: 2px; }
+    .post-content ul li:last-child { border-bottom: none; }
 
-    .post-body h2 {
-      font-family: 'Bodoni Moda', serif;
-      font-size: clamp(1.3rem, 3vw, 1.7rem);
-      font-weight: 900;
-      color: var(--text);
-      letter-spacing: -0.5px;
-      margin: 48px 0 18px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid var(--line);
-    }
-    .post-body h3 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin: 32px 0 12px;
-    }
+    /* ── HIGHLIGHT BOX — copied from source ── */
+    .hbox { background: var(--bg-2); border-left: 3px solid var(--accent); padding: 22px 26px; margin: 28px 0; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; line-height: 1.85; color: var(--muted); }
+    .hbox strong { color: var(--text); font-family: 'Montserrat', sans-serif; font-size: .92rem; font-weight: 600; }
+    .hbox.alt { border-left-color: var(--accent-light); background: var(--white); }
+    .hbox.contrast { background: var(--accent); border-left-color: var(--accent-3); color: rgba(255,255,255,.85); }
+    .hbox.contrast strong { color: #fff; }
 
-    .post-body ul { list-style: none; margin: 0 0 24px; padding: 0; }
-    .post-body ul li {
-      font-size: .88rem;
-      color: var(--muted);
-      padding: 10px 0 10px 20px;
-      border-bottom: 1px solid var(--line);
-      position: relative;
-      line-height: 1.7;
-    }
-    .post-body ul li:last-child { border-bottom: none; }
-    .post-body ul li::before { content: "—"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+    /* ── BLOCKQUOTE — copied from source ── */
+    blockquote { border-left: 3px solid var(--accent-light); padding: 16px 24px; margin: 28px 0; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; color: var(--muted); background: var(--white); line-height: 1.7; }
 
-    .insight-box {
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-left: 3px solid var(--accent);
-      padding: 24px 28px;
-      margin: 32px 0;
-      font-size: .88rem;
-      line-height: 1.8;
-      color: var(--muted);
-    }
-    .insight-box strong { color: var(--text); display: block; margin-bottom: 6px; font-size: .7rem; letter-spacing: 3px; text-transform: uppercase; }
-    .insight-box.contrast {
-      background: var(--accent);
-      border-color: var(--accent-3);
-      color: rgba(255,255,255,.85);
-    }
-    .insight-box.contrast strong { color: #fff; }
-
-    .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: .82rem; }
-    .compare-table th {
-      background: var(--accent);
-      color: var(--white);
-      padding: 12px 18px;
-      text-align: left;
-      font-size: .58rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      font-weight: 600;
-    }
-    .compare-table td {
-      padding: 12px 18px;
-      border-bottom: 1px solid var(--line);
-      color: var(--muted);
-      vertical-align: top;
-      line-height: 1.6;
-    }
-    .compare-table tr:last-child td { border-bottom: none; }
-    .compare-table tr:nth-child(even) td { background: var(--bg-2); }
-    .compare-table td:first-child { font-weight: 600; color: var(--text); font-size: .8rem; }
-    .compare-table td.good { color: var(--accent); font-weight: 600; }
-    .compare-table td.bad { color: #c0392b; }
-
-    blockquote {
-      margin: 40px 0;
-      padding: 28px 36px;
-      background: var(--bg-2);
-      border-left: none;
-      position: relative;
-    }
-    blockquote::before {
-      content: "\201C";
-      font-family: 'Bodoni Moda', serif;
-      font-size: 5rem;
-      line-height: 1;
-      color: var(--accent-light);
-      position: absolute;
-      top: 10px;
-      left: 24px;
-      opacity: .4;
-    }
-    blockquote p {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem;
-      font-style: italic;
-      color: var(--text);
-      line-height: 1.6;
-      margin-bottom: 12px !important;
-      position: relative;
-      z-index: 1;
-    }
-    blockquote cite {
-      font-size: .58rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--soft);
-      font-style: normal;
-    }
-
-    .stat-band {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
-      margin: 36px 0;
-    }
-    .stat-band-item {
-      background: var(--white);
-      padding: 24px 20px;
-      text-align: center;
-    }
+    /* ── STAT BAND ── */
+    .stat-band { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin: 36px 0; }
+    .stat-band-item { background: var(--white); padding: 24px 20px; text-align: center; }
     .stat-val { font-family: 'Bodoni Moda', serif; font-size: 2rem; font-weight: 900; color: var(--accent); display: block; line-height: 1; }
     .stat-lbl { font-size: .54rem; letter-spacing: 2px; text-transform: uppercase; color: var(--soft); margin-top: 8px; display: block; }
 
-    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .5s ease, transform .5s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    /* ── COMPARE TABLE ── */
+    .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: .82rem; }
+    .compare-table th { background: var(--accent); color: var(--white); padding: 12px 18px; text-align: left; font-size: .58rem; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; font-family: 'Montserrat', sans-serif; }
+    .compare-table td { padding: 12px 18px; border-bottom: 1px solid var(--line); color: var(--muted); vertical-align: top; line-height: 1.6; font-family: 'Cormorant Garamond', serif; font-size: 1rem; }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .compare-table tr:nth-child(even) td { background: var(--bg-2); }
+    .compare-table td:first-child { font-family: 'Montserrat', sans-serif; font-weight: 600; color: var(--text); font-size: .8rem; }
+    .compare-table td.good { color: var(--accent); font-weight: 600; }
+    .compare-table td.bad { color: #c0392b; }
 
-    .inline-cta {
-      background: var(--white);
-      border: 1px solid var(--line);
-      padding: 36px 40px;
-      margin: 48px 0;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .inline-cta::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), var(--accent-light));
-    }
-    .inline-cta-eyebrow { font-size: .52rem; letter-spacing: 4px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
-    .inline-cta h3 { font-family: 'Bodoni Moda', serif; font-size: 1.5rem; font-weight: 900; color: var(--text); margin-bottom: 10px; }
-    .inline-cta p { font-size: .85rem; color: var(--soft); max-width: 440px; margin: 0 auto 24px; line-height: 1.7; }
-    .cta-btn {
-      display: inline-block;
-      background: var(--accent);
-      color: var(--white);
-      padding: 14px 36px;
-      font-size: .65rem;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: background .3s, transform .2s;
-    }
-    .cta-btn:hover { background: var(--accent-3); color: var(--white); transform: translateY(-1px); }
+    /* ── INLINE CTA BOX — copied from source ── */
+    .cta-box { background: var(--accent-3); color: var(--white); padding: 44px 40px; margin: 52px 0; text-align: center; position: relative; overflow: hidden; }
+    .cta-box::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, var(--accent-light), transparent); }
+    .cta-eyebrow { font-size: .52rem; letter-spacing: 5px; text-transform: uppercase; color: var(--accent-light); display: block; margin-bottom: 14px; }
+    .cta-box h3 { font-family: 'Bodoni Moda', serif; font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 700; color: var(--white); margin-bottom: 12px; }
+    .cta-box h3 em { color: var(--accent-light); font-style: italic; }
+    .cta-box p { font-size: .85rem; color: rgba(255,255,255,.72); margin-bottom: 28px; max-width: 460px; margin-left: auto; margin-right: auto; line-height: 1.8; }
+    .cta-btn { display: inline-block; background: var(--white); color: var(--accent-3); padding: 14px 38px; font-size: .65rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; transition: all .3s; border: 1px solid transparent; font-family: 'Montserrat', sans-serif; }
+    .cta-btn:hover { background: transparent; color: var(--white); border-color: rgba(255,255,255,.4); }
 
-    .post-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 60px; }
-    .post-nav-item { background: var(--white); padding: 20px 24px; display: flex; flex-direction: column; gap: 6px; transition: background .3s; text-decoration: none; }
-    .post-nav-item:hover { background: var(--bg-2); }
+    /* ── POST NAV — copied from source ── */
+    .post-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--line); }
+    .post-nav-item { display: flex; flex-direction: column; gap: 6px; padding: 20px; background: var(--white); border: 1px solid var(--line); text-decoration: none; transition: border-color .3s, background .3s; }
+    .post-nav-item:hover { border-color: var(--accent); background: var(--bg-2); }
     .post-nav-item.next { text-align: right; }
-    .pn-dir { font-size: .52rem; letter-spacing: 3px; text-transform: uppercase; color: var(--soft); }
+    .pn-dir { font-size: .5rem; letter-spacing: 3px; text-transform: uppercase; color: var(--soft); }
     .pn-title { font-size: .78rem; color: var(--text); font-weight: 500; line-height: 1.4; }
 
-    .sidebar { position: sticky; top: 88px; height: fit-content; display: flex; flex-direction: column; gap: 20px; }
-    .cta-card {
-      background: var(--white);
-      border: 1px solid var(--line);
-      padding: 28px;
-      position: relative;
-      overflow: hidden;
-    }
-    .cta-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), var(--accent-light));
-    }
-    .cta-card-eyebrow { font-size: .52rem; letter-spacing: 4px; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 10px; }
-    .cta-card-title { font-family: 'Bodoni Moda', serif; font-size: 1.25rem; font-weight: 900; color: var(--text); line-height: 1.2; margin-bottom: 10px; }
-    .cta-card-title em { color: var(--accent); font-style: italic; }
-    .cta-card-sub { font-size: .78rem; color: var(--soft); margin-bottom: 18px; line-height: 1.7; }
-    .stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); margin-bottom: 18px; }
-    .stat-item { background: var(--bg-2); padding: 14px 10px; text-align: center; }
-    .sv { font-family: 'Bodoni Moda', serif; font-size: 1.3rem; font-weight: 900; color: var(--accent); display: block; }
-    .sl { font-size: .5rem; letter-spacing: 2px; text-transform: uppercase; color: var(--soft); margin-top: 4px; display: block; }
-    .sidebar-btn {
-      display: block;
-      background: var(--accent);
-      color: var(--white);
-      padding: 13px;
-      text-align: center;
-      font-size: .6rem;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: background .3s;
-    }
-    .sidebar-btn:hover { background: var(--accent-3); color: var(--white); }
-    .sidebar-card { background: var(--white); border: 1px solid var(--line); padding: 24px 28px; }
-    .sc-title { font-size: .55rem; letter-spacing: 4px; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); display: block; }
-    .rel-list { list-style: none; }
-    .rel-list li { border-bottom: 1px solid var(--line); }
-    .rel-list li:last-child { border-bottom: none; }
-    .rel-list a { font-size: .75rem; color: var(--muted); text-decoration: none; padding: 9px 0; display: flex; gap: 8px; align-items: flex-start; line-height: 1.5; transition: color .3s; }
-    .rel-list a::before { content: "→"; color: var(--accent); flex-shrink: 0; font-size: .7rem; margin-top: 1px; }
-    .rel-list a:hover { color: var(--accent); }
+    /* ── REVEAL — copied from source ── */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
 
-    /* Inside the Strategy — locked teaser style */
+    /* ── SIDEBAR — copied from source ── */
+    .sidebar { position: sticky; top: 88px; height: fit-content; }
+    .cta-card { background: var(--accent-3); padding: 30px 24px; margin-bottom: 20px; color: var(--white); }
+    .cta-card-eyebrow { font-size: .5rem; letter-spacing: 4px; text-transform: uppercase; color: var(--accent-light); display: block; margin-bottom: 10px; }
+    .cta-card-title { font-family: 'Bodoni Moda', serif; font-size: 1.3rem; font-weight: 700; color: var(--white); margin-bottom: 10px; line-height: 1.2; }
+    .cta-card-title em { color: var(--accent-light); font-style: italic; }
+    .cta-card-sub { font-size: .75rem; color: rgba(255,255,255,.68); line-height: 1.7; margin-bottom: 16px; }
+    .stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 18px; }
+    .stat-item { background: rgba(255,255,255,.08); padding: 12px 10px; text-align: center; }
+    .sv { display: block; font-family: 'Bodoni Moda', serif; font-size: 1.1rem; font-weight: 700; color: var(--white); }
+    .sl { display: block; font-size: .48rem; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,.5); margin-top: 3px; }
+    .sidebar-btn { display: block; background: var(--white); color: var(--accent-3); padding: 12px; text-align: center; font-size: .55rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; transition: all .3s; border: 1px solid transparent; font-family: 'Montserrat', sans-serif; }
+    .sidebar-btn:hover { background: transparent; color: var(--white); border-color: rgba(255,255,255,.4); }
+    .sidebar-card { background: var(--white); border: 1px solid var(--line); padding: 24px; margin-bottom: 20px; }
+    .sc-title { display: block; font-size: .52rem; letter-spacing: 4px; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+    .rel-list { list-style: none; }
+    .rel-list li { padding: 8px 0; border-bottom: 1px solid var(--line); }
+    .rel-list li:last-child { border-bottom: none; }
+    .rel-list a { font-size: .75rem; color: var(--muted); text-decoration: none; transition: color .3s; display: flex; gap: 10px; align-items: flex-start; line-height: 1.5; }
+    .rel-list a::before { content: "—"; color: var(--accent-light); flex-shrink: 0; }
+    .rel-list a:hover { color: var(--accent); }
     .strategy-list { list-style: none; }
-    .strategy-list li {
-      border-bottom: 1px solid var(--line);
-      padding: 10px 0;
-      font-size: .75rem;
-      color: var(--muted);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      line-height: 1.5;
-    }
+    .strategy-list li { padding: 8px 0; border-bottom: 1px solid var(--line); font-size: .75rem; color: var(--muted); display: flex; align-items: center; gap: 10px; line-height: 1.5; }
     .strategy-list li:last-child { border-bottom: none; }
     .strategy-list li::before { content: "✦"; color: var(--accent); flex-shrink: 0; font-size: .6rem; }
 
-    .site-footer { background: var(--text); color: rgba(255,255,255,.5); padding: 60px 52px 32px; }
-    .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,.08); margin-bottom: 32px; }
-    .footer-logo { font-family: 'Bodoni Moda', serif; font-size: .9rem; letter-spacing: 4px; text-transform: uppercase; color: rgba(255,255,255,.9); text-decoration: none; display: block; margin-bottom: 14px; }
-    .footer-tagline { font-size: .72rem; line-height: 1.7; color: rgba(255,255,255,.4); max-width: 260px; }
-    .footer-h { font-size: .55rem; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,.7); margin-bottom: 14px; font-weight: 600; }
+    /* ── FOOTER — copied from source ── */
+    .site-footer { background: var(--text); color: rgba(255,255,255,.5); margin-top: 80px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; padding: 64px 52px 40px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+    .footer-logo { font-family: 'Bodoni Moda', serif; font-size: 1rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--white); text-decoration: none; display: block; margin-bottom: 14px; }
+    .footer-tagline { font-size: .72rem; line-height: 1.8; color: rgba(255,255,255,.4); }
+    .footer-h { font-size: .52rem; letter-spacing: 4px; text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 16px; font-weight: 600; }
     .footer-links { list-style: none; }
-    .footer-links li { margin-bottom: 8px; }
-    .footer-links a { font-size: .72rem; color: rgba(255,255,255,.4); text-decoration: none; transition: color .3s; }
-    .footer-links a:hover { color: rgba(255,255,255,.8); }
-    .footer-bottom { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-    .footer-copy { font-size: .52rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.25); }
-    .footer-socials { display: flex; gap: 20px; }
-    .footer-socials a { font-size: .6rem; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,.35); text-decoration: none; transition: color .3s; }
-    .footer-socials a:hover { color: rgba(255,255,255,.8); }
+    .footer-links li { padding: 5px 0; }
+    .footer-links a { font-size: .72rem; color: rgba(255,255,255,.45); text-decoration: none; transition: color .3s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom { max-width: 1200px; margin: 0 auto; padding: 24px 52px; border-top: 1px solid rgba(255,255,255,.08); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-copy { font-size: .5rem; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,.25); }
+    .footer-socials { display: flex; gap: 24px; }
+    .footer-socials a { font-size: .5rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.35); text-decoration: none; transition: color .3s; }
+    .footer-socials a:hover { color: var(--white); }
 
-    @media (max-width: 960px) {
-      .post-layout { grid-template-columns: 1fr; padding: 32px 28px 80px; }
+    /* ── RESPONSIVE — copied from source ── */
+    @media (max-width: 1024px) {
+      .post-layout { grid-template-columns: 1fr; }
       .sidebar { position: static; }
-      .footer-inner { grid-template-columns: 1fr 1fr; gap: 36px; }
-      .nav { padding: 0 28px; }
-      .breadcrumb { padding: 88px 28px 0; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav { padding: 0 24px; }
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
-    }
-    @media (max-width: 600px) {
-      .post-layout { padding: 24px 20px 60px; }
-      .breadcrumb { padding: 80px 20px 0; }
+      .breadcrumb { padding: 88px 24px 0; }
+      .post-layout { padding: 32px 24px 80px; }
+      .post-nav { grid-template-columns: 1fr; }
+      .footer-inner { padding: 48px 24px 32px; grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { padding: 20px 24px; flex-direction: column; text-align: center; }
       .stat-band { grid-template-columns: 1fr 1fr; }
       .stat-band-item:last-child { grid-column: span 2; }
-      .post-nav { grid-template-columns: 1fr; }
-      .footer-inner { grid-template-columns: 1fr; }
-      .site-footer { padding: 48px 20px 28px; }
-      .inline-cta { padding: 28px 24px; }
-      .nav { padding: 0 20px; }
     }
   </style>
 </head>
@@ -393,7 +272,8 @@
 
 <div class="scroll-bar" id="scrollBar"></div>
 
-<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation menu">
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
   <a href="../../index.html">Home</a>
   <a href="../../index.html#method">The Method</a>
   <a href="../../index.html#results">Results</a>
@@ -401,48 +281,48 @@
   <a href="../../index.html#pricing">Get Strategy</a>
 </div>
 
+<!-- NAV -->
 <nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
-  <a href="../index.html" class="nav-logo" aria-label="MYONLYPROFIT Home">MYONLYPROFIT</a>
+  <a href="../index.html" class="nav-logo">MYONLYPROFIT</a>
   <div class="nav-links">
     <a href="../../index.html#method">The Method</a>
     <a href="../../index.html#results">Results</a>
     <a href="../index.html">Blog</a>
     <a href="../../index.html#pricing" class="nav-cta">Get Strategy</a>
   </div>
-  <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
+<!-- BREADCRUMB -->
 <nav class="breadcrumb" aria-label="Breadcrumb">
   <a href="../../index.html">MYONLYPROFIT</a>
-  <span class="bc-sep">/</span>
+  <span class="bc-sep">›</span>
   <a href="../index.html">Blog</a>
-  <span class="bc-sep">/</span>
+  <span class="bc-sep">›</span>
   <span aria-current="page">TikTok Without Getting Banned</span>
 </nav>
 
+<!-- POST LAYOUT -->
 <div class="post-layout">
   <main>
     <article itemscope itemtype="https://schema.org/Article">
 
-      <header class="post-hero">
+      <!-- HERO -->
+      <header class="post-hero reveal">
         <span class="post-eyebrow">Traffic Strategy</span>
-        <h1 class="post-title" itemprop="headline">
-          Go Viral on TikTok.<br/>
-          <em>Without Getting Banned.</em><br/>
-          Without Paying for a Single Ad.
-        </h1>
-        <div class="post-meta-row">
-          <span itemprop="datePublished" content="2026-04-28">April 2026</span>
-          <span class="post-meta-sep" aria-hidden="true"></span>
+        <h1 class="post-title" itemprop="headline">Go Viral on TikTok.<br/><em>Without Getting Banned.</em><br/>Without Paying for a Single Ad.</h1>
+        <div class="post-meta-row" itemprop="datePublished" content="2026-04-28">
+          <span>April 2026</span>
+          <span class="post-meta-sep"></span>
           <span>8 min read</span>
-          <span class="post-meta-sep" aria-hidden="true"></span>
-          <span>Traffic · Growth</span>
+          <span class="post-meta-sep"></span>
+          <span>Traffic &amp; Growth</span>
         </div>
         <div class="author-strip" itemprop="author" itemscope itemtype="https://schema.org/Organization">
-          <div class="author-avatar" aria-hidden="true">
-            <img src="../../images/logo.avif" alt="MYONLYPROFIT logo" loading="lazy" />
+          <div class="author-avatar">
+            <img src="../../images/logo-blog.png" alt="MYONLYPROFIT Logo" />
           </div>
           <div>
             <div class="author-name" itemprop="name">MYONLYPROFIT</div>
@@ -451,11 +331,12 @@
         </div>
       </header>
 
-      <div class="post-body post-intro" itemprop="articleBody">
+      <!-- CONTENT -->
+      <div class="post-content" itemprop="articleBody">
 
-        <p>TikTok is the most powerful free traffic source available to OnlyFans creators in 2026. The algorithm doesn't care whether you have 50 followers or 50,000 — a video that earns retention gets distributed, full stop. No ad budget. No existing audience. No gatekeeping by follower count. But the platform will restrict your reach, suppress your account, or remove you permanently if you approach it without a strategy.</p>
+        <p class="reveal">TikTok is the most powerful free traffic source available to OnlyFans creators in 2026. The algorithm doesn't care whether you have 50 followers or 50,000 — a video that earns retention gets distributed, full stop. No ad budget. No existing audience. No gatekeeping by follower count. But the platform will restrict your reach, suppress your account, or remove you permanently if you approach it without a strategy.</p>
 
-        <p>The creators earning consistent subscriber conversions from TikTok aren't the luckiest ones. <strong>They built the right system behind the content.</strong> That's the gap this post begins to close — and what the full strategy inside our program closes completely.</p>
+        <p class="reveal">The creators earning consistent subscriber conversions from TikTok aren't the luckiest ones. <strong>They built the right system behind the content.</strong> That's the gap this post begins to close — and what the full strategy inside our program closes completely.</p>
 
         <div class="stat-band reveal">
           <div class="stat-band-item">
@@ -472,55 +353,52 @@
           </div>
         </div>
 
-        <h2>TikTok Is Not a Selling Platform</h2>
+        <h2 class="reveal">TikTok Is Not a Selling Platform</h2>
 
-        <p>The single most important thing to understand before posting a single frame: <strong>your job on TikTok is not to sell anything.</strong> It is to create content compelling enough that someone taps your profile and follows the trail to your link. Push too hard — naming platforms, direct promotions, anything that reads as advertisement — and the algorithm flags it, suppresses reach, and the viewer scrolls on.</p>
+        <p class="reveal">The single most important thing to understand before posting a single frame: <strong>your job on TikTok is not to sell anything.</strong> It is to create content compelling enough that someone taps your profile and follows the trail to your link. Push too hard — naming platforms, direct promotions, anything that reads as advertisement — and the algorithm flags it, suppresses reach, and the viewer scrolls on.</p>
 
-        <p>Virality on TikTok is almost never about being explicit. It's about being interesting enough to make someone stop, watch to the end, and want more. Every tactical decision flows from that one insight. The rest — hooks, captions, CTAs, conversion routing — is built on top of it, layer by layer, in a specific sequence that most creators never figure out on their own.</p>
+        <p class="reveal">Virality on TikTok is almost never about being explicit. It's about being interesting enough to make someone stop, watch to the end, and want more. Every tactical decision flows from that one insight. The rest — hooks, captions, CTAs, conversion routing — is built on top of it, layer by layer, in a specific sequence that most creators never figure out on their own.</p>
 
-        <div class="insight-box reveal">
+        <div class="hbox reveal">
           <strong>The Only Frame That Matters</strong>
           You are not a creator promoting a page. You are an interesting person whose content makes someone feel something — curious, entertained, intrigued. The profile tap happens because of the feeling. What converts that tap into a paying subscriber is what you've built behind it.
         </div>
 
-        <h2>The Rules That Keep Your Account Alive</h2>
+        <h2 class="reveal">The Rules That Keep Your Account Alive</h2>
 
-        <p>There are specific behaviours that separate accounts with six months of consistent traffic from accounts that get wiped. TikTok's moderation is not random — it follows patterns, and once you understand those patterns, staying compliant becomes systematic rather than stressful.</p>
+        <p class="reveal">There are specific behaviours that separate accounts with six months of consistent traffic from accounts that get wiped. TikTok's moderation is not random — it follows patterns, and once you understand those patterns, staying compliant becomes systematic rather than stressful.</p>
 
-        <p>The broad principles are learnable. The exact implementation — what to say, how to say it, what to route where, and how to structure your backup — is what our TikTok Blueprint covers in full. Here's the framing:</p>
+        <p class="reveal">The broad principles are learnable. The exact implementation — what to say, how to say it, what to route where, and how to structure your backup — is what our TikTok Blueprint covers in full. Here's the framing:</p>
 
-        <ul>
+        <ul class="reveal">
           <li><strong>Platform name avoidance is non-negotiable.</strong> TikTok's classifier is trained to suppress it, and it will limit your distribution immediately — often without notification.</li>
           <li><strong>Suggestive is not the same as explicit.</strong> One gets distributed by the algorithm. One gets removed. The line between them is where most accounts fail, and knowing exactly where it sits is a skill in itself.</li>
           <li><strong>External routing requires a protective layer.</strong> Direct linking is the fastest way to lose an account. The architecture behind your bio matters more than most creators realise.</li>
           <li><strong>A backup account is not a contingency plan — it's part of the strategy.</strong> Even creators executing everything correctly get restricted. The ones who recover fast are the ones who were already prepared.</li>
         </ul>
 
-        <h2>The Hook Is the Entire Game</h2>
+        <h2 class="reveal">The Hook Is the Entire Game</h2>
 
-        <p>TikTok's algorithm distributes based on watch time and completion rate. That decision is made within the first two seconds. If your opening frame is flat, the video is effectively dead regardless of what follows.</p>
+        <p class="reveal">TikTok's algorithm distributes based on watch time and completion rate. That decision is made within the first two seconds. If your opening frame is flat, the video is effectively dead regardless of what follows.</p>
 
-        <p>There are proven hook structures that consistently outperform everything else in this context — the open loop, the direct provocation, the visual contrast, the extreme claim. Each one works for a different reason, targets a different viewer psychology, and fits a different content type. Knowing which one to deploy and when is part of the Hook Engineering framework inside the strategy. This post introduces the concept. The system gives you the implementation.</p>
+        <p class="reveal">There are proven hook structures that consistently outperform everything else in this context — the open loop, the direct provocation, the visual contrast, the extreme claim. Each one works for a different reason, targets a different viewer psychology, and fits a different content type. Knowing which one to deploy and when is part of the Hook Engineering framework inside the strategy. This post introduces the concept. The system gives you the implementation.</p>
 
-        <div class="insight-box reveal">
+        <div class="hbox reveal">
           <strong>Structure Beats Inspiration</strong>
           The creators who post consistently viral content aren't waking up with ideas. They're running a framework — hook type, content arc, CTA placement, caption structure — that makes strong performance the default rather than the exception.
         </div>
 
-        <h2>Volume Beats Perfection, Every Single Time</h2>
+        <h2 class="reveal">Volume Beats Perfection, Every Single Time</h2>
 
-        <p>Ten decent videos will outperform one perfect video on TikTok — consistently, without exception. The algorithm rewards output: more posts mean more distribution attempts, more data points, more chances to hit an audience segment built for your content. Waiting for perfection is the most common way creators stay invisible.</p>
+        <p class="reveal">Ten decent videos will outperform one perfect video on TikTok — consistently, without exception. The algorithm rewards output: more posts mean more distribution attempts, more data points, more chances to hit an audience segment built for your content. Waiting for perfection is the most common way creators stay invisible.</p>
 
-        <p>Most creators quit between weeks two and four — precisely when the algorithm is beginning to understand what audience to show their content to. Pushing through that window, with the right content rhythm and structure, is what separates accounts that compound from accounts that stall.</p>
+        <p class="reveal">Most creators quit between weeks two and four — precisely when the algorithm is beginning to understand what audience to show their content to. Pushing through that window, with the right content rhythm and structure, is what separates accounts that compound from accounts that stall.</p>
 
-        <blockquote>
-          <p>I had a video hit 2 million views and gained 4,000 followers. Link clicks that day? 340. That's when I realised reach isn't the metric — conversion is.</p>
-          <cite>— Creator in our program, scaled to €7.2K/month in 5 months</cite>
-        </blockquote>
+        <blockquote class="reveal">I had a video hit 2 million views and gained 4,000 followers. Link clicks that day? 340. That's when I realised reach isn't the metric — conversion is. — Creator in our program, scaled to €7.2K/month in 5 months</blockquote>
 
-        <h2>Why Most TikTok Traffic Converts Poorly</h2>
+        <h2 class="reveal">Why Most TikTok Traffic Converts Poorly</h2>
 
-        <p>Getting views is step one. Converting views into profile visits, link clicks, and subscriptions is a chain with multiple failure points. Most creators optimise hard for views and ignore every step that follows. Traffic arrives, creates an analytics spike, and disappears — because there's nothing structured waiting to receive it.</p>
+        <p class="reveal">Getting views is step one. Converting views into profile visits, link clicks, and subscriptions is a chain with multiple failure points. Most creators optimise hard for views and ignore every step that follows. Traffic arrives, creates an analytics spike, and disappears — because there's nothing structured waiting to receive it.</p>
 
         <table class="compare-table reveal" aria-label="TikTok creator versus TikTok system comparison">
           <thead>
@@ -559,26 +437,28 @@
           </tbody>
         </table>
 
-        <p>TikTok is the front door. Everything built behind it determines whether people stay, subscribe, and pay. The funnel mapping and bio optimisation inside our strategy is where this gap gets closed — systematically, not intuitively.</p>
+        <p class="reveal">TikTok is the front door. Everything built behind it determines whether people stay, subscribe, and pay. The funnel mapping and bio optimisation inside our strategy is where this gap gets closed — systematically, not intuitively.</p>
 
-        <h2>The Metrics That Actually Tell You What's Working</h2>
+        <h2 class="reveal">The Metrics That Actually Tell You What's Working</h2>
 
-        <p>Views and follower counts are vanity metrics in this context. They feel good. They don't tell you whether your TikTok strategy is generating income. The metrics that matter are further down the funnel — profile visit rate, link click rate from profile, link-in-bio conversion, and subscriber source tracking. Most creators never measure any of them.</p>
+        <p class="reveal">Views and follower counts are vanity metrics in this context. They feel good. They don't tell you whether your TikTok strategy is generating income. The metrics that matter are further down the funnel — profile visit rate, link click rate from profile, link-in-bio conversion, and subscriber source tracking. Most creators never measure any of them.</p>
 
-        <p>The full metrics tracking system — what to measure, how often, and what decisions to make based on the data — is inside the strategy. This post points you toward the question. The answer is in the program.</p>
+        <p class="reveal">The full metrics tracking system — what to measure, how often, and what decisions to make based on the data — is inside the strategy. This post points you toward the question. The answer is in the program.</p>
 
-        <div class="insight-box contrast reveal">
+        <div class="hbox contrast reveal">
           <strong>TikTok Is Free Traffic. The System Behind It Is What You Build.</strong>
           The creators earning consistent income from TikTok didn't get lucky with a viral video. They built a complete pipeline — and that pipeline is what we document, step by step, inside the Empire Strategy.
         </div>
 
-        <div class="inline-cta reveal">
-          <div class="inline-cta-eyebrow">The Full Traffic System</div>
-          <h3>TikTok Is Only the Front Door.</h3>
+        <!-- CTA -->
+        <div class="cta-box reveal">
+          <span class="cta-eyebrow">The Full Traffic System</span>
+          <h3>TikTok Is Only the Front Door. <em>Build What's Behind It.</em></h3>
           <p>The Empire Strategy covers everything after the view — the blueprint, the hooks, the funnel, the DM framework, and the conversion architecture that turns traffic into income. Built for creators ready to stop guessing.</p>
           <a href="../../index.html#pricing" class="cta-btn">Get the Strategy →</a>
         </div>
 
+        <!-- POST NAV -->
         <nav class="post-nav" aria-label="Article navigation">
           <a href="../branding-basics/index.html" class="post-nav-item">
             <span class="pn-dir">← Previous</span>
@@ -594,11 +474,12 @@
     </article>
   </main>
 
+  <!-- SIDEBAR -->
   <aside class="sidebar" aria-label="Sidebar">
 
     <div class="cta-card reveal">
       <span class="cta-card-eyebrow">Self-Guided System</span>
-      <h3 class="cta-card-title">Own The <em>Complete</em> Playbook</h3>
+      <h3 class="cta-card-title">Own The Complete <em>Empire</em> Playbook</h3>
       <p class="cta-card-sub">Six systems. The complete TikTok-to-subscriber pipeline, DM scripts, pricing strategy, and conversion framework. One-time purchase, 100% yours.</p>
       <div class="stat-row">
         <div class="stat-item"><span class="sv">€6.4K</span><span class="sl">Avg Monthly</span></div>
@@ -608,7 +489,7 @@
     </div>
 
     <div class="sidebar-card reveal">
-      <span class="sc-title">More Intel</span>
+      <span class="sc-title">Related Articles</span>
       <ul class="rel-list">
         <li><a href="../branding-basics/index.html">OnlyFans Branding 101: Identity That Converts</a></li>
         <li><a href="../fan-psychology/index.html">The Psychology of Why Fans Pay</a></li>
@@ -634,7 +515,8 @@
   </aside>
 </div>
 
-<footer class="site-footer" role="contentinfo">
+<!-- FOOTER -->
+<footer class="site-footer">
   <div class="footer-inner">
     <div>
       <a href="../../index.html" class="footer-logo">MYONLYPROFIT</a>
@@ -686,7 +568,6 @@
     scrollBar.style.width = max > 0 ? (window.scrollY / max * 100) + '%' : '0%';
     nav.classList.toggle('scrolled', window.scrollY > 60);
   }, { passive: true });
-
   const ham = document.getElementById('hamburger');
   const mm = document.getElementById('mobileMenu');
   ham.addEventListener('click', () => {
@@ -696,15 +577,13 @@
     document.body.style.overflow = isOpen ? 'hidden' : '';
   });
   mm.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    ham.classList.remove('open');
-    mm.classList.remove('open');
+    ham.classList.remove('open'); mm.classList.remove('open');
     ham.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   }));
-
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
+  }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
