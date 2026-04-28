@@ -59,13 +59,11 @@
   }
   </script>
 
-  <!-- ── FONTS (same as source) ── -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;0,6..96,900;1,6..96,400;1,6..96,700&family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet" />
 
   <style>
-    /* ── CSS VARIABLES — copied verbatim from source ── */
     :root {
       --bg: #f8f7f4; --bg-2: #f0ede8; --bg-3: #e8e4de;
       --text: #111110; --muted: #4a4a46; --soft: #888884;
@@ -80,8 +78,6 @@
     ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
     ::selection { background: rgba(42,92,107,.15); color: var(--text); }
     body { font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; line-height: 1.8; }
-
-    /* ── BACKGROUND RULE LINES — copied from source ── */
     body::before {
       content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .4;
       background: linear-gradient(to right, transparent 0%, transparent 24.8%, rgba(0,0,0,0.018) 24.9%, rgba(0,0,0,0.018) 25.1%, transparent 25.2%, transparent 74.8%, rgba(0,0,0,0.018) 74.9%, rgba(0,0,0,0.018) 75.1%, transparent 75.2%);
@@ -89,10 +85,10 @@
     a { color: var(--accent); text-decoration: none; }
     a:hover { color: var(--accent-3); }
 
-    /* ── SCROLL BAR ── */
+    /* SCROLL BAR */
     .scroll-bar { position: fixed; top: 0; left: 0; height: 2px; width: 0%; background: linear-gradient(90deg, var(--accent), var(--accent-light)); z-index: 2000; transition: width .08s linear; }
 
-    /* ── NAV — copied from source ── */
+    /* NAV */
     .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0 52px; height: 68px; display: flex; justify-content: space-between; align-items: center; background: rgba(248,247,244,.96); backdrop-filter: blur(20px); border-bottom: 1px solid var(--line); transition: all .4s ease; }
     .nav.scrolled { background: rgba(255,255,255,.98); box-shadow: 0 2px 24px rgba(0,0,0,.06); }
     .nav-logo { text-decoration: none; color: var(--text); font-family: 'Bodoni Moda', serif; font-size: 1.18rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; }
@@ -112,16 +108,16 @@
     .mobile-menu a:first-child { border-top: 1px solid var(--line); }
     .mobile-menu a:hover { color: var(--accent); background: rgba(42,92,107,.04); }
 
-    /* ── BREADCRUMB — copied from source ── */
+    /* BREADCRUMB */
     .breadcrumb { max-width: 900px; margin: 0 auto; padding: 88px 52px 0; font-size: .54rem; letter-spacing: 2px; text-transform: uppercase; color: var(--soft); display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
     .breadcrumb a { color: var(--accent); text-decoration: none; }
     .breadcrumb a:hover { text-decoration: underline; }
     .bc-sep { opacity: .4; }
 
-    /* ── POST LAYOUT — copied from source ── */
+    /* POST LAYOUT */
     .post-layout { max-width: 1200px; margin: 0 auto; padding: 40px 52px 100px; display: grid; grid-template-columns: 1fr 300px; gap: 72px; }
 
-    /* ── ARTICLE HERO — copied from source ── */
+    /* ARTICLE */
     .post-hero { padding-bottom: 36px; border-bottom: 1px solid var(--line); margin-bottom: 40px; }
     .post-eyebrow { font-size: .52rem; letter-spacing: 5px; text-transform: uppercase; color: var(--accent); display: inline-block; border: 1px solid rgba(42,92,107,.25); padding: 5px 14px; margin-bottom: 20px; }
     .post-title { font-family: 'Bodoni Moda', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; line-height: 1.1; letter-spacing: -1px; color: var(--text); margin-bottom: 20px; }
@@ -129,24 +125,13 @@
     .post-meta-row { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; font-size: .54rem; letter-spacing: 2px; text-transform: uppercase; color: var(--soft); margin-bottom: 24px; }
     .post-meta-sep { width: 1px; height: 12px; background: var(--line-strong); }
 
-    /* ── AUTHOR STRIP — copied verbatim from source ── */
     .author-strip { display: flex; align-items: center; gap: 14px; padding: 16px 20px; background: var(--white); border: 1px solid var(--line); border-left: 3px solid var(--accent); }
-    .author-avatar {
-      width: 42px; height: 42px;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      overflow: hidden;
-    }
-    .author-avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-    }
+    .author-avatar { width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden; }
+    .author-avatar img { width: 100%; height: 100%; object-fit: contain; display: block; }
     .author-name { font-size: .6rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text); font-weight: 600; }
     .author-role { font-family: 'Cormorant Garamond', serif; font-size: .9rem; color: var(--soft); margin-top: 2px; }
 
-    /* ── POST CONTENT — copied from source ── */
+    /* POST CONTENT */
     .post-content { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--muted); }
     .post-content h2 { font-family: 'Bodoni Moda', serif; font-size: 1.6rem; font-weight: 700; color: var(--text); margin: 48px 0 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); position: relative; }
     .post-content h2::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 60px; height: 2px; background: var(--accent); }
@@ -158,23 +143,15 @@
     .post-content ul li::before { content: "—"; color: var(--accent); font-family: 'Montserrat', sans-serif; font-weight: 600; flex-shrink: 0; margin-top: 2px; }
     .post-content ul li:last-child { border-bottom: none; }
 
-    /* ── HIGHLIGHT BOX — copied from source ── */
+    /* HIGHLIGHT BOX */
     .hbox { background: var(--bg-2); border-left: 3px solid var(--accent); padding: 22px 26px; margin: 28px 0; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; line-height: 1.85; color: var(--muted); }
     .hbox strong { color: var(--text); font-family: 'Montserrat', sans-serif; font-size: .92rem; font-weight: 600; }
     .hbox.alt { border-left-color: var(--accent-light); background: var(--white); }
-    .hbox.contrast { background: var(--accent); border-left-color: var(--accent-3); color: rgba(255,255,255,.85); }
-    .hbox.contrast strong { color: #fff; }
 
-    /* ── BLOCKQUOTE — copied from source ── */
+    /* BLOCKQUOTE */
     blockquote { border-left: 3px solid var(--accent-light); padding: 16px 24px; margin: 28px 0; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; color: var(--muted); background: var(--white); line-height: 1.7; }
 
-    /* ── STAT BAND ── */
-    .stat-band { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin: 36px 0; }
-    .stat-band-item { background: var(--white); padding: 24px 20px; text-align: center; }
-    .stat-val { font-family: 'Bodoni Moda', serif; font-size: 2rem; font-weight: 900; color: var(--accent); display: block; line-height: 1; }
-    .stat-lbl { font-size: .54rem; letter-spacing: 2px; text-transform: uppercase; color: var(--soft); margin-top: 8px; display: block; }
-
-    /* ── COMPARE TABLE ── */
+    /* COMPARE TABLE */
     .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: .82rem; }
     .compare-table th { background: var(--accent); color: var(--white); padding: 12px 18px; text-align: left; font-size: .58rem; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; font-family: 'Montserrat', sans-serif; }
     .compare-table td { padding: 12px 18px; border-bottom: 1px solid var(--line); color: var(--muted); vertical-align: top; line-height: 1.6; font-family: 'Cormorant Garamond', serif; font-size: 1rem; }
@@ -184,7 +161,7 @@
     .compare-table td.good { color: var(--accent); font-weight: 600; }
     .compare-table td.bad { color: #c0392b; }
 
-    /* ── INLINE CTA BOX — copied from source ── */
+    /* INLINE CTA BOX */
     .cta-box { background: var(--accent-3); color: var(--white); padding: 44px 40px; margin: 52px 0; text-align: center; position: relative; overflow: hidden; }
     .cta-box::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, var(--accent-light), transparent); }
     .cta-eyebrow { font-size: .52rem; letter-spacing: 5px; text-transform: uppercase; color: var(--accent-light); display: block; margin-bottom: 14px; }
@@ -194,7 +171,7 @@
     .cta-btn { display: inline-block; background: var(--white); color: var(--accent-3); padding: 14px 38px; font-size: .65rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; transition: all .3s; border: 1px solid transparent; font-family: 'Montserrat', sans-serif; }
     .cta-btn:hover { background: transparent; color: var(--white); border-color: rgba(255,255,255,.4); }
 
-    /* ── POST NAV — copied from source ── */
+    /* POST NAV */
     .post-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--line); }
     .post-nav-item { display: flex; flex-direction: column; gap: 6px; padding: 20px; background: var(--white); border: 1px solid var(--line); text-decoration: none; transition: border-color .3s, background .3s; }
     .post-nav-item:hover { border-color: var(--accent); background: var(--bg-2); }
@@ -202,11 +179,11 @@
     .pn-dir { font-size: .5rem; letter-spacing: 3px; text-transform: uppercase; color: var(--soft); }
     .pn-title { font-size: .78rem; color: var(--text); font-weight: 500; line-height: 1.4; }
 
-    /* ── REVEAL — copied from source ── */
+    /* REVEAL */
     .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
     .reveal.visible { opacity: 1; transform: none; }
 
-    /* ── SIDEBAR — copied from source ── */
+    /* SIDEBAR */
     .sidebar { position: sticky; top: 88px; height: fit-content; }
     .cta-card { background: var(--accent-3); padding: 30px 24px; margin-bottom: 20px; color: var(--white); }
     .cta-card-eyebrow { font-size: .5rem; letter-spacing: 4px; text-transform: uppercase; color: var(--accent-light); display: block; margin-bottom: 10px; }
@@ -219,6 +196,7 @@
     .sl { display: block; font-size: .48rem; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,.5); margin-top: 3px; }
     .sidebar-btn { display: block; background: var(--white); color: var(--accent-3); padding: 12px; text-align: center; font-size: .55rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; transition: all .3s; border: 1px solid transparent; font-family: 'Montserrat', sans-serif; }
     .sidebar-btn:hover { background: transparent; color: var(--white); border-color: rgba(255,255,255,.4); }
+
     .sidebar-card { background: var(--white); border: 1px solid var(--line); padding: 24px; margin-bottom: 20px; }
     .sc-title { display: block; font-size: .52rem; letter-spacing: 4px; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
     .rel-list { list-style: none; }
@@ -227,12 +205,8 @@
     .rel-list a { font-size: .75rem; color: var(--muted); text-decoration: none; transition: color .3s; display: flex; gap: 10px; align-items: flex-start; line-height: 1.5; }
     .rel-list a::before { content: "—"; color: var(--accent-light); flex-shrink: 0; }
     .rel-list a:hover { color: var(--accent); }
-    .strategy-list { list-style: none; }
-    .strategy-list li { padding: 8px 0; border-bottom: 1px solid var(--line); font-size: .75rem; color: var(--muted); display: flex; align-items: center; gap: 10px; line-height: 1.5; }
-    .strategy-list li:last-child { border-bottom: none; }
-    .strategy-list li::before { content: "✦"; color: var(--accent); flex-shrink: 0; font-size: .6rem; }
 
-    /* ── FOOTER — copied from source ── */
+    /* FOOTER */
     .site-footer { background: var(--text); color: rgba(255,255,255,.5); margin-top: 80px; }
     .footer-inner { max-width: 1200px; margin: 0 auto; padding: 64px 52px 40px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
     .footer-logo { font-family: 'Bodoni Moda', serif; font-size: 1rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--white); text-decoration: none; display: block; margin-bottom: 14px; }
@@ -248,7 +222,7 @@
     .footer-socials a { font-size: .5rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.35); text-decoration: none; transition: color .3s; }
     .footer-socials a:hover { color: var(--white); }
 
-    /* ── RESPONSIVE — copied from source ── */
+    /* RESPONSIVE */
     @media (max-width: 1024px) {
       .post-layout { grid-template-columns: 1fr; }
       .sidebar { position: static; }
@@ -263,8 +237,9 @@
       .post-nav { grid-template-columns: 1fr; }
       .footer-inner { padding: 48px 24px 32px; grid-template-columns: 1fr; gap: 32px; }
       .footer-bottom { padding: 20px 24px; flex-direction: column; text-align: center; }
-      .stat-band { grid-template-columns: 1fr 1fr; }
-      .stat-band-item:last-child { grid-column: span 2; }
+      .compare-table { font-size: .75rem; }
+      .compare-table th, .compare-table td { padding: 10px 12px; }
+      .cta-box { padding: 36px 24px; }
     }
   </style>
 </head>
@@ -274,21 +249,22 @@
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
-  <a href="../../index.html">Home</a>
-  <a href="../../index.html#method">The Method</a>
+  <a href="../../index.html#story">Story</a>
+  <a href="../../index.html#method">Method</a>
   <a href="../../index.html#results">Results</a>
   <a href="../index.html">Blog</a>
-  <a href="../../index.html#pricing">Get Strategy</a>
+  <a href="../../index.html#pricing">Get Empire</a>
 </div>
 
 <!-- NAV -->
 <nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
   <a href="../index.html" class="nav-logo">MYONLYPROFIT</a>
   <div class="nav-links">
-    <a href="../../index.html#method">The Method</a>
+    <a href="../../index.html#story">Story</a>
+    <a href="../../index.html#method">Method</a>
     <a href="../../index.html#results">Results</a>
     <a href="../index.html">Blog</a>
-    <a href="../../index.html#pricing" class="nav-cta">Get Strategy</a>
+    <a href="../../index.html#pricing" class="nav-cta">Get Empire</a>
   </div>
   <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -338,21 +314,6 @@
 
         <p class="reveal">The creators earning consistent subscriber conversions from TikTok aren't the luckiest ones. <strong>They built the right system behind the content.</strong> That's the gap this post begins to close — and what the full strategy inside our program closes completely.</p>
 
-        <div class="stat-band reveal">
-          <div class="stat-band-item">
-            <span class="stat-val">2s</span>
-            <span class="stat-lbl">Window to Hold Attention</span>
-          </div>
-          <div class="stat-band-item">
-            <span class="stat-val">10×</span>
-            <span class="stat-lbl">Volume Over Perfection</span>
-          </div>
-          <div class="stat-band-item">
-            <span class="stat-val">3–5%</span>
-            <span class="stat-lbl">View-to-Click Benchmark</span>
-          </div>
-        </div>
-
         <h2 class="reveal">TikTok Is Not a Selling Platform</h2>
 
         <p class="reveal">The single most important thing to understand before posting a single frame: <strong>your job on TikTok is not to sell anything.</strong> It is to create content compelling enough that someone taps your profile and follows the trail to your link. Push too hard — naming platforms, direct promotions, anything that reads as advertisement — and the algorithm flags it, suppresses reach, and the viewer scrolls on.</p>
@@ -369,6 +330,8 @@
         <p class="reveal">There are specific behaviours that separate accounts with six months of consistent traffic from accounts that get wiped. TikTok's moderation is not random — it follows patterns, and once you understand those patterns, staying compliant becomes systematic rather than stressful.</p>
 
         <p class="reveal">The broad principles are learnable. The exact implementation — what to say, how to say it, what to route where, and how to structure your backup — is what our TikTok Blueprint covers in full. Here's the framing:</p>
+
+        <h3 class="reveal">What Keeps Accounts Safe</h3>
 
         <ul class="reveal">
           <li><strong>Platform name avoidance is non-negotiable.</strong> TikTok's classifier is trained to suppress it, and it will limit your distribution immediately — often without notification.</li>
@@ -445,7 +408,7 @@
 
         <p class="reveal">The full metrics tracking system — what to measure, how often, and what decisions to make based on the data — is inside the strategy. This post points you toward the question. The answer is in the program.</p>
 
-        <div class="hbox contrast reveal">
+        <div class="hbox alt reveal">
           <strong>TikTok Is Free Traffic. The System Behind It Is What You Build.</strong>
           The creators earning consistent income from TikTok didn't get lucky with a viral video. They built a complete pipeline — and that pipeline is what we document, step by step, inside the Empire Strategy.
         </div>
@@ -502,13 +465,13 @@
 
     <div class="sidebar-card reveal">
       <span class="sc-title">Inside Empire</span>
-      <ul class="strategy-list">
-        <li>TikTok Blueprint</li>
-        <li>Hook Framework Library</li>
-        <li>Funnel Mapping &amp; Bio Optimisation</li>
-        <li>DM Conversion Scripts</li>
-        <li>Caption &amp; CTA Strategy</li>
-        <li>Hook Engineering</li>
+      <ul class="rel-list">
+        <li><a href="../../index.html#pricing">TikTok Blueprint</a></li>
+        <li><a href="../../index.html#pricing">Hook Framework Library</a></li>
+        <li><a href="../../index.html#pricing">Funnel Mapping &amp; Bio Optimisation</a></li>
+        <li><a href="../../index.html#pricing">DM Conversion Scripts</a></li>
+        <li><a href="../../index.html#pricing">Caption &amp; CTA Strategy</a></li>
+        <li><a href="../../index.html#pricing">Hook Engineering</a></li>
       </ul>
     </div>
 
@@ -534,10 +497,10 @@
     <div>
       <h4 class="footer-h">Blog</h4>
       <ul class="footer-links">
+        <li><a href="../dm-mistakes/index.html">DM Strategy</a></li>
         <li><a href="../tiktok-viral/index.html">TikTok Traffic</a></li>
         <li><a href="../branding-basics/index.html">Branding</a></li>
-        <li><a href="../scaling-mindset/index.html">Scaling Mindset</a></li>
-        <li><a href="../fan-psychology/index.html">Fan Psychology</a></li>
+        <li><a href="../pricing-psychology/index.html">Pricing</a></li>
       </ul>
     </div>
     <div>
@@ -562,28 +525,34 @@
 <script>
   const scrollBar = document.getElementById('scrollBar');
   const nav = document.getElementById('mainNav');
+
   window.addEventListener('scroll', () => {
     const doc = document.documentElement;
     const max = doc.scrollHeight - doc.clientHeight;
     scrollBar.style.width = max > 0 ? (window.scrollY / max * 100) + '%' : '0%';
     nav.classList.toggle('scrolled', window.scrollY > 60);
   }, { passive: true });
+
   const ham = document.getElementById('hamburger');
   const mm = document.getElementById('mobileMenu');
+
   ham.addEventListener('click', () => {
     const isOpen = mm.classList.toggle('open');
     ham.classList.toggle('open', isOpen);
     ham.setAttribute('aria-expanded', isOpen);
     document.body.style.overflow = isOpen ? 'hidden' : '';
   });
+
   mm.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
     ham.classList.remove('open'); mm.classList.remove('open');
     ham.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   }));
+
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
+
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
