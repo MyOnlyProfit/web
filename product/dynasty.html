@@ -72,26 +72,21 @@
     .delivery-text { font-family: 'Montserrat', sans-serif; font-size: .48rem; letter-spacing: 4px; text-transform: uppercase; color: var(--accent); white-space: nowrap; }
     .hero-get-btn {
       width: 100%; padding: 20px 40px;
-      background: transparent; border: 1px solid var(--accent-3);
-      color: var(--accent-3); font-family: 'Bodoni Moda', serif;
+      background: #fff; border: 1px solid #fff;
+      color: #000; font-family: 'Bodoni Moda', serif;
       font-size: 1rem; font-weight: 700; letter-spacing: 6px;
       text-transform: uppercase; cursor: pointer;
-      position: relative; overflow: hidden;
-      transition: color .35s ease, opacity .35s ease;
-      margin-bottom: 18px;
+      transition: background .25s ease, border-color .25s ease;
     }
-    .hero-get-btn .btn-bg {
-      position: absolute; inset: 0;
-      background: var(--accent-3);
-      transform: scaleX(0); transform-origin: left;
-      transition: transform .4s ease; z-index: 0;
-    }
-    .hero-get-btn .btn-text { position: relative; z-index: 1; }
-    .hero-get-btn.locked { opacity: .35; cursor: not-allowed; }
-    .hero-get-btn:not(.locked):hover .btn-bg { transform: scaleX(1); }
-    .hero-get-btn:not(.locked):hover .btn-text { color: #000; }
-    .hero-get-btn:not(.locked):hover { color: #000; }
-    .terms-row { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; width: 100%; }
+    .hero-get-btn:hover { background: var(--accent-3); border-color: var(--accent-3); }
+    /* ── MODAL ── */
+    .terms-modal-overlay { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,.85); backdrop-filter: blur(12px); align-items: center; justify-content: center; }
+    .terms-modal-overlay.open { display: flex; }
+    .terms-modal { background: #0d0d0d; border: 1px solid rgba(255,255,255,.14); max-width: 420px; width: 90%; padding: 40px 36px; position: relative; }
+    .terms-modal-bar { position: absolute; top: 0; left: 0; width: 100%; height: 1px; background: linear-gradient(90deg, transparent, var(--accent-3), transparent); }
+    .terms-modal-title { font-family: 'Bodoni Moda', serif; font-size: 1.1rem; letter-spacing: 4px; text-transform: uppercase; color: #fff; margin-bottom: 8px; text-align: center; }
+    .terms-modal-sub { font-size: 10px; letter-spacing: 2px; color: var(--soft); text-align: center; margin-bottom: 28px; text-transform: uppercase; font-family: 'Montserrat', sans-serif; }
+    .terms-modal-row { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; margin-bottom: 28px; }
     .custom-checkbox { position: relative; flex-shrink: 0; width: 16px; height: 16px; margin-top: 1px; }
     .custom-checkbox input { appearance: none; -webkit-appearance: none; width: 16px; height: 16px; border: 1px solid var(--soft); background: transparent; cursor: pointer; display: block; transition: all .25s ease; }
     .custom-checkbox input:checked { background: var(--accent-3); border-color: var(--accent-3); }
@@ -100,6 +95,11 @@
     .terms-text { font-family: 'Montserrat', sans-serif; font-size: .54rem; letter-spacing: 2px; color: var(--soft); line-height: 1.7; text-transform: uppercase; text-align: left; }
     .terms-text a { color: var(--accent-3); text-decoration: none; border-bottom: 1px solid rgba(219,231,237,.25); transition: border-color .25s; }
     .terms-text a:hover { border-color: var(--accent-3); }
+    .terms-modal-confirm { width: 100%; padding: 18px 24px; background: #fff; border: 1px solid #fff; color: #000; font-family: 'Bodoni Moda', serif; font-size: .9rem; font-weight: 700; letter-spacing: 5px; text-transform: uppercase; cursor: pointer; transition: background .25s ease, border-color .25s ease; }
+    .terms-modal-confirm:hover:not(:disabled) { background: var(--accent-3); border-color: var(--accent-3); }
+    .terms-modal-confirm:disabled { opacity: .35; cursor: not-allowed; }
+    .terms-modal-cancel { width: 100%; margin-top: 12px; padding: 10px; background: transparent; border: none; color: var(--soft); font-size: 10px; letter-spacing: 3px; text-transform: uppercase; cursor: pointer; font-family: 'Montserrat', sans-serif; transition: color .2s ease; }
+    .terms-modal-cancel:hover { color: var(--muted); }
     /* ── SCROLL HINT ── */
     .scroll-hint { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; z-index: 2; pointer-events: none; }
     .scroll-hint span { font-size: .5rem; letter-spacing: 4px; text-transform: uppercase; color: var(--soft); white-space: nowrap; }
@@ -203,24 +203,31 @@
 
   <!-- ── CTA BLOCK ── -->
   <div class="hero-cta-block">
-
-    <!-- Instant delivery label -->
     <div class="delivery-label">
       <div class="delivery-line"></div>
       <span class="delivery-text">✦ Instant Delivery to Your Email ✦</span>
       <div class="delivery-line r"></div>
     </div>
-
-    <!-- CTA Button -->
-    <button class="hero-get-btn locked" id="heroCtaBtn" onclick="handleHeroCta()">
-      <div class="btn-bg"></div>
-      <span class="btn-text">Get the Strategy →</span>
+    <button class="hero-get-btn" id="heroCtaBtn" onclick="openTermsModal()">
+      Start Dynasty →
     </button>
+  </div>
 
-    <!-- Terms checkbox -->
-    <label class="terms-row" for="acceptTerms">
+  <div class="scroll-hint">
+    <span>Scroll to begin</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</div>
+
+<!-- TERMS MODAL -->
+<div class="terms-modal-overlay" id="termsModal">
+  <div class="terms-modal">
+    <div class="terms-modal-bar"></div>
+    <div class="terms-modal-title">One Last Step</div>
+    <div class="terms-modal-sub">Please accept before continuing</div>
+    <label class="terms-modal-row" for="modalTermsCheck">
       <div class="custom-checkbox">
-        <input type="checkbox" id="acceptTerms" onchange="toggleCta(this)" />
+        <input type="checkbox" id="modalTermsCheck" onchange="toggleModalCta(this)" />
         <svg viewBox="0 0 12 10" fill="none">
           <polyline points="1,5 4,8 11,1" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
@@ -230,13 +237,10 @@
         <a href="../terms.html" target="_blank" onclick="event.stopPropagation()">Terms &amp; Conditions</a>
       </span>
     </label>
-
-  </div>
-  <!-- ── END CTA BLOCK ── -->
-
-  <div class="scroll-hint">
-    <span>Scroll to begin</span>
-    <div class="scroll-arrow"></div>
+    <button class="terms-modal-confirm" id="modalConfirmBtn" disabled onclick="handleModalConfirm()">
+      Continue →
+    </button>
+    <button class="terms-modal-cancel" onclick="closeTermsModal()">Cancel</button>
   </div>
 </div>
 
@@ -328,10 +332,8 @@ window.addEventListener('blur', () => { wmOverlay.style.display = 'flex'; });
 window.addEventListener('focus', () => { wmOverlay.style.display = 'none'; });
 
 function toggleMobile() {
-  const menu = document.getElementById('mobileMenu');
-  const btn = document.getElementById('hamburger');
-  menu.classList.toggle('open');
-  btn.classList.toggle('open');
+  document.getElementById('mobileMenu').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('open');
 }
 function mobileNav(id) {
   document.getElementById('mobileMenu').classList.remove('open');
@@ -342,22 +344,27 @@ function mobileNav(id) {
   }, 100);
 }
 
-// ── CTA toggle ──
-function toggleCta(cb) {
-  const btn = document.getElementById('heroCtaBtn');
-  if (cb.checked) {
-    btn.classList.remove('locked');
-  } else {
-    btn.classList.add('locked');
+function openTermsModal() {
+  const modal = document.getElementById('termsModal');
+  document.getElementById('modalTermsCheck').checked = false;
+  document.getElementById('modalConfirmBtn').disabled = true;
+  modal.classList.add('open');
+}
+function closeTermsModal() {
+  document.getElementById('termsModal').classList.remove('open');
+}
+function toggleModalCta(cb) {
+  document.getElementById('modalConfirmBtn').disabled = !cb.checked;
+}
+function handleModalConfirm() {
+  if (!document.getElementById('modalConfirmBtn').disabled) {
+    window.location.href = 'https://myonlyprofit.com/index.html#pricing';
   }
 }
+document.getElementById('termsModal').addEventListener('click', function(e) {
+  if (e.target === this) closeTermsModal();
+});
 
-function handleHeroCta() {
-  if (document.getElementById('heroCtaBtn').classList.contains('locked')) return;
-  window.location.href = 'https://myonlyprofit.com/index.html#pricing';
-}
-
-// ── Nav / progress ──
 const nav = document.getElementById('mainNav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
