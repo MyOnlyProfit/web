@@ -142,6 +142,7 @@
     .stats-bar { padding:78px 20px; background:#030303; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
     .stats-grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); gap:30px; text-align:center; }
     .plus-sign { font-family:'Montserrat',sans-serif !important; font-size:55%; font-weight:900; vertical-align:super; line-height:1; }
+    #statCreators::after { content:'+'; font-family:'Montserrat',sans-serif; font-size:2rem; font-weight:900; vertical-align:super; margin-left:2px; }
     .stat-item { padding:10px 16px; border-left:1px solid rgba(255,255,255,.05); }
     .stat-item:first-child { border-left:none; }
     .stat-number { font-family:'Bodoni Moda',serif; font-size:4.1rem; line-height:1; margin-bottom:10px; color:#fff; }
@@ -481,7 +482,7 @@
   <div class="stats-bar" id="results">
     <div class="stats-grid">
       <div class="stat-item reveal" style="transition-delay:.1s;">
-        <div class="stat-number" id="statCreators">20<span class="plus-sign">+</span></div>
+        <div class="stat-number" id="statCreators">20</div>
         <div class="stat-label">Creators Launched</div>
       </div>
       <div class="stat-item reveal" style="transition-delay:.2s;">
@@ -841,11 +842,11 @@
             function tick(now) {
               const p = Math.min((now - start) / duration, 1);
               const eased = 1 - Math.pow(1 - p, 3);
-            const supTag = '<span class="plus-sign">+</span>';
+            const supTag = '';
               const val = Math.floor(eased * 20);
-              creatorsEl.innerHTML = val + supTag;
+              creatorsEl.textContent = val;
               if (p < 1) requestAnimationFrame(tick);
-              else creatorsEl.innerHTML = '20' + supTag;
+              else creatorsEl.textContent = '20';
             }
             requestAnimationFrame(tick);
           }
