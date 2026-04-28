@@ -738,14 +738,14 @@
           </div>
         </article>
  
-      </div><!-- /post-grid -->
-    </div>
+</div><!-- /post-grid -->
+    </div><!-- /#all-posts -->
 
-    </main>
- 
+  </main>
+
   <!-- SIDEBAR -->
   <aside class="sidebar">
- 
+
     <div class="cta-card reveal">
       <span class="cta-card-eyebrow">Self-Guided System</span>
       <h3 class="cta-card-title">The Complete <em>Empire</em> Strategy</h3>
@@ -756,7 +756,7 @@
       </div>
       <a href="../index.html#pricing" class="cta-btn">Get Empire →</a>
     </div>
- 
+
     <div class="sidebar-card reveal reveal-delay-1">
       <span class="sc-title">Most Read</span>
       <ul class="rel-list">
@@ -768,7 +768,7 @@
         <li><a href="platform-algorithm/index.html">How the Algorithm Actually Works</a></li>
       </ul>
     </div>
- 
+
     <div class="sidebar-card reveal reveal-delay-2">
       <span class="sc-title">Topics</span>
       <div class="tag-cloud">
@@ -781,7 +781,7 @@
         <a href="#" class="tag" onclick="filterFromTag(event,'all')">All Articles</a>
       </div>
     </div>
- 
+
     <div class="sidebar-card reveal">
       <span class="sc-title">Inside Empire</span>
       <ul class="rel-list">
@@ -793,11 +793,11 @@
         <li><a href="../index.html#pricing">Brand Style Guide</a></li>
       </ul>
     </div>
- 
-  </aside>
-</div>
 
-  <!-- NEWSLETTER STRIP -->
+  </aside>
+</div><!-- /.blog-layout -->
+
+<!-- NEWSLETTER STRIP -->
 <div class="newsletter-strip" id="newsletter">
   <div class="nl-inner">
     <span class="nl-eyebrow">Creator Intelligence</span>
@@ -805,7 +805,6 @@
     <p class="nl-sub">
       No motivation content. No recycled advice. Just fresh strategy from creators who are actively building income — straight to your inbox.
     </p>
-
     <form class="nl-form" id="newsletterForm">
       <input
         class="nl-input"
@@ -817,14 +816,13 @@
       />
       <button class="nl-submit" type="submit">Subscribe →</button>
     </form>
-
     <p class="nl-privacy">
       No spam. Unsubscribe anytime.
       <a href="../privacy.html" style="color:var(--accent);">Privacy Policy</a>
     </p>
   </div>
 </div>
- 
+
 <!-- FOOTER -->
 <footer class="site-footer">
   <div class="footer-inner">
@@ -868,7 +866,7 @@
     </div>
   </div>
 </footer>
- 
+
 <script>
   // ── Scroll progress + nav ──
   const scrollBar = document.getElementById('scrollBar');
@@ -879,8 +877,8 @@
     scrollBar.style.width = max > 0 ? (window.scrollY / max * 100) + '%' : '0%';
     nav.classList.toggle('scrolled', window.scrollY > 60);
   }, { passive: true });
- 
-  // ── Hamburger — identical to page 2 ──
+
+  // ── Hamburger ──
   const ham = document.getElementById('hamburger');
   const mm = document.getElementById('mobileMenu');
   ham.addEventListener('click', () => {
@@ -895,13 +893,13 @@
     ham.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   }));
- 
+
   // ── Reveal ──
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
- 
+
   // ── Category filter ──
   function filterPosts(btn, cat) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -912,13 +910,13 @@
     });
     document.getElementById('all-posts').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
- 
+
   function filterFromTag(e, cat) {
     e.preventDefault();
     const btn = document.querySelector(`.filter-btn[data-cat="${cat}"]`);
     if (btn) filterPosts(btn, cat);
   }
- 
+
   // ── Smooth anchors ──
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
@@ -929,36 +927,37 @@
     });
   });
 
-document.getElementById("newsletterForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
+  // ── Newsletter form ──
+  document.getElementById("newsletterForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-  const form = e.target;
-  const input = form.querySelector('.nl-input');
-  const btn = form.querySelector('.nl-submit');
-  const email = input.value;
+    const form = e.target;
+    const input = form.querySelector('.nl-input');
+    const btn = form.querySelector('.nl-submit');
+    const email = input.value;
 
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
 
-  const res = await fetch("https://project-ke2z2.vercel.app/api/subscribe", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email })
+    const res = await fetch("https://project-ke2z2.vercel.app/api/subscribe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email })
+    });
+
+    if (res.ok) {
+      btn.textContent = '✔ Subscribed';
+      btn.style.background = 'var(--accent-3)';
+      btn.style.borderColor = 'var(--accent-3)';
+      input.value = '';
+      input.disabled = true;
+      input.placeholder = 'Already subscribed';
+    } else {
+      btn.textContent = 'Subscribe →';
+      btn.disabled = false;
+      alert("Something went wrong. Try again.");
+    }
   });
-
-  if (res.ok) {
-    btn.textContent = '✔ Subscribed';
-    btn.style.background = 'var(--accent-3)';
-    btn.style.borderColor = 'var(--accent-3)';
-    input.value = '';
-    input.disabled = true;
-    input.placeholder = 'Already subscribed';
-  } else {
-    btn.textContent = 'Subscribe →';
-    btn.disabled = false;
-    alert("Something went wrong. Try again.");
-  }
-});
 </script>
 </body>
 </html>
