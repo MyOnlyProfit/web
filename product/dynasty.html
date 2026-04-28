@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dynasty — MYONLYPROFIT Starter Kit</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,700;6..96,900&family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #000; --panel: #080808; --panel-2: #0d0d0d;
+      --text: #f4f4ef; --muted: #9d9d96; --soft: #6c6c66;
+      --line: rgba(255,255,255,0.08); --line-strong: rgba(255,255,255,0.14);
+      --accent: #9bb8c6; --accent-3: #dbe7ed;
+    }
+    @media print { body { display: none !important; } }
+    * { -webkit-user-select: none; -moz-user-select: none; user-select: none; margin: 0; padding: 0; box-sizing: border-box; }
+    input, textarea { -webkit-user-select: text; user-select: text; }
+    img { -webkit-user-drag: none; pointer-events: none; }
+    html { scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: var(--accent) #000; }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #000; }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--accent), #fff, var(--accent)); border-radius: 12px; }
+    ::selection { background: rgba(155,184,198,.25); color: #fff; }
+    body { font-family: 'Montserrat', sans-serif; background: #000; color: var(--text); overflow-x: hidden; }
+    body::before {
+      content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .3;
+      background: linear-gradient(to right, transparent 0%, transparent 24.8%, rgba(255,255,255,0.022) 24.9%, rgba(255,255,255,0.022) 25.1%, transparent 25.2%, transparent 74.8%, rgba(255,255,255,0.022) 74.9%, rgba(255,255,255,0.022) 75.1%, transparent 75.2%);
+    }
+    .progress-bar { position: fixed; top: 0; left: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent-3), #fff); z-index: 1001; transition: width .1s linear; width: 0%; }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 52px; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,.92); backdrop-filter: blur(24px); border-bottom: 1px solid var(--line); transition: padding .4s ease; }
+    .nav.scrolled { padding: 14px 52px; }
+    .nav-logo { text-decoration: none; color: #fff; font-family: 'Bodoni Moda', serif; font-size: 1.25rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; }
+    .nav-logo span { color: var(--accent-3); }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a { color: var(--soft); text-decoration: none; font-size: .6rem; letter-spacing: 3px; text-transform: uppercase; transition: color .3s ease; cursor: pointer; }
+    .nav-links a:hover { color: var(--accent-3); }
+    .nav-cta { border: 1px solid var(--line-strong); color: var(--muted) !important; padding: 8px 20px; transition: all .3s ease !important; }
+    .nav-cta:hover { border-color: var(--accent-3) !important; color: var(--accent-3) !important; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; z-index: 1100; }
+    .nav-hamburger span { display: block; width: 22px; height: 1.5px; background: var(--muted); transition: all .3s ease; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); background: var(--accent-3); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); background: var(--accent-3); }
+    .mobile-menu { position: fixed; inset: 0; z-index: 999; background: rgba(0,0,0,.97); backdrop-filter: blur(24px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0; opacity: 0; pointer-events: none; transition: opacity .35s ease; }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu a { color: var(--soft); text-decoration: none; font-size: .62rem; letter-spacing: 5px; text-transform: uppercase; padding: 18px 40px; width: 100%; text-align: center; border-bottom: 1px solid rgba(255,255,255,.04); transition: color .3s ease, background .3s ease; cursor: pointer; display: block; }
+    .mobile-menu a:first-child { border-top: 1px solid rgba(255,255,255,.04); }
+    .mobile-menu a:hover { color: var(--accent-3); background: rgba(155,184,198,.04); }
+    section.book-section { min-height: 100vh; padding: 130px 52px 100px; max-width: 1100px; margin: 0 auto; position: relative; }
+    @media(max-width:900px) { section.book-section { padding: 90px 18px 70px; } }
+    @media(max-width:480px) { section.book-section { padding: 80px 16px 60px; } }
+    .section-break { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: .25; margin: 0; }
+    .empire-hero { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 120px 40px 80px; position: relative; overflow: hidden; }
+    .empire-hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 60%, rgba(155,184,198,.07) 0%, transparent 68%); pointer-events: none; }
+    .empire-hero::after { content: ""; position: absolute; inset: 28px; border: 1px solid rgba(255,255,255,.06); pointer-events: none; }
+    .hero-crown { font-size: 3.2rem; margin-bottom: 28px; opacity: .8; animation: floatCrown 4s ease-in-out infinite; }
+    @keyframes floatCrown { 0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)} }
+    .hero-eyebrow { font-size: .58rem; letter-spacing: 8px; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 20px; }
+    .hero-title { font-family: 'Bodoni Moda', serif; font-size: clamp(3.8rem, 11vw, 7.5rem); font-weight: 900; letter-spacing: 12px; color: var(--text); line-height: 1; margin-bottom: 8px; white-space: nowrap; }
+    .hero-title span { color: var(--accent-3); font-style: italic; }
+    .hero-sub-label { font-size: .58rem; letter-spacing: 6px; text-transform: uppercase; color: var(--soft); display: block; margin-bottom: 32px; }
+    .hero-tagline { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.1rem, 2.5vw, 1.38rem); color: var(--muted); max-width: 640px; line-height: 1.78; margin-bottom: 44px; }
+    .badge-row { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 52px; }
+    .badge { border: 1px solid var(--line-strong); color: var(--muted); padding: 10px 22px; font-size: .56rem; letter-spacing: 3px; text-transform: uppercase; transition: all .35s ease; cursor: pointer; }
+    .badge:hover { border-color: var(--accent-3); color: var(--accent-3); }
+    .scroll-hint { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; z-index: 2; pointer-events: none; }
+    .scroll-hint span { font-size: .5rem; letter-spacing: 4px; text-transform: uppercase; color: var(--soft); white-space: nowrap; }
+    .scroll-arrow { width: 1px; height: 44px; background: linear-gradient(180deg, var(--accent), transparent); animation: scrollPulse 2s ease-in-out infinite; }
+    @keyframes scrollPulse { 0%,100%{opacity:.3;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.15)} }
+    @media(max-width:900px) { .scroll-hint { display: none; } }
+    .toc-float { position: fixed; right: 24px; top: 50%; transform: translateY(-50%); z-index: 800; display: flex; flex-direction: column; gap: 8px; }
+    .toc-dot { width: 6px; height: 6px; border-radius: 50%; background: #222; border: 1px solid var(--soft); cursor: pointer; transition: all .3s ease; position: relative; }
+    .toc-dot:hover, .toc-dot.active { background: var(--accent-3); border-color: var(--accent-3); transform: scale(1.4); }
+    .toc-dot .toc-tip { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,.92); border: 1px solid var(--line-strong); padding: 6px 12px; white-space: nowrap; font-size: .52rem; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-3); opacity: 0; pointer-events: none; transition: opacity .2s ease; }
+    .toc-dot:hover .toc-tip { opacity: 1; }
+    @media(max-width:900px) { .toc-float { display: none; } }
+    h2 { font-family: 'Bodoni Moda', serif; font-size: .95rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent-3); margin: 52px 0 18px; display: flex; align-items: center; gap: 14px; }
+    h2::before { content: ""; display: block; width: 28px; height: 1px; background: linear-gradient(90deg, var(--accent), transparent); flex-shrink: 0; }
+    .num { font-family: 'Montserrat', sans-serif; font-size: .52rem; font-weight: 600; letter-spacing: 3px; color: rgba(255,255,255,.22); }
+    p { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; line-height: 1.82; color: var(--muted); margin-bottom: 16px; }
+    strong { color: var(--text); }
+    .section-banner { text-align: center; padding: 80px 60px; border: 1px solid var(--line); background: rgba(155,184,198,.025); margin-bottom: 32px; position: relative; overflow: hidden; }
+    .section-banner::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, var(--accent-3), var(--accent), transparent); }
+    .section-banner .sec-num { font-size: .58rem; text-transform: uppercase; letter-spacing: 4px; color: var(--soft); margin-bottom: 12px; }
+    .section-banner .sec-title { font-family: 'Bodoni Moda', serif; font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 700; text-transform: uppercase; line-height: 1.2; margin-bottom: 8px; }
+    .section-banner .sec-title .i { color: var(--accent-3); font-style: italic; }
+    .section-banner .sec-sub { font-size: .85rem; color: var(--muted); max-width: 500px; margin: 0 auto; }
+    @media(max-width:768px) { .section-banner { padding: 50px 24px; } }
+    .page-card { background: var(--panel); border: 1px solid var(--line); padding: 48px 56px; margin-bottom: 28px; position: relative; overflow: hidden; opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+    .page-card.visible { opacity: 1; transform: translateY(0); }
+    .page-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent); }
+    @media(max-width:768px) { .page-card { padding: 28px 18px; } }
+    .page-footer { margin-top: 36px; padding-top: 16px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; font-size: .68rem; color: var(--soft); font-family: 'Montserrat', sans-serif; letter-spacing: 1px; flex-wrap: wrap; gap: 8px; }
+    .page-num { background: var(--accent-3); color: #000; padding: 2px 10px; font-weight: 700; font-size: .7rem; letter-spacing: 1px; }
+    .toc-list { display: flex; flex-direction: column; gap: 6px; margin: 20px 0; }
+    .toc-section-head { font-size: .58rem; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin: 14px 0 4px; }
+    .toc-item { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,.03); }
+    .toc-item a { color: var(--accent-3); text-decoration: none; transition: color .2s; font-family: 'Cormorant Garamond', serif; font-size: 1rem; }
+    .toc-item a:hover { color: #fff; }
+    .toc-item span { color: var(--soft); font-size: .75rem; font-family: 'Montserrat', sans-serif; letter-spacing: 1px; }
+    .footer { padding: 52px 52px 32px; border-top: 1px solid var(--line); background: #000; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .footer-logo { text-decoration: none; color: #fff; font-family: 'Bodoni Moda', serif; font-size: 1.15rem; letter-spacing: 3px; text-transform: uppercase; }
+    .footer-logo span { color: var(--accent-3); }
+    .footer-links { display: flex; gap: 28px; }
+    .footer-links a { color: var(--soft); text-decoration: none; font-size: .6rem; letter-spacing: 2px; text-transform: uppercase; transition: color .3s ease; }
+    .footer-links a:hover { color: #fff; }
+    @media(max-width:900px) { .nav { padding: 14px 20px; } .nav.scrolled { padding: 11px 20px; } .nav-links { display: none; } .nav-hamburger { display: flex; } }
+    @media(max-width:600px) { .page-footer { flex-direction: column; align-items: flex-end; } .nav { padding: 12px 16px; } .nav.scrolled { padding: 10px 16px; } .nav-logo { font-size: .9rem; letter-spacing: 2px; } }
+    @media(max-width:480px) { .hero-title { font-size: clamp(2.6rem, 13vw, 3.8rem); letter-spacing: 6px; } .nav { padding: 10px 14px; } .nav.scrolled { padding: 8px 14px; } .nav-logo { font-size: .82rem; letter-spacing: 1px; } }
+  </style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a onclick="mobileNav('sec-intro')">Table of Contents</a>
+  <a href="https://myonlyprofit.com/index.html#pricing" style="margin-top:24px;border:1px solid var(--line-strong);color:var(--muted);width:auto;padding:12px 32px;">Upgrade to Empire →</a>
+</div>
+
+<nav class="nav" id="mainNav">
+  <a href="https://myonlyprofit.com/" class="nav-logo">MY<span>ONLY</span>PROFIT</a>
+  <div class="nav-links">
+    <a onclick="mobileNav('sec-intro')" style="cursor:pointer;">Table of Contents</a>
+    <a href="https://myonlyprofit.com/index.html#pricing" class="nav-cta">Upgrade to Empire →</a>
+  </div>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu" onclick="toggleMobile()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="toc-float" id="tocFloat">
+  <div class="toc-dot active" onclick="mobileNav('sec-hero')"><span class="toc-tip">Cover</span></div>
+  <div class="toc-dot" onclick="mobileNav('sec-intro')"><span class="toc-tip">Table of Contents</span></div>
+</div>
+
+<!-- HERO -->
+<div class="empire-hero" id="sec-hero" style="position:relative;">
+  <div class="hero-crown">♛</div>
+  <span class="hero-eyebrow">MyOnlyProfit · Starter Kit · 2026</span>
+  <div class="hero-title">DYNASTY<span> ✦</span></div>
+  <span class="hero-sub-label">The Creator Intelligence System — Eighteen Sections. One Foundation.</span>
+  <p class="hero-tagline">Everything a new OnlyFans creator needs to launch with precision, price with confidence, and build income that compounds month after month. Not theory. Not inspiration. A system.</p>
+  <div class="badge-row">
+    <div class="badge">✦ 7-Day Launch Blueprint</div>
+    <div class="badge">✦ Bio &amp; Profile Optimizer</div>
+    <div class="badge">✦ DM Starter Scripts</div>
+    <div class="badge">✦ 50 Content Ideas</div>
+    <div class="badge">✦ Pricing Quick-Guide</div>
+  </div>
+  <div class="scroll-hint">
+    <span>Scroll to begin</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</div>
+
+<div class="section-break"></div>
+
+<!-- TABLE OF CONTENTS -->
+<section class="book-section" id="sec-intro">
+
+  <div class="section-banner">
+    <img src="https://project-ke2z2.vercel.app/images/logo.png" alt="MYONLYPROFIT" style="height:48px;width:auto;opacity:.85;margin-bottom:24px;display:block;margin-left:auto;margin-right:auto;" />
+    <div class="sec-num">Introduction</div>
+    <div class="sec-title">DYNASTY<br/><span class="i">STARTER KIT</span></div>
+    <div class="sec-sub">Eighteen complete sections. Every tool a new creator needs to launch, grow, and earn — structured, actionable, and built to execute from Day 1.</div>
+  </div>
+
+  <div class="page-card" id="toc-main">
+    <h2><span class="num">—</span> Complete Table of Contents</h2>
+    <div class="toc-list">
+
+      <div class="toc-section-head">INTRODUCTION</div>
+      <div class="toc-item"><a href="#sec-intro">Cover &amp; Table of Contents</a><span>Intro · TOC</span></div>
+
+      <div class="toc-section-head">MODULE ONE — FOUNDATIONS</div>
+      <div class="toc-item"><a href="#">The Creator Reality — Why Most Creators Fail</a><span>Section · 01</span></div>
+      <div class="toc-item"><a href="#">7-Day Launch Blueprint</a><span>Section · 02</span></div>
+      <div class="toc-item"><a href="#">Niche &amp; Positioning</a><span>Section · 03</span></div>
+
+      <div class="toc-section-head">MODULE TWO — PROFILE &amp; CONTENT</div>
+      <div class="toc-item"><a href="#">Bio &amp; Profile Optimization</a><span>Section · 04</span></div>
+      <div class="toc-item"><a href="#">Content Strategy — The 3-Tier System</a><span>Section · 05</span></div>
+      <div class="toc-item"><a href="#">Traffic Sources — Platform Breakdown</a><span>Section · 06</span></div>
+
+      <div class="toc-section-head">MODULE THREE — THE DM SYSTEM</div>
+      <div class="toc-item"><a href="#">The DM System — 4-Stage Funnel</a><span>Section · 07</span></div>
+      <div class="toc-item"><a href="#">DM Scripts — 12 Proven Messages</a><span>Section · 08</span></div>
+
+      <div class="toc-section-head">MODULE FOUR — CONTENT IDEAS</div>
+      <div class="toc-item"><a href="#">50 Content Ideas — Never Run Out</a><span>Section · 09</span></div>
+
+      <div class="toc-section-head">MODULE FIVE — MONETIZATION</div>
+      <div class="toc-item"><a href="#">Retention Strategy — 5 Pillars</a><span>Section · 10</span></div>
+      <div class="toc-item"><a href="#">Pricing Quick-Guide — Every Tier</a><span>Section · 11</span></div>
+      <div class="toc-item"><a href="#">Revenue Projections — Real Numbers</a><span>Section · 12</span></div>
+
+      <div class="toc-section-head">MODULE SIX — OPERATIONS</div>
+      <div class="toc-item"><a href="#">Analytics &amp; Metrics — What to Track</a><span>Section · 13</span></div>
+      <div class="toc-item"><a href="#">Safety &amp; Privacy — Non-Negotiable</a><span>Section · 14</span></div>
+
+      <div class="toc-section-head">MODULE SEVEN — GROWTH &amp; SCALE</div>
+      <div class="toc-item"><a href="#">Scaling Your Income — Beyond Month 3</a><span>Section · 15</span></div>
+      <div class="toc-item"><a href="#">90-Day Game Plan — Month by Month</a><span>Section · 16</span></div>
+
+      <div class="toc-section-head">CLOSING</div>
+      <div class="toc-item"><a href="#">Action Items &amp; Final Words</a><span>Section · 17</span></div>
+
+    </div>
+    <div class="page-footer"><span>2026 © MYONLYPROFIT. ALL RIGHTS RESERVED.</span><span class="page-num">Intro · TOC</span></div>
+  </div>
+
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <a href="https://myonlyprofit.com/" class="footer-logo">MY<span>ONLY</span>PROFIT</a>
+    <div class="footer-links">
+      <a href="https://myonlyprofit.com/privacy.html">Privacy</a>
+      <a href="https://myonlyprofit.com/terms.html">Terms</a>
+      <a href="https://myonlyprofit.com/blog/">Blog</a>
+      <a href="https://myonlyprofit.com/#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('copy', e => e.preventDefault());
+document.addEventListener('cut', e => e.preventDefault());
+document.addEventListener('keydown', e => {
+  if (e.key === 'PrintScreen' || (e.ctrlKey && ['p','s','u','a','c'].includes(e.key.toLowerCase())) || (e.metaKey && ['p','s','u','a','c'].includes(e.key.toLowerCase()))) {
+    e.preventDefault(); e.stopPropagation();
+  }
+});
+const wmOverlay = document.createElement('div');
+wmOverlay.style.cssText = 'display:none;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,0.97);align-items:center;justify-content:center;flex-direction:column;pointer-events:none;';
+wmOverlay.innerHTML = '<div style="font-family:\'Bodoni Moda\',serif;font-size:1.4rem;letter-spacing:6px;color:rgba(255,255,255,0.12);text-transform:uppercase;text-align:center;line-height:2.2;user-select:none;">MYONLYPROFIT<br>DYNASTY · CONFIDENTIAL<br>FOR PURCHASED USE ONLY</div>';
+document.body.appendChild(wmOverlay);
+document.addEventListener('visibilitychange', () => { wmOverlay.style.display = document.hidden ? 'flex' : 'none'; });
+window.addEventListener('blur', () => { wmOverlay.style.display = 'flex'; });
+window.addEventListener('focus', () => { wmOverlay.style.display = 'none'; });
+
+function toggleMobile() {
+  const menu = document.getElementById('mobileMenu');
+  const btn = document.getElementById('hamburger');
+  menu.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+function mobileNav(id) {
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+  setTimeout(() => {
+    const el = document.getElementById(id);
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 120, behavior: 'smooth' });
+  }, 100);
+}
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+  const pct = (window.scrollY / (document.documentElement.scrollHeight - document.documentElement.clientHeight)) * 100;
+  document.getElementById('progressBar').style.width = pct + '%';
+  const dots = document.querySelectorAll('.toc-dot');
+  let active = 'sec-hero';
+  ['sec-hero','sec-intro'].forEach(id => { const el = document.getElementById(id); if (el && el.getBoundingClientRect().top <= 180) active = id; });
+  dots.forEach((d, i) => d.classList.toggle('active', ['sec-hero','sec-intro'][i] === active));
+}, { passive: true });
+const cards = document.querySelectorAll('.page-card');
+const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.06 });
+cards.forEach(c => observer.observe(c));
+</script>
+</body>
+</html>
