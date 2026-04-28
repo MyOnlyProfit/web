@@ -134,6 +134,7 @@
     .feature-card:hover::before { transform:scaleX(1); }
     .feature-icon { display:block; font-size:1.9rem; color:#fff; margin-bottom:20px; }
     .feature-number { font-family:'Bodoni Moda',serif; font-size:.9rem; color:rgba(255,255,255,.75); letter-spacing:2px; margin-bottom:14px; }
+    .feature-icon-row { display:block; }
     .feature-title { font-family:'Bodoni Moda',serif; font-size:1.52rem; line-height:1.28; margin-bottom:14px; }
     .feature-desc { font-family:'Cormorant Garamond',serif; font-size:1.1rem; line-height:1.75; color:var(--muted); }
 
@@ -188,7 +189,7 @@
     .price-card .btn { width:100%; text-align:center; margin-top:auto; }
 
     /* ─── PRICE CARD LOGO ─── */
-    .price-card-logo-wrap { display:flex; justify-content:center; margin-bottom:28px; }
+    .price-card-logo-wrap { display:flex; justify-content:flex-start; margin-bottom:28px; }
     .price-card-logo { height:52px; width:auto; opacity:.7; display:block; pointer-events:none; -webkit-user-drag:none; }
 
     /* ─── PREVIEW LINK ─── */
@@ -305,6 +306,15 @@
       .contact-type-selector { grid-template-columns:1fr; }
       .modal-body { padding:20px; }
       .modal-header { padding:18px 20px; }
+      /* Fix right-side overflow */
+      html, body { overflow-x:hidden; max-width:100%; }
+      .hero::after { display:none; }
+      .contact-section::before { inset:10px; }
+      /* Feature card: icon + number on same row */
+      .feature-card { padding:38px 24px; }
+      .feature-icon { display:inline; font-size:1.4rem; margin-bottom:0; margin-right:10px; vertical-align:middle; }
+      .feature-number { display:inline; font-size:.9rem; vertical-align:middle; margin-bottom:0; }
+      .feature-icon-row { display:block; margin-bottom:14px; }
     }
     @media(prefers-reduced-motion:reduce) { *{animation:none !important;transition:none !important;scroll-behavior:auto !important;} }
   </style>
@@ -430,38 +440,32 @@
   <section id="method">
     <div class="features-grid">
       <div class="feature-card reveal" style="transition-delay:.1s;">
-        <span class="feature-icon">✦</span>
-        <p class="feature-number">01</p>
+        <div class="feature-icon-row"><span class="feature-icon">✦</span><p class="feature-number">01</p></div>
         <h3 class="feature-title">Content Planning Strategy</h3>
         <p class="feature-desc">A 30-day content calendar built around your strengths, subscriber psychology, and the best times to post for maximum engagement.</p>
       </div>
       <div class="feature-card reveal" style="transition-delay:.2s;">
-        <span class="feature-icon">◈</span>
-        <p class="feature-number">02</p>
+        <div class="feature-icon-row"><span class="feature-icon">◈</span><p class="feature-number">02</p></div>
         <h3 class="feature-title">Profile & Visual Identity</h3>
         <p class="feature-desc">A clear visual style and profile setup that makes your page look professional and encourages new visitors to subscribe.</p>
       </div>
       <div class="feature-card reveal" style="transition-delay:.3s;">
-        <span class="feature-icon">⬡</span>
-        <p class="feature-number">03</p>
+        <div class="feature-icon-row"><span class="feature-icon">⬡</span><p class="feature-number">03</p></div>
         <h3 class="feature-title">TikTok & X Traffic Funnels</h3>
         <p class="feature-desc">Step-by-step traffic systems that turn free social media content into a steady stream of paying OnlyFans subscribers.</p>
       </div>
       <div class="feature-card reveal" style="transition-delay:.4s;">
-        <span class="feature-icon">◇</span>
-        <p class="feature-number">04</p>
+        <div class="feature-icon-row"><span class="feature-icon">◇</span><p class="feature-number">04</p></div>
         <h3 class="feature-title">DM Conversion Scripts</h3>
         <p class="feature-desc">Tested messaging scripts that turn DM conversations into sales — naturally, without feeling pushy or salesy.</p>
       </div>
       <div class="feature-card reveal" style="transition-delay:.5s;">
-        <span class="feature-icon">✧</span>
-        <p class="feature-number">05</p>
+        <div class="feature-icon-row"><span class="feature-icon">✧</span><p class="feature-number">05</p></div>
         <h3 class="feature-title">Revenue Optimization</h3>
         <p class="feature-desc">Pricing strategy, upsell sequences, and PPV tactics that increase how much each subscriber spends over their lifetime.</p>
       </div>
       <div class="feature-card reveal" style="transition-delay:.6s;">
-        <span class="feature-icon">◆</span>
-        <p class="feature-number">06</p>
+        <div class="feature-icon-row"><span class="feature-icon">◆</span><p class="feature-number">06</p></div>
         <h3 class="feature-title">Analytics & Tracking</h3>
         <p class="feature-desc">Know what's working, what isn't, and exactly what to do next — with clear dashboards and growth metrics that make decisions easy.</p>
       </div>
