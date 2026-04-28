@@ -69,6 +69,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;0,6..96,900;1,6..96,400;1,6..96,700&family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet" />
 
   <style>
+    /* ── CSS VARIABLES ── */
     :root {
       --bg: #f8f7f4; --bg-2: #f0ede8; --bg-3: #e8e4de;
       --text: #111110; --muted: #4a4a46; --soft: #888884;
@@ -122,33 +123,46 @@
     /* ── POST LAYOUT ── */
     .post-layout { max-width: 1200px; margin: 0 auto; padding: 40px 52px 100px; display: grid; grid-template-columns: 1fr 300px; gap: 72px; }
 
-    /* ── ARTICLE ── */
+    /* ── ARTICLE HERO ── */
     .post-hero { padding-bottom: 36px; border-bottom: 1px solid var(--line); margin-bottom: 40px; }
     .post-eyebrow { font-size: .52rem; letter-spacing: 5px; text-transform: uppercase; color: var(--accent); display: inline-block; border: 1px solid rgba(42,92,107,.25); padding: 5px 14px; margin-bottom: 20px; }
     .post-title { font-family: 'Bodoni Moda', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; line-height: 1.1; letter-spacing: -1px; color: var(--text); margin-bottom: 20px; }
     .post-title em { color: var(--accent); font-style: italic; }
     .post-meta-row { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; font-size: .54rem; letter-spacing: 2px; text-transform: uppercase; color: var(--soft); margin-bottom: 24px; }
     .post-meta-sep { width: 1px; height: 12px; background: var(--line-strong); }
+
+    /* ── AUTHOR STRIP ── */
     .author-strip { display: flex; align-items: center; gap: 14px; padding: 16px 20px; background: var(--white); border: 1px solid var(--line); border-left: 3px solid var(--accent); }
-    .author-avatar { width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .author-avatar img { width: 100%; height: 100%; object-fit: contain; }
+    .author-avatar {
+      width: 42px; height: 42px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .author-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
     .author-name { font-size: .6rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text); font-weight: 600; }
-    .author-role { font-size: .58rem; color: var(--soft); margin-top: 2px; }
+    .author-role { font-family: 'Cormorant Garamond', serif; font-size: .9rem; color: var(--soft); margin-top: 2px; }
 
     /* ── POST CONTENT ── */
-    .post-content { font-size: .9rem; color: var(--muted); }
-    .post-content h2 { font-family: 'Bodoni Moda', serif; font-size: 1.5rem; font-weight: 700; color: var(--text); margin: 44px 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
-    .post-content h3 { font-family: 'Montserrat', sans-serif; font-size: .72rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); margin: 28px 0 10px; }
-    .post-content p { margin-bottom: 18px; line-height: 1.85; }
-    .post-content p strong { color: var(--text); font-weight: 600; }
+    .post-content { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--muted); }
+    .post-content h2 { font-family: 'Bodoni Moda', serif; font-size: 1.6rem; font-weight: 700; color: var(--text); margin: 48px 0 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); position: relative; }
+    .post-content h2::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 60px; height: 2px; background: var(--accent); }
+    .post-content h3 { font-family: 'Montserrat', sans-serif; font-size: .75rem; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin: 32px 0 12px; }
+    .post-content p { margin-bottom: 22px; line-height: 1.85; }
+    .post-content p strong { color: var(--text); font-family: 'Montserrat', sans-serif; font-size: .92rem; font-weight: 600; }
     .post-content ul { list-style: none; margin: 0 0 22px; padding: 0; }
     .post-content ul li { font-size: .88rem; color: var(--muted); padding: 9px 0; border-bottom: 1px solid var(--line); display: flex; gap: 12px; align-items: flex-start; line-height: 1.7; }
-    .post-content ul li::before { content: "—"; color: var(--accent); font-weight: 600; flex-shrink: 0; margin-top: 2px; }
+    .post-content ul li::before { content: "—"; color: var(--accent); font-family: 'Montserrat', sans-serif; font-weight: 600; flex-shrink: 0; margin-top: 2px; }
     .post-content ul li:last-child { border-bottom: none; }
 
     /* ── HIGHLIGHT BOX ── */
-    .hbox { background: var(--bg-2); border-left: 3px solid var(--accent); padding: 22px 26px; margin: 28px 0; font-size: .88rem; line-height: 1.85; color: var(--muted); }
-    .hbox strong { color: var(--text); font-weight: 600; }
+    .hbox { background: var(--bg-2); border-left: 3px solid var(--accent); padding: 22px 26px; margin: 28px 0; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; line-height: 1.85; color: var(--muted); }
+    .hbox strong { color: var(--text); font-family: 'Montserrat', sans-serif; font-size: .92rem; font-weight: 600; }
     .hbox.alt { border-left-color: var(--accent-light); background: var(--white); }
 
     /* ── BLOCKQUOTE ── */
@@ -161,7 +175,7 @@
     .cta-box h3 { font-family: 'Bodoni Moda', serif; font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 700; color: var(--white); margin-bottom: 12px; }
     .cta-box h3 em { color: var(--accent-light); font-style: italic; }
     .cta-box p { font-size: .85rem; color: rgba(255,255,255,.72); margin-bottom: 28px; max-width: 460px; margin-left: auto; margin-right: auto; line-height: 1.8; }
-    .cta-btn { display: inline-block; background: var(--white); color: var(--accent-3); padding: 14px 38px; font-size: .65rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; transition: all .3s; border: 1px solid transparent; }
+    .cta-btn { display: inline-block; background: var(--white); color: var(--accent-3); padding: 14px 38px; font-size: .65rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; transition: all .3s; border: 1px solid transparent; font-family: 'Montserrat', sans-serif; }
     .cta-btn:hover { background: transparent; color: var(--white); border-color: rgba(255,255,255,.4); }
 
     /* ── POST NAV ── */
@@ -187,9 +201,8 @@
     .stat-item { background: rgba(255,255,255,.08); padding: 12px 10px; text-align: center; }
     .sv { display: block; font-family: 'Bodoni Moda', serif; font-size: 1.1rem; font-weight: 700; color: var(--white); }
     .sl { display: block; font-size: .48rem; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,.5); margin-top: 3px; }
-    .sidebar-btn { display: block; background: var(--white); color: var(--accent-3); padding: 12px; text-align: center; font-size: .55rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; transition: all .3s; border: 1px solid transparent; }
+    .sidebar-btn { display: block; background: var(--white); color: var(--accent-3); padding: 12px; text-align: center; font-size: .55rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; transition: all .3s; border: 1px solid transparent; font-family: 'Montserrat', sans-serif; }
     .sidebar-btn:hover { background: transparent; color: var(--white); border-color: rgba(255,255,255,.4); }
-
     .sidebar-card { background: var(--white); border: 1px solid var(--line); padding: 24px; margin-bottom: 20px; }
     .sc-title { display: block; font-size: .52rem; letter-spacing: 4px; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
     .rel-list { list-style: none; }
@@ -237,6 +250,15 @@
 
 <div class="scroll-bar" id="scrollBar"></div>
 
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+  <a href="../../index.html#story">Story</a>
+  <a href="../../index.html#method">Method</a>
+  <a href="../../index.html#results">Results</a>
+  <a href="../index.html">Blog</a>
+  <a href="../../index.html#pricing">Get Empire</a>
+</div>
+
 <!-- NAV -->
 <nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
   <a href="../index.html" class="nav-logo">MYONLYPROFIT</a>
@@ -251,15 +273,6 @@
     <span></span><span></span><span></span>
   </button>
 </nav>
-
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
-  <a href="../../index.html#story">Story</a>
-  <a href="../../index.html#method">Method</a>
-  <a href="../../index.html#results">Results</a>
-  <a href="../index.html">Blog</a>
-  <a href="../../index.html#pricing">Get Empire</a>
-</div>
 
 <!-- BREADCRUMB -->
 <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -276,7 +289,7 @@
     <article itemscope itemtype="https://schema.org/Article">
 
       <!-- HERO -->
-      <header class="post-hero">
+      <header class="post-hero reveal">
         <span class="post-eyebrow">Pricing Strategy</span>
         <h1 class="post-title" itemprop="headline">OnlyFans Pricing Strategy:<br/><em>Why Charging Less</em> Makes You More</h1>
         <div class="post-meta-row" itemprop="datePublished" content="2026-04-01">
@@ -287,10 +300,12 @@
           <span>Revenue Strategy</span>
         </div>
         <div class="author-strip" itemprop="author" itemscope itemtype="https://schema.org/Organization">
-          <div class="author-avatar"><img src="../../images/logo-blog.png" alt="MYONLYPROFIT"></div>
+          <div class="author-avatar">
+            <img src="../../images/logo-blog.png" alt="MYONLYPROFIT Logo" />
+          </div>
           <div>
             <div class="author-name" itemprop="name">MYONLYPROFIT</div>
-            <div class="author-role">Creator Strategy Team</div>
+            <div class="author-role">Creator Strategy · 20+ accounts managed</div>
           </div>
         </div>
       </header>
@@ -298,68 +313,68 @@
       <!-- CONTENT -->
       <div class="post-content" itemprop="articleBody">
 
-        <p>Every new creator makes the same instinct move: charge as much as possible upfront. If you're good enough to be on the platform, you're worth a high subscription price, right? This logic feels correct. It is also, in most cases, the reason accounts stay small for months longer than they need to.</p>
+        <p class="reveal">Every new creator makes the same instinct move: charge as much as possible upfront. If you're good enough to be on the platform, you're worth a high subscription price, right? This logic feels correct. It is also, in most cases, the reason accounts stay small for months longer than they need to.</p>
 
-        <p><strong>High subscription prices reduce the volume of people who enter your system.</strong> And volume is what makes the real money — not the subscription price itself.</p>
+        <p class="reveal"><strong>High subscription prices reduce the volume of people who enter your system.</strong> And volume is what makes the real money — not the subscription price itself.</p>
 
-        <h2>Where the Money Actually Lives</h2>
+        <h2 class="reveal">Where the Money Actually Lives</h2>
 
-        <p>The subscription is the entry point, not the revenue. On well-run accounts, the majority of income comes from what happens after someone subscribes — PPV content, DM interactions, custom requests, bundles. The subscription is just the door. The money is inside the room.</p>
+        <p class="reveal">The subscription is the entry point, not the revenue. On well-run accounts, the majority of income comes from what happens after someone subscribes — PPV content, DM interactions, custom requests, bundles. The subscription is just the door. The money is inside the room.</p>
 
-        <p>This means your goal with subscription pricing is not to maximize per-subscriber revenue upfront. It is to maximize the <strong>number of people who walk through the door</strong> so you have more subscribers to monetize through the systems inside.</p>
+        <p class="reveal">This means your goal with subscription pricing is not to maximize per-subscriber revenue upfront. It is to maximize the <strong>number of people who walk through the door</strong> so you have more subscribers to monetize through the systems inside.</p>
 
-        <div class="hbox">
+        <div class="hbox reveal">
           <strong>The counterintuitive math:</strong> 200 subscribers at €10/month = €2,000 base. But with strong PPV and DM systems, those 200 people might generate €4,000–€6,000 total. 50 subscribers at €40/month = €2,000 base — with far fewer people to monetize further. Volume wins.
         </div>
 
-        <h3>The Real Revenue Breakdown</h3>
+        <h3 class="reveal">The Real Revenue Breakdown</h3>
 
-        <ul>
+        <ul class="reveal">
           <li>Subscription price: 30–40% of total income</li>
           <li>PPV content sales: 25–35% of total income</li>
           <li>DM and custom requests: 15–25% of total income</li>
           <li>Tips and bundles: 10–15% of total income</li>
         </ul>
 
-        <h2>The Discount Strategy That Drives Subscriptions</h2>
+        <h2 class="reveal">The Discount Strategy That Drives Subscriptions</h2>
 
-        <p>Limited-time pricing, first-month discounts, and promotional offers are not signs of low value — they're conversion accelerators. When someone is on the fence, a specific price window closes the decision. "Normal price resumes in 48 hours" turns indecision into action.</p>
+        <p class="reveal">Limited-time pricing, first-month discounts, and promotional offers are not signs of low value — they're conversion accelerators. When someone is on the fence, a specific price window closes the decision. "Normal price resumes in 48 hours" turns indecision into action.</p>
 
-        <p>Permanent discounts weaken perceived value. <strong>Strategic, time-limited discounts increase conversions without permanently anchoring expectations.</strong> The distinction matters enormously at scale.</p>
+        <p class="reveal">Permanent discounts weaken perceived value. <strong>Strategic, time-limited discounts increase conversions without permanently anchoring expectations.</strong> The distinction matters enormously at scale.</p>
 
-        <h2>The Free Page Trap</h2>
+        <h2 class="reveal">The Free Page Trap</h2>
 
-        <p>Some creators run free pages as funnels — and this absolutely works. But it only works if the free page exists to warm an audience toward a paid page, not as a standalone strategy. Free pages that try to monetize entirely through PPV without a paid page have no structural floor under them. Every subscriber is transient by default.</p>
+        <p class="reveal">Some creators run free pages as funnels — and this absolutely works. But it only works if the free page exists to warm an audience toward a paid page, not as a standalone strategy. Free pages that try to monetize entirely through PPV without a paid page have no structural floor under them. Every subscriber is transient by default.</p>
 
-        <p>The most effective structure: free page captures attention and routes warm leads to a paid page. The paid page has a low enough subscription price that entry friction is minimal, and strong enough internal systems that revenue multiplies after entry.</p>
+        <p class="reveal">The most effective structure: free page captures attention and routes warm leads to a paid page. The paid page has a low enough subscription price that entry friction is minimal, and strong enough internal systems that revenue multiplies after entry.</p>
 
-        <h2>Why Pricing Feels Personal (And Why That's a Problem)</h2>
+        <h2 class="reveal">Why Pricing Feels Personal (And Why That's a Problem)</h2>
 
-        <p>Most creators price based on how they feel about themselves, not based on what converts. High price = high self-worth. Low price = low confidence. That emotional framing costs real money every month.</p>
+        <p class="reveal">Most creators price based on how they feel about themselves, not based on what converts. High price = high self-worth. Low price = low confidence. That emotional framing costs real money every month.</p>
 
-        <p>Pricing is a <strong>conversion tool,</strong> not a self-assessment. The question is never "am I worth €X?" The question is "at what price does the maximum number of high-intent subscribers enter my system?" That's a data question, not a feelings question.</p>
+        <p class="reveal">Pricing is a <strong>conversion tool,</strong> not a self-assessment. The question is never "am I worth €X?" The question is "at what price does the maximum number of high-intent subscribers enter my system?" That's a data question, not a feelings question.</p>
 
-        <blockquote>"I dropped my subscription from €25 to €9.99 with a 3-day promo window. Subscriber count tripled in two weeks. Monthly revenue went up by 40% because I had more people to send PPV to." — creator in our program, now €6.2K/month</blockquote>
+        <blockquote class="reveal">"I dropped my subscription from €25 to €9.99 with a 3-day promo window. Subscriber count tripled in two weeks. Monthly revenue went up by 40% because I had more people to send PPV to." — creator in our program, now €6.2K/month</blockquote>
 
-        <h2>The Tier Question</h2>
+        <h2 class="reveal">The Tier Question</h2>
 
-        <p>One price or multiple tiers? For most creators, a single subscription price plus a strong PPV and DM structure outperforms complex tiers. Tiers add decision friction at the exact moment you need to minimize it. Keep entry simple. Let the systems inside generate differentiated revenue.</p>
+        <p class="reveal">One price or multiple tiers? For most creators, a single subscription price plus a strong PPV and DM structure outperforms complex tiers. Tiers add decision friction at the exact moment you need to minimize it. Keep entry simple. Let the systems inside generate differentiated revenue.</p>
 
-        <h3>When Tiers Make Sense</h3>
+        <h3 class="reveal">When Tiers Make Sense</h3>
 
-        <ul>
+        <ul class="reveal">
           <li>When you have a large existing subscriber base (500+)</li>
           <li>When you can clearly differentiate value at each tier</li>
           <li>When you're willing to manage separate content streams</li>
           <li>When your brand supports premium positioning</li>
         </ul>
 
-        <div class="hbox alt">
+        <div class="hbox alt reveal">
           <strong>Subscription price is a front door, not a ceiling.</strong> The ceiling on your income is set by your systems — not your subscription price. Price for volume, monetize for depth.
         </div>
 
         <!-- CTA BOX -->
-        <div class="cta-box">
+        <div class="cta-box reveal">
           <span class="cta-eyebrow">The Revenue Architecture</span>
           <h3>Price for Entry. <em>Earn From Inside.</em></h3>
           <p>The Empire Strategy covers the full pricing architecture — subscription tiers, PPV pricing, discount strategy, and the monetization systems that turn subscribers into real income.</p>
@@ -476,7 +491,6 @@
     scrollBar.style.width = max > 0 ? (window.scrollY / max * 100) + '%' : '0%';
     nav.classList.toggle('scrolled', window.scrollY > 60);
   }, { passive: true });
-
   const ham = document.getElementById('hamburger');
   const mm = document.getElementById('mobileMenu');
   ham.addEventListener('click', () => {
@@ -490,7 +504,6 @@
     ham.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   }));
-
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
