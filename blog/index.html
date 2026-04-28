@@ -84,7 +84,6 @@
       overflow-x: hidden;
     }
  
-    /* Subtle grid lines */
     body::before {
       content: "";
       position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .4;
@@ -104,7 +103,7 @@
       z-index: 2000; transition: width .08s linear;
     }
  
-    /* ─── NAV ─── */
+    /* ─── NAV — identical to page 2 ─── */
     .nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
       padding: 0 52px; height: 68px;
@@ -118,7 +117,6 @@
       font-family: 'Bodoni Moda', serif; font-size: 1.18rem;
       font-weight: 700; letter-spacing: 4px; text-transform: uppercase;
     }
-    .nav-logo span { color: var(--text); }
     .nav-links { display: flex; gap: 28px; align-items: center; }
     .nav-links a {
       color: var(--muted); text-decoration: none; font-size: .58rem;
@@ -131,8 +129,8 @@
       transition: all .3s !important;
     }
     .nav-cta:hover { background: var(--accent); color: var(--white) !important; }
- 
-    /* ─── HAMBURGER ─── */
+
+    /* ─── HAMBURGER — identical to page 2 ─── */
     .nav-hamburger {
       display: none; flex-direction: column; gap: 5px;
       cursor: pointer; padding: 4px; background: none; border: none;
@@ -142,7 +140,7 @@
     .nav-hamburger.open span:nth-child(2) { opacity: 0; }
     .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); background: var(--accent); }
  
-    /* ─── MOBILE MENU ─── */
+    /* ─── MOBILE MENU — identical to page 2 ─── */
     .mobile-menu {
       position: fixed; inset: 0; z-index: 999;
       background: rgba(248,247,244,.98); backdrop-filter: blur(20px);
@@ -188,19 +186,14 @@
       color: var(--muted); max-width: 580px; line-height: 1.75;
       margin-bottom: 36px;
     }
-    .hero-meta-row {
-      display: flex; gap: 32px; align-items: center; flex-wrap: wrap;
-    }
-    .hero-stat {
-      display: flex; flex-direction: column; gap: 2px;
-    }
+    .hero-meta-row { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
+    .hero-stat { display: flex; flex-direction: column; gap: 2px; }
     .hero-stat-num {
       font-family: 'Bodoni Moda', serif; font-size: 1.6rem;
       font-weight: 700; color: var(--accent); line-height: 1;
     }
     .hero-stat-lab {
-      font-size: .5rem; letter-spacing: 3px; text-transform: uppercase;
-      color: var(--soft);
+      font-size: .5rem; letter-spacing: 3px; text-transform: uppercase; color: var(--soft);
     }
     .hero-divider { width: 1px; height: 36px; background: var(--line-strong); }
  
@@ -335,24 +328,6 @@
     }
     .post-read-time { display: flex; align-items: center; gap: 5px; }
  
-    /* ─── LIST POSTS ─── */
-    .post-list { display: flex; flex-direction: column; gap: 0; }
-    .post-list-item {
-      display: grid; grid-template-columns: 1fr auto;
-      gap: 16px; align-items: start;
-      padding: 18px 0; border-bottom: 1px solid var(--line);
-      text-decoration: none; transition: background .3s;
-    }
-    .post-list-item:hover { background: rgba(42,92,107,.025); }
-    .post-list-item:first-child { border-top: 1px solid var(--line); }
-    .pli-cat { font-size: .48rem; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 5px; display: block; }
-    .pli-title {
-      font-family: 'Bodoni Moda', serif; font-size: 1.02rem;
-      color: var(--text); line-height: 1.35; margin-bottom: 4px;
-    }
-    .pli-time { font-size: .52rem; letter-spacing: 1px; text-transform: uppercase; color: var(--soft); white-space: nowrap; padding-top: 6px; }
-    .pli-arrow { font-size: .8rem; color: var(--accent-light); margin-top: 4px; }
- 
     /* ─── SIDEBAR ─── */
     .sidebar { display: flex; flex-direction: column; gap: 28px; }
     .sidebar-card {
@@ -439,9 +414,7 @@
       background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
       padding: 52px; margin: 0 -52px 48px;
     }
-    .nl-inner {
-      max-width: 600px; margin: 0 auto; text-align: center;
-    }
+    .nl-inner { max-width: 600px; margin: 0 auto; text-align: center; }
     .nl-eyebrow { font-size: .52rem; letter-spacing: 5px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; display: block; }
     .nl-title { font-family: 'Bodoni Moda', serif; font-size: 1.8rem; color: var(--text); margin-bottom: 8px; }
     .nl-title em { color: var(--accent); font-style: italic; }
@@ -450,8 +423,7 @@
     .nl-input {
       flex: 1; background: var(--white); border: 1px solid var(--line-strong);
       border-right: none; padding: 13px 18px; font-family: 'Montserrat', sans-serif;
-      font-size: .72rem; color: var(--text); outline: none;
-      transition: border-color .3s;
+      font-size: .72rem; color: var(--text); outline: none; transition: border-color .3s;
     }
     .nl-input:focus { border-color: var(--accent); }
     .nl-input::placeholder { color: var(--soft); }
@@ -465,26 +437,18 @@
     .nl-privacy { font-size: .56rem; color: var(--soft); margin-top: 10px; }
  
     /* ─── FOOTER ─── */
-    .site-footer {
-      padding: 52px 52px 32px;
-      border-top: 1px solid var(--line); background: var(--white);
-    }
+    .site-footer { padding: 52px 52px 32px; border-top: 1px solid var(--line); background: var(--white); }
     .footer-inner {
       max-width: 1200px; margin: 0 auto;
       display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
-      padding-bottom: 40px; border-bottom: 1px solid var(--line);
-      margin-bottom: 24px;
+      padding-bottom: 40px; border-bottom: 1px solid var(--line); margin-bottom: 24px;
     }
     .footer-logo {
       font-family: 'Bodoni Moda', serif; font-size: 1.2rem;
       letter-spacing: 3px; text-transform: uppercase;
       color: var(--text); text-decoration: none; display: block; margin-bottom: 12px;
     }
-    .footer-logo span { color: var(--text); }
-    .footer-tagline {
-      font-family: 'Cormorant Garamond', serif; font-size: 1rem;
-      color: var(--soft); line-height: 1.7; max-width: 280px;
-    }
+    .footer-tagline { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--soft); line-height: 1.7; max-width: 280px; }
     .footer-h { font-size: .58rem; letter-spacing: 3px; text-transform: uppercase; color: var(--text); margin-bottom: 14px; }
     .footer-links { list-style: none; }
     .footer-links li { margin-bottom: 9px; }
@@ -516,29 +480,30 @@
     .breadcrumb a:hover { text-decoration: underline; }
     .bc-sep { opacity: .4; }
  
-    /* ─── RESPONSIVE ─── */
+    /* ─── RESPONSIVE — breakpoints match page 2 exactly ─── */
     @media(max-width:1024px) {
       .blog-layout { grid-template-columns: 1fr; gap: 48px; }
       .footer-inner { grid-template-columns: 1fr 1fr; }
       .featured-post { grid-template-columns: 1fr; }
       .featured-visual { min-height: 180px; }
     }
-    @media(max-width:900px) {
-      .nav { padding: 0 20px; }
+    /* Nav collapses at 768px — same as page 2 */
+    @media(max-width:768px) {
+      .nav { padding: 0 24px; }
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
-      .blog-hero { padding: 120px 20px 60px; }
-      .blog-hero::after { left: 20px; right: 20px; }
-      .filter-inner { padding: 0 20px; }
-      .blog-layout { padding: 40px 20px 80px; }
+      .blog-hero { padding: 120px 24px 60px; }
+      .blog-hero::after { left: 24px; right: 24px; }
+      .filter-inner { padding: 0 24px; }
+      .blog-layout { padding: 40px 24px 80px; }
       .post-grid { grid-template-columns: 1fr; }
-      .newsletter-strip { margin: 0 -20px 40px; padding: 40px 20px; }
+      .newsletter-strip { margin: 0 -24px 40px; padding: 40px 24px; }
       .nl-form { flex-direction: column; }
       .nl-input { border-right: 1px solid var(--line-strong); }
-      .site-footer { padding: 40px 20px 24px; }
+      .site-footer { padding: 40px 24px 24px; }
       .footer-inner { grid-template-columns: 1fr; gap: 28px; }
       .footer-bottom { flex-direction: column; text-align: center; }
-      .breadcrumb { padding: 76px 20px 0; }
+      .breadcrumb { padding: 76px 24px 0; }
     }
     @media(max-width:480px) {
       .hero-divider { display: none; }
@@ -551,7 +516,7 @@
 <div class="scroll-bar" id="scrollBar"></div>
  
 <!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
   <a href="../index.html">← Back to Site</a>
   <a href="#featured">Featured</a>
   <a href="#all-posts">All Articles</a>
@@ -559,7 +524,7 @@
 </div>
  
 <!-- NAV -->
-<nav class="nav" id="mainNav">
+<nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
   <a href="../index.html" class="nav-logo">MYONLYPROFIT</a>
   <div class="nav-links">
     <a href="../index.html">← Back to Site</a>
@@ -568,7 +533,7 @@
     <a href="#newsletter">Newsletter</a>
     <a href="../index.html#pricing" class="nav-cta">Get Strategy</a>
   </div>
-  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -653,7 +618,6 @@
  
       <div class="post-grid" id="postGrid">
  
-        <!-- DM MISTAKES -->
         <article class="post-card reveal" data-cat="dm">
           <span class="post-cat">DM Strategy</span>
           <a href="dm-mistakes/index.html" class="post-title">5 DM Mistakes That Are <em>Killing</em> Your OnlyFans Income</a>
@@ -664,7 +628,6 @@
           </div>
         </article>
  
-        <!-- PRICING PSYCHOLOGY -->
         <article class="post-card reveal reveal-delay-1" data-cat="revenue">
           <span class="post-cat">Pricing Strategy</span>
           <a href="pricing-psychology/index.html" class="post-title">OnlyFans Pricing: Why Charging <em>Less</em> Makes You More</a>
@@ -675,7 +638,6 @@
           </div>
         </article>
  
-        <!-- BRANDING -->
         <article class="post-card reveal" data-cat="brand">
           <span class="post-cat">Brand Strategy</span>
           <a href="branding-basics/index.html" class="post-title">OnlyFans Branding 101: Why Your <em>Identity</em> Makes or Breaks You</a>
@@ -686,7 +648,6 @@
           </div>
         </article>
  
-        <!-- CONSISTENCY -->
         <article class="post-card reveal reveal-delay-1" data-cat="mindset">
           <span class="post-cat">Creator Mindset</span>
           <a href="consistency-code/index.html" class="post-title">The <em>Consistency Code:</em> Why Regular Creators Win</a>
@@ -697,7 +658,6 @@
           </div>
         </article>
  
-        <!-- CONTENT IDEAS -->
         <article class="post-card reveal" data-cat="content">
           <span class="post-cat">Content System</span>
           <a href="content-burnout/index.html" class="post-title">How to <em>Never Run Out</em> of Content Ideas on OnlyFans</a>
@@ -708,7 +668,6 @@
           </div>
         </article>
  
-        <!-- FREE VS PAID -->
         <article class="post-card reveal reveal-delay-1" data-cat="revenue">
           <span class="post-cat">Monetization Model</span>
           <a href="free-vs-paid/index.html" class="post-title">Free vs Paid OnlyFans: Which <em>Model</em> Makes More Money</a>
@@ -719,7 +678,6 @@
           </div>
         </article>
  
-        <!-- NICHE VS GENERAL -->
         <article class="post-card reveal" data-cat="brand">
           <span class="post-cat">Positioning Strategy</span>
           <a href="niche-vs-general/index.html" class="post-title">Niche vs General: What <em>Actually Converts</em> on OnlyFans</a>
@@ -730,7 +688,6 @@
           </div>
         </article>
  
-        <!-- ALGORITHM -->
         <article class="post-card reveal reveal-delay-1" data-cat="traffic">
           <span class="post-cat">Platform Intelligence</span>
           <a href="platform-algorithm/index.html" class="post-title">How the OnlyFans <em>Algorithm</em> Actually Works</a>
@@ -741,7 +698,6 @@
           </div>
         </article>
  
-        <!-- SCALING MINDSET -->
         <article class="post-card reveal" data-cat="mindset">
           <span class="post-cat">Advanced Strategy</span>
           <a href="scaling-mindset/index.html" class="post-title">From Creator to <em>CEO:</em> The Mindset Shift That Unlocks Scale</a>
@@ -752,7 +708,6 @@
           </div>
         </article>
  
-        <!-- FAN PSYCHOLOGY PLACEHOLDER -->
         <article class="post-card reveal reveal-delay-1" data-cat="dm">
           <span class="post-cat">Psychology</span>
           <a href="fan-psychology/index.html" class="post-title">Why Fans <em>Actually Pay</em> — The Psychology Behind Every Purchase</a>
@@ -763,7 +718,6 @@
           </div>
         </article>
  
-        <!-- AGENCY VS SOLO PLACEHOLDER -->
         <article class="post-card reveal" data-cat="revenue">
           <span class="post-cat">Business Model</span>
           <a href="agency-vs-solo/index.html" class="post-title">Agency vs. <em>Going Solo:</em> The Real Cost of Handing Over Control</a>
@@ -774,7 +728,6 @@
           </div>
         </article>
  
-        <!-- FIRST 1K -->
         <article class="post-card reveal reveal-delay-1" data-cat="revenue">
           <span class="post-cat">Income Milestones</span>
           <a href="first-1k/index.html" class="post-title">My First <em>$1,000 Month</em> — What Changed and Why It Happened</a>
@@ -807,7 +760,6 @@
   <!-- SIDEBAR -->
   <aside class="sidebar">
  
-    <!-- CTA -->
     <div class="cta-card reveal">
       <span class="cta-card-eyebrow">Self-Guided System</span>
       <h3 class="cta-card-title">The Complete <em>Empire</em> Strategy</h3>
@@ -819,7 +771,6 @@
       <a href="../index.html#pricing" class="cta-btn">Get Empire →</a>
     </div>
  
-    <!-- POPULAR ARTICLES -->
     <div class="sidebar-card reveal reveal-delay-1">
       <span class="sc-title">Most Read</span>
       <ul class="rel-list">
@@ -832,7 +783,6 @@
       </ul>
     </div>
  
-    <!-- TOPICS -->
     <div class="sidebar-card reveal reveal-delay-2">
       <span class="sc-title">Topics</span>
       <div class="tag-cloud">
@@ -846,7 +796,6 @@
       </div>
     </div>
  
-    <!-- WHAT'S INSIDE EMPIRE -->
     <div class="sidebar-card reveal">
       <span class="sc-title">Inside Empire</span>
       <ul class="rel-list">
@@ -917,16 +866,20 @@
     nav.classList.toggle('scrolled', window.scrollY > 60);
   }, { passive: true });
  
-  // ── Hamburger ──
+  // ── Hamburger — identical to page 2 ──
   const ham = document.getElementById('hamburger');
   const mm = document.getElementById('mobileMenu');
   ham.addEventListener('click', () => {
-    ham.classList.toggle('open');
-    mm.classList.toggle('open');
-    document.body.style.overflow = mm.classList.contains('open') ? 'hidden' : '';
+    const isOpen = mm.classList.toggle('open');
+    ham.classList.toggle('open', isOpen);
+    ham.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
   });
   mm.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    ham.classList.remove('open'); mm.classList.remove('open'); document.body.style.overflow = '';
+    ham.classList.remove('open');
+    mm.classList.remove('open');
+    ham.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
   }));
  
   // ── Reveal ──
