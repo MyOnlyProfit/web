@@ -1,116 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- ROOT -->
   <url>
     <loc>https://myonlyprofit.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
+  <!-- BLOG INDEX -->
   <url>
     <loc>https://myonlyprofit.com/blog/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
+  <!-- BLOG POSTS -->
   <url>
     <loc>https://myonlyprofit.com/blog/agency-vs-solo/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://myonlyprofit.com/blog/branding-basics/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://myonlyprofit.com/blog/consistency-code/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://myonlyprofit.com/blog/content-burnout/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://myonlyprofit.com/blog/dm-mistakes/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://myonlyprofit.com/blog/fan-psychology/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://myonlyprofit.com/blog/first-1k/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://myonlyprofit.com/blog/free-vs-paid/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://myonlyprofit.com/blog/niche-vs-general/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://myonlyprofit.com/blog/no-face/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://myonlyprofit.com/blog/platform-algorithm/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://myonlyprofit.com/blog/pricing-psychology/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://myonlyprofit.com/blog/quit-rate/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://myonlyprofit.com/blog/scaling-mindset/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://myonlyprofit.com/blog/tiktok-viral/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
+  <!-- PRODUCT -->
   <url>
-    <loc>https://myonlyprofit.com/privacy/</loc>
+    <loc>https://myonlyprofit.com/product/dynasty.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://myonlyprofit.com/product/empire.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://myonlyprofit.com/product/empiredx.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- LEGAL -->
+  <url>
+    <loc>https://myonlyprofit.com/privacy.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
-
   <url>
-    <loc>https://myonlyprofit.com/terms/</loc>
+    <loc>https://myonlyprofit.com/terms.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
