@@ -1087,7 +1087,7 @@
       }
       // Add one extra set to guarantee seamless wrap
       origItems.forEach(item => track.appendChild(item.cloneNode(true)));
-      const pxPerSec = window.innerWidth < 768 ? 120 : 80;
+      const pxPerSec = window.innerWidth < 768 ? 60 : 80;
       let pos = 0, last = null, setWidth = 0;
       // Measure after layout paint
       requestAnimationFrame(() => {
