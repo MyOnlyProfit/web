@@ -22,7 +22,7 @@
   <meta name="google-site-verification" content="EVJbJ5dHUssscZj7HOt9t-4VHaUVHOxZVxBjoyNvgyo" />
 
   <!-- Core SEO -->
-  <title>MYONLYPROFIT — How to Grow & Make Money on OnlyFans. Keep 100%.</title>
+  <title>MYONLYPROFIT — How to Grow & Make Money on Onlyfans. Keep 100%.</title>
   <meta name="description" content="MYONLYPROFIT is the #1 creator strategy system for growing on OnlyFans and making real money — without an agency taking cuts. Turn followers into paying subscribers, build your brand, and keep 100% of everything you earn. Used by 20+ creators averaging $6.4K/month.">
   <meta name="keywords" content="how to grow on OnlyFans, make money on OnlyFans, OnlyFans strategy, OnlyFans creator system, how to be successful on OnlyFans, OnlyFans without agency, OnlyFans marketing strategy, turn followers into subscribers, OnlyFans income, OnlyFans growth, OnlyFans subscriber growth, creator income system">
   <link rel="canonical" href="https://myonlyprofit.com/">
@@ -141,6 +141,8 @@
     .hero-meta-right { right:10px; transform:translateY(-50%) rotate(90deg); }
     .hero-eyebrow { font-size:.72rem; letter-spacing:8px; text-transform:uppercase; color:rgba(255,255,255,.78); margin-bottom:28px; opacity:0; transform:translateY(20px); transition:all .8s ease .4s; }
     .hero.in-view .hero-eyebrow { opacity:1; transform:translateY(0); }
+    .hero h1 .highlight::after { content:""; position:absolute; left:0; bottom:8px; width:100%; height:1px; background:linear-gradient(90deg,#fff,var(--accent)); transform:scaleX(0); transform-origin:left; transition:transform .85s ease 1.6s; }
+    .hero.in-view h1 .highlight::after { transform:scaleX(1); }
     .hero h1 { font-family:'Bodoni Moda',serif; font-size:5.6rem; font-weight:700; line-height:.98; letter-spacing:-2px; margin-bottom:28px; text-shadow:0 16px 50px rgba(0,0,0,.45); }
     .hero h1 .line { display:block; overflow:hidden; opacity:0; transform:translateY(110%); }
     .hero h1 .line:nth-child(1) { transition:transform 1.05s cubic-bezier(.16,1,.3,1) .55s,opacity 1.05s ease .55s; }
@@ -148,8 +150,6 @@
     .hero h1 .line:nth-child(3) { transition:transform 1.05s cubic-bezier(.16,1,.3,1) .95s,opacity 1.05s ease .95s; }
     .hero.in-view h1 .line { opacity:1; transform:translateY(0); }
     .hero h1 .highlight { color:var(--accent-3); font-style:italic; position:relative; }
-    .hero h1 .highlight::after { content:""; position:absolute; left:0; bottom:8px; width:100%; height:1px; background:linear-gradient(90deg,#fff,var(--accent)); transform:scaleX(0); transform-origin:left; transition:transform .85s ease 1.6s; }
-    .hero.in-view h1 .highlight::after { transform:scaleX(1); }
     .hero-sub { font-family:'Cormorant Garamond',serif; font-size:1.45rem; font-weight:400; line-height:1.7; color:#d0d0ca; max-width:660px; margin:0 auto 46px; opacity:0; transform:translateY(26px); transition:all .85s ease 1.1s; }
     .hero.in-view .hero-sub { opacity:1; transform:translateY(0); }
     .hero-cta { display:flex; gap:18px; justify-content:center; flex-wrap:wrap; opacity:0; transform:translateY(24px); transition:all .8s ease 1.3s; }
@@ -824,7 +824,7 @@
         <button onclick="closeModal()" class="modal-close">×</button>
       </div>
       <div class="modal-body" id="modalBody"></div>
-      <div class="modal-footer">Verified earnings • October 2025 • All numbers private to creator</div>
+      <div class="modal-footer">Verified earnings • April 2026 • All numbers private to creator</div>
     </div>
   </div>
 
@@ -976,7 +976,7 @@
       clientName.textContent = data.name;
       let html = `<div class="modal-earnings-badge"><span class="modal-earnings-tag">${data.earnings} THIS MONTH</span></div>`;
       data.images.forEach((url, i) => {
-        html += `<div style="position:relative;margin-bottom:16px;"><img src="${url}" alt="Revenue proof ${i+1}" /><div style="position:absolute;bottom:12px;left:12px;background:rgba(0,0,0,.7);color:#fff;font-size:.62rem;padding:5px 12px;border-radius:8px;font-family:monospace;letter-spacing:1px;">OCT '25 · VERIFIED</div></div>`;
+        html += `<div style="position:relative;margin-bottom:16px;"><img src="${url}" alt="Revenue proof ${i+1}" /><div style="position:absolute;bottom:12px;left:12px;background:rgba(0,0,0,.7);color:#fff;font-size:.62rem;padding:5px 12px;border-radius:8px;font-family:monospace;letter-spacing:1px;">APR '26 · VERIFIED</div></div>`;
       });
       body.innerHTML = html;
       modal.classList.add('visible');
@@ -1087,7 +1087,7 @@
       }
       // Add one extra set to guarantee seamless wrap
       origItems.forEach(item => track.appendChild(item.cloneNode(true)));
-      const pxPerSec = window.innerWidth < 768 ? 120 : 80;
+      const pxPerSec = window.innerWidth < 768 ? 60 : 80;
       let pos = 0, last = null, setWidth = 0;
       // Measure after layout paint
       requestAnimationFrame(() => {
